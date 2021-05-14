@@ -23,6 +23,7 @@ import {
 import FieldLogics from './FieldLogics';
 import FieldPreview from './FieldPreview';
 import Select from 'react-select-plus';
+import BoardSelect from 'modules/boards/containers/BoardSelect';
 
 type Props = {
   onSubmit: (field: IField) => void;
@@ -38,6 +39,8 @@ type State = {
   field: IField;
   selectedOption?: IOption;
   group?: string;
+  pipelineId?: string;
+  boardId?: string;
 };
 
 class FieldForm extends React.Component<Props, State> {
@@ -76,6 +79,10 @@ class FieldForm extends React.Component<Props, State> {
     this.setFieldAttrChanges(name, value);
   };
 
+  onBoardItemChange = <T extends keyof State>(name: T, value: State[T]) => {
+    this.setState(({ [name]: value } as unknown) as Pick<State, keyof State>);
+  };
+
   onEditorChange = e => {
     const { field } = this.state;
     const content = e.editor.getData();
@@ -87,7 +94,9 @@ class FieldForm extends React.Component<Props, State> {
 
   onPropertyGroupChange = e => {
     this.setState({
-      group: (e.currentTarget as HTMLInputElement).value
+      group: (e.currentTarget as HTMLInputElement).value,
+      boardId: undefined,
+      pipelineId: undefined
     });
   };
 
@@ -389,6 +398,7 @@ class FieldForm extends React.Component<Props, State> {
           {this.renderColumn()}
           {this.renderHtml()}
           {this.renderCustomPropertyGroup()}
+          {this.renderBoardItemSelect()}
           {this.renderCustomProperty()}
         </CollapseContent>
         {fields.length > 0 && (
@@ -460,7 +470,10 @@ class FieldForm extends React.Component<Props, State> {
         'companyName',
         'companyEmail',
         'companyPhone',
-        'html'
+        'html',
+        'ticketName',
+        'taskName',
+        'dealName'
       ].includes(field.type)
     ) {
       return null;
@@ -479,6 +492,9 @@ class FieldForm extends React.Component<Props, State> {
             <option value={''} />
             <option value={'customer'}>Customer</option>
             <option value={'company'}>Company</option>
+            <option value={'task'}>Task</option>
+            <option value={'ticket'}>Ticket</option>
+            <option value={'deal'}>Sales pipeline</option>
           </FormControl>
         </FormGroup>
       </>
@@ -557,9 +573,13 @@ class FieldForm extends React.Component<Props, State> {
   }
 
   renderCustomProperty() {
-    const { selectedOption, group } = this.state;
+    const { selectedOption, group, boardId, field, pipelineId } = this.state;
 
-    if (group === '') {
+    if (
+      group === '' ||
+      (['task', 'deal', 'ticket'].includes(group || '') &&
+        (!boardId || !field.stageId || !pipelineId))
+    ) {
       return;
     }
 
@@ -571,13 +591,44 @@ class FieldForm extends React.Component<Props, State> {
       <>
         <FormGroup>
           <SelectProperty
-            queryParams={{ type: group }}
+            queryParams={{ type: group, boardId, pipelineId }}
             defaultValue={defaultValue}
             description="Any data collected through this field will copy to:"
             onChange={this.onPropertyChange}
           />
         </FormGroup>
       </>
+    );
+  }
+
+  renderBoardItemSelect() {
+    const { field, pipelineId = '', boardId = '' } = this.state;
+    let { group } = this.state;
+
+    if (['taskName', 'dealName', 'ticketName'].includes(field.type)) {
+      group = field.type.replace('Name', '');
+    }
+
+    if (!group || !['task', 'deal', 'ticket'].includes(group)) {
+      return null;
+    }
+
+    const { stageId = '' } = field;
+
+    const stgIdOnChange = stgId => this.onFieldChange('stageId', stgId);
+    const plIdOnChange = plId => this.onBoardItemChange('pipelineId', plId);
+    const brIdOnChange = brId => this.onBoardItemChange('boardId', brId);
+
+    return (
+      <BoardSelect
+        type={group}
+        stageId={stageId}
+        pipelineId={pipelineId}
+        boardId={boardId}
+        onChangeStage={stgIdOnChange}
+        onChangePipeline={plIdOnChange}
+        onChangeBoard={brIdOnChange}
+      />
     );
   }
 

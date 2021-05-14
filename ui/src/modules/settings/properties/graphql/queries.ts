@@ -60,8 +60,8 @@ const getSystemFieldsGroup = `
 `;
 
 const fields = `
-  query fields($contentType: String!, $contentTypeId: String, $isVisible: Boolean) {
-    fields(contentType: $contentType, contentTypeId: $contentTypeId, isVisible: $isVisible) {
+  query fields($contentType: String!, $contentTypeId: String, $isVisible: Boolean, $boardId: String, $pipelineId: String) {
+    fields(contentType: $contentType, contentTypeId: $contentTypeId, isVisible: $isVisible, boardId: $boardId, pipelineId: $pipelineId) {
       _id
       type
       validation
@@ -85,6 +85,7 @@ const fields = `
         logicValue
       }
       groupName
+      stageId
     }
   }
 `;

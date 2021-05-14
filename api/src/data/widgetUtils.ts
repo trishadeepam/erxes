@@ -7,9 +7,12 @@ import {
   EngageMessages,
   Fields,
   FieldsGroups,
+  Forms,
   FormSubmissions,
-  Integrations
+  Integrations,
+  Users
 } from '../db/models';
+import { getCollection } from '../db/models/boardUtils';
 import Messages from '../db/models/ConversationMessages';
 import { IBrowserInfo } from '../db/models/Customers';
 import { ICustomField, ILink } from '../db/models/definitions/common';
@@ -19,6 +22,7 @@ import { ISubmission } from '../db/models/definitions/fields';
 import { debugBase, debugError } from '../debuggers';
 import { client, fetchElk, getIndexPrefix } from '../elasticsearch';
 import { getVisitorLog, sendToVisitorLog } from './logUtils';
+import { itemsAdd } from './resolvers/mutations/boardUtils';
 import { findCompany, findCustomer } from './utils';
 
 export const getOrCreateEngageMessage = async (
@@ -395,6 +399,10 @@ export const solveSubmissions = async (args: {
   } = {};
 
   let cachedCustomer;
+  let boardItem;
+
+  const { createdUserId } = await Forms.getForm(formId);
+  const createdUser = await Users.getUser(createdUserId);
 
   for (const groupId of Object.keys(submissionsGrouped)) {
     let email;
@@ -422,14 +430,26 @@ export const solveSubmissions = async (args: {
     let industries = '';
     let businessType = '';
     let location = '';
+    let stageId = '';
+    let boardItemName = '';
+    let boarItemDescription = '';
 
     const companyLinks: ILink = {};
 
     const customFieldsData: ICustomField[] = [];
     const companyCustomData: ICustomField[] = [];
+    const boardItemCustomData: ICustomField[] = [];
+
+    let boardItemType;
 
     for (const submission of submissionsGrouped[groupId]) {
       const submissionType = submission.type || '';
+
+      const blabla = await Fields.findById(submission._id);
+
+      if (blabla && blabla.stageId) {
+        stageId = blabla.stageId;
+      }
 
       if (submissionType.includes('customerLinks')) {
         customerLinks[getSocialLinkKey(submissionType)] = submission.value;
@@ -528,6 +548,27 @@ export const solveSubmissions = async (args: {
         case 'location':
           location = submission.value;
           break;
+        case 'taskName':
+          boardItemName = submission.value;
+          boardItemType = 'task';
+          break;
+        case 'dealName':
+          boardItemName = submission.value;
+          boardItemType = 'deal';
+          break;
+        case 'ticketName':
+          boardItemName = submission.value;
+          boardItemType = 'ticket';
+          break;
+        case 'ticketDescription':
+          boarItemDescription = submission.value;
+          break;
+        case 'dealDescription':
+          boarItemDescription = submission.value;
+          break;
+        case 'taskDescription':
+          boarItemDescription = submission.value;
+          break;
       }
 
       if (
@@ -543,6 +584,7 @@ export const solveSubmissions = async (args: {
         ].includes(submissionType)
       ) {
         const field = await Fields.findById(submission.associatedFieldId);
+
         if (!field) {
           continue;
         }
@@ -558,6 +600,27 @@ export const solveSubmissions = async (args: {
 
         if (fieldGroup && fieldGroup.contentType === 'customer') {
           customFieldsData.push({
+            field: submission.associatedFieldId,
+            value: submission.value
+          });
+        }
+
+        if (fieldGroup && fieldGroup.contentType === 'task') {
+          boardItemCustomData.push({
+            field: submission.associatedFieldId,
+            value: submission.value
+          });
+        }
+
+        if (fieldGroup && fieldGroup.contentType === 'deal') {
+          boardItemCustomData.push({
+            field: submission.associatedFieldId,
+            value: submission.value
+          });
+        }
+
+        if (fieldGroup && fieldGroup.contentType === 'ticket') {
+          boardItemCustomData.push({
             field: submission.associatedFieldId,
             value: submission.value
           });
@@ -613,6 +676,40 @@ export const solveSubmissions = async (args: {
         customerId: cachedCustomer._id,
         companyId: ''
       };
+
+      const { create } = getCollection(boardItemType);
+
+      if (stageId) {
+        const doc = {
+          name: boardItemName,
+          customFieldsData: boardItemCustomData,
+          stageId,
+          aboveItemId: '',
+          proccessId: '',
+          description: boarItemDescription
+        };
+
+        const modifier = data => {
+          return data;
+        };
+
+        boardItem = await itemsAdd(
+          doc,
+          boardItemType,
+          createdUser,
+          modifier,
+          create
+        );
+
+        if (boardItem) {
+          await Conformities.addConformity({
+            mainType: boardItemType,
+            mainTypeId: boardItem._id,
+            relType: 'customer',
+            relTypeId: cachedCustomerId || ''
+          });
+        }
+      }
     } else {
       let customer = await findCustomer({
         customerPrimaryEmail: email,

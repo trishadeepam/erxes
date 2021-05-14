@@ -65,13 +65,12 @@ export default class Field extends React.Component<Props, State> {
     if (value) {
       values = value.split(',,');
     }
-    
+
     return (
       <div className="check-control">
         {options.map((option, index) => {
-       
           const checked = values.indexOf(option) > -1 ? true : false;
-          
+
           return (
             <div key={index}>
               <label>
@@ -480,6 +479,27 @@ export default class Field extends React.Component<Props, State> {
         });
 
       case 'companyDescription':
+        return Field.renderTextarea({
+          onChange: this.onTextAreaChange,
+          id: field._id,
+          value
+        });
+
+      case 'ticketDescription':
+        return Field.renderTextarea({
+          onChange: this.onTextAreaChange,
+          id: field._id,
+          value
+        });
+
+      case 'dealDescription':
+        return Field.renderTextarea({
+          onChange: this.onTextAreaChange,
+          id: field._id,
+          value
+        });
+
+      case 'taskDescription':
         return Field.renderTextarea({
           onChange: this.onTextAreaChange,
           id: field._id,

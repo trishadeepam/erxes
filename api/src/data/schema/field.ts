@@ -12,6 +12,7 @@ const fieldCommonFields = `
   column: Int
   groupName: String
   pageNumber: Int
+  stageId: String
 `;
 
 export const fieldsTypes = `
@@ -73,7 +74,7 @@ export const fieldsTypes = `
 `;
 
 export const fieldsQueries = `
-  fields(contentType: String!, contentTypeId: String, isVisible: Boolean): [Field]
+  fields(contentType: String!, contentTypeId: String, isVisible: Boolean, boardId: String, pipelineId: String): [Field]
   fieldsCombinedByContentType(contentType: String!, usageType: String, excludedNames: [String], segmentId: String, pipelineId: String): JSON
   fieldsDefaultColumnsConfig(contentType: String!): [ColumnConfigItem]
   fieldsInbox: FieldsInbox

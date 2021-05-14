@@ -106,6 +106,24 @@ function FieldChoices(props: Props) {
         icon="phone"
       />
       <FieldChoice {...props} type="html" text={__('HTML')} icon="code" />
+      <FieldChoice
+        {...props}
+        type="taskName"
+        text={__('Task name')}
+        icon="file-check-alt"
+      />
+      <FieldChoice
+        {...props}
+        type="ticketName"
+        text={__('Ticket name')}
+        icon="file-check-alt"
+      />
+      <FieldChoice
+        {...props}
+        type="dealname"
+        text={__('Sales Pipeline name')}
+        icon="piggy-bank"
+      />
     </Options>
   );
 }

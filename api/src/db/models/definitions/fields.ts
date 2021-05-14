@@ -72,6 +72,8 @@ export interface IField extends IVisibility {
   column?: number;
   groupName?: string;
   pageNumber?: number;
+
+  stageId?: string;
 }
 
 export interface IFieldDocument extends IField, Document {
@@ -166,6 +168,11 @@ export const fieldSchema = schemaWrapper(
       optional: true,
       label: 'Number of page',
       min: 1
+    }),
+    stageId: field({
+      type: String,
+      optional: true,
+      label: 'Stage id of associated form field'
     })
   })
 );

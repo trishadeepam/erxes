@@ -39,6 +39,7 @@ export interface IField {
   logicAction?: string;
   groupName?: string;
   pageNumber?: number;
+  stageId?: string;
 }
 
 export interface IBoardSelectItem {
