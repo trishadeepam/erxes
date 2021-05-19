@@ -402,7 +402,7 @@ class FieldForm extends React.Component<Props, State> {
           {this.renderCustomProperty()}
         </CollapseContent>
         {fields.length > 0 && (
-          <CollapseContent title={__('Logic')} compact={true}>
+          <CollapseContent title={__('Logics & Actions')} compact={true}>
             <FieldLogics
               fields={fields}
               currentField={field}
@@ -470,10 +470,7 @@ class FieldForm extends React.Component<Props, State> {
         'companyName',
         'companyEmail',
         'companyPhone',
-        'html',
-        'ticketName',
-        'taskName',
-        'dealName'
+        'html'
       ].includes(field.type)
     ) {
       return null;
@@ -602,12 +599,7 @@ class FieldForm extends React.Component<Props, State> {
   }
 
   renderBoardItemSelect() {
-    const { field, pipelineId = '', boardId = '' } = this.state;
-    let { group } = this.state;
-
-    if (['taskName', 'dealName', 'ticketName'].includes(field.type)) {
-      group = field.type.replace('Name', '');
-    }
+    const { field, pipelineId = '', boardId = '', group } = this.state;
 
     if (!group || !['task', 'deal', 'ticket'].includes(group)) {
       return null;

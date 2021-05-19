@@ -399,10 +399,6 @@ export const solveSubmissions = async (args: {
   } = {};
 
   let cachedCustomer;
-  let boardItem;
-
-  const { createdUserId } = await Forms.getForm(formId);
-  const createdUser = await Users.getUser(createdUserId);
 
   for (const groupId of Object.keys(submissionsGrouped)) {
     let email;
@@ -431,16 +427,12 @@ export const solveSubmissions = async (args: {
     let businessType = '';
     let location = '';
     let stageId = '';
-    let boardItemName = '';
-    let boarItemDescription = '';
 
     const companyLinks: ILink = {};
 
     const customFieldsData: ICustomField[] = [];
     const companyCustomData: ICustomField[] = [];
     const boardItemCustomData: ICustomField[] = [];
-
-    let boardItemType;
 
     for (const submission of submissionsGrouped[groupId]) {
       const submissionType = submission.type || '';
@@ -547,27 +539,6 @@ export const solveSubmissions = async (args: {
           break;
         case 'location':
           location = submission.value;
-          break;
-        case 'taskName':
-          boardItemName = submission.value;
-          boardItemType = 'task';
-          break;
-        case 'dealName':
-          boardItemName = submission.value;
-          boardItemType = 'deal';
-          break;
-        case 'ticketName':
-          boardItemName = submission.value;
-          boardItemType = 'ticket';
-          break;
-        case 'ticketDescription':
-          boarItemDescription = submission.value;
-          break;
-        case 'dealDescription':
-          boarItemDescription = submission.value;
-          break;
-        case 'taskDescription':
-          boarItemDescription = submission.value;
           break;
       }
 
@@ -676,40 +647,6 @@ export const solveSubmissions = async (args: {
         customerId: cachedCustomer._id,
         companyId: ''
       };
-
-      const { create } = getCollection(boardItemType);
-
-      if (stageId) {
-        const doc = {
-          name: boardItemName,
-          customFieldsData: boardItemCustomData,
-          stageId,
-          aboveItemId: '',
-          proccessId: '',
-          description: boarItemDescription
-        };
-
-        const modifier = data => {
-          return data;
-        };
-
-        boardItem = await itemsAdd(
-          doc,
-          boardItemType,
-          createdUser,
-          modifier,
-          create
-        );
-
-        if (boardItem) {
-          await Conformities.addConformity({
-            mainType: boardItemType,
-            mainTypeId: boardItem._id,
-            relType: 'customer',
-            relTypeId: cachedCustomerId || ''
-          });
-        }
-      }
     } else {
       let customer = await findCustomer({
         customerPrimaryEmail: email,

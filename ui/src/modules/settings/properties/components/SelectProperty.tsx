@@ -74,18 +74,9 @@ class SelectProperty extends React.Component<Props, State> {
   };
 
   render() {
-    const { defaultValue, description, queryParams } = this.props;
+    const { defaultValue, description } = this.props;
     const { properties } = this.state;
-    if (['task', 'ticket', 'deal'].includes(queryParams.type)) {
-      const descriptionField: IField = {
-        _id: Math.random().toString(),
-        type: `${queryParams.type}Description`,
-        text: `${queryParams.type} description`,
-        contentType: queryParams.type
-      };
 
-      properties.unshift(descriptionField);
-    }
     return (
       <FormGroup>
         <ControlLabel>Property</ControlLabel>

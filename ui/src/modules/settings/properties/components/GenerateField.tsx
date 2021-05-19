@@ -348,15 +348,6 @@ export default class GenerateField extends React.Component<Props, State> {
       case 'description':
         return this.renderTextarea(attrs);
 
-      case 'taskDescription':
-        return this.renderTextarea(attrs);
-
-      case 'dealDescription':
-        return this.renderTextarea(attrs);
-
-      case 'ticketDescription':
-        return this.renderTextarea(attrs);
-
       case 'companyDescription':
         return this.renderTextarea(attrs);
 
