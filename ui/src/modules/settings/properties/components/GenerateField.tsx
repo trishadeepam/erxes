@@ -282,7 +282,13 @@ export default class GenerateField extends React.Component<Props, State> {
   renderControl() {
     const { field } = this.props;
     const { type } = field;
-    const options = field.options || [];
+    let options = field.options || [];
+
+    if (field.hasCustomOptions) {
+      options.push('Other: ');
+    }
+
+    options = Array.from(new Set(options));
 
     const attrs = {
       id: field._id,

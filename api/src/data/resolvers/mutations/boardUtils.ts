@@ -88,16 +88,20 @@ export const itemsAdd = async (
   },
   type: string,
   user: IUserDocument,
-  docModifier: any,
-  createModel: any
+  createModel: any,
+  docModifier?: any
 ) => {
   const { collection } = getCollection(type);
 
   doc.initialStageId = doc.stageId;
   doc.watchedUserIds = [user._id];
 
+  if (docModifier) {
+    doc = { ...docModifier(doc) };
+  }
+
   const extendedDoc = {
-    ...docModifier(doc),
+    ...doc,
     modifiedBy: user._id,
     userId: user._id,
     order: await getNewOrder({

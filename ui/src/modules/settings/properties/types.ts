@@ -6,6 +6,11 @@ export interface IFieldLogic {
   tempFieldId?: string;
   logicOperator: string;
   logicValue: string;
+  logicAction: string;
+  tagIds?: string[];
+  boardId?: string;
+  pipelineId?: string;
+  stageId?: string;
   __typename?: string;
 }
 export interface IField {
@@ -19,6 +24,7 @@ export interface IField {
   content?: string;
   description?: string;
   options?: string[];
+  hasCustomOptions?: boolean;
   isRequired?: boolean;
   order?: React.ReactNode;
   canHide?: boolean;
@@ -36,7 +42,6 @@ export interface IField {
     contentType: string;
   };
   logics?: IFieldLogic[];
-  logicAction?: string;
   groupName?: string;
   pageNumber?: number;
   stageId?: string;

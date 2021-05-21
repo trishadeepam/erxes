@@ -9,6 +9,7 @@ export interface ILogic {
   fieldId: string;
   logicOperator: string;
   logicValue: FieldValue;
+  logicAction: string;
 }
 
 export interface IField {
@@ -21,6 +22,7 @@ export interface IField {
   content?: string;
   description?: string;
   options?: string[];
+  hasCustomOptions?: boolean;
   isRequired: boolean;
   isDefinedByErxes: boolean;
   order: number;

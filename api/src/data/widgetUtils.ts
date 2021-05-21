@@ -7,22 +7,18 @@ import {
   EngageMessages,
   Fields,
   FieldsGroups,
-  Forms,
   FormSubmissions,
-  Integrations,
-  Users
+  Integrations
 } from '../db/models';
-import { getCollection } from '../db/models/boardUtils';
 import Messages from '../db/models/ConversationMessages';
 import { IBrowserInfo } from '../db/models/Customers';
 import { ICustomField, ILink } from '../db/models/definitions/common';
 import { KIND_CHOICES } from '../db/models/definitions/constants';
 import { ICustomerDocument } from '../db/models/definitions/customers';
-import { ISubmission } from '../db/models/definitions/fields';
+import { ILogic, ISubmission } from '../db/models/definitions/fields';
 import { debugBase, debugError } from '../debuggers';
 import { client, fetchElk, getIndexPrefix } from '../elasticsearch';
 import { getVisitorLog, sendToVisitorLog } from './logUtils';
-import { itemsAdd } from './resolvers/mutations/boardUtils';
 import { findCompany, findCustomer } from './utils';
 
 export const getOrCreateEngageMessage = async (
@@ -426,7 +422,7 @@ export const solveSubmissions = async (args: {
     let industries = '';
     let businessType = '';
     let location = '';
-    let stageId = '';
+    // let stageId = '';
 
     const companyLinks: ILink = {};
 
@@ -437,11 +433,11 @@ export const solveSubmissions = async (args: {
     for (const submission of submissionsGrouped[groupId]) {
       const submissionType = submission.type || '';
 
-      const blabla = await Fields.findById(submission._id);
+      // const blabla = await Fields.findById(submission._id);
 
-      if (blabla && blabla.stageId) {
-        stageId = blabla.stageId;
-      }
+      // if (blabla && blabla.stageId) {
+      //   stageId = blabla.stageId;
+      // }
 
       if (submissionType.includes('customerLinks')) {
         customerLinks[getSocialLinkKey(submissionType)] = submission.value;
@@ -805,4 +801,74 @@ export const solveSubmissions = async (args: {
   });
 
   return cachedCustomer;
+};
+
+export const isLogicFulfilled = (logic: ILogic, valueToTest: any) => {
+  const { logicOperator } = logic;
+  const logicValue: any = logic.logicValue;
+
+  // is
+  if (logicOperator === 'is' && valueToTest !== logicValue) {
+    return false;
+  }
+
+  // isNot
+  if (logicOperator === 'isNot' && valueToTest === logicValue) {
+    return false;
+  }
+
+  // isUnknown
+  if (logicOperator === 'isUnknown' && valueToTest) {
+    return false;
+  }
+
+  // hasAnyValue
+  if (logicOperator === 'hasAnyValue' && !valueToTest) {
+    return false;
+  }
+
+  // startsWith
+  if (
+    logicOperator === 'startsWith' &&
+    valueToTest &&
+    !valueToTest.startsWith(logicValue)
+  ) {
+    return false;
+  }
+
+  // endsWith
+  if (
+    logicOperator === 'endsWith' &&
+    valueToTest &&
+    !valueToTest.endsWith(logicValue)
+  ) {
+    return false;
+  }
+
+  // contains
+  if (
+    logicOperator === 'contains' &&
+    valueToTest &&
+    !valueToTest.includes(logicValue)
+  ) {
+    return false;
+  }
+
+  // greaterThan
+  if (
+    logicOperator === 'greaterThan' &&
+    valueToTest < parseInt(logicValue, 10)
+  ) {
+    return false;
+  }
+
+  if (logicOperator === 'lessThan' && valueToTest > parseInt(logicValue, 10)) {
+    return false;
+  }
+
+  if (logicOperator === 'doesNotContain' && valueToTest.includes(logicValue)) {
+    return false;
+  }
+
+  return true;
 };

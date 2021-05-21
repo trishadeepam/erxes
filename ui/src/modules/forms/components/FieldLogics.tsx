@@ -1,10 +1,11 @@
 import Button from 'modules/common/components/Button';
-import { FormControl, FormGroup } from 'modules/common/components/form';
+// import { FormControl, FormGroup } from 'modules/common/components/form';
 import Icon from 'modules/common/components/Icon';
 import Info from 'modules/common/components/Info';
 import { __ } from 'modules/common/utils';
 import { IField, IFieldLogic } from 'modules/settings/properties/types';
 import { LinkButton } from 'modules/settings/team/styles';
+import { ITag } from 'modules/tags/types';
 import React, { useEffect, useState } from 'react';
 import FieldLogic from './FieldLogic';
 
@@ -15,24 +16,41 @@ type Props = {
   ) => void;
   fields: IField[];
   currentField: IField;
+  tags: ITag[];
 };
 
-const showOptions = [
-  { value: 'show', label: 'Show this field' },
-  { value: 'hide', label: 'Hide this field' }
-];
+// const showOptions = [
+//   { value: 'show', label: 'Show this field' },
+//   { value: 'hide', label: 'Hide this field' },
+//   { value: 'tag', label: 'Add a tag'}
+// ];
 
 function FieldLogics(props: Props) {
   const { fields, currentField, onFieldChange } = props;
 
   const [logics, setLogics] = useState(
     (currentField.logics || []).map(
-      ({ fieldId, tempFieldId, logicOperator, logicValue }) => {
+      ({
+        fieldId,
+        tempFieldId,
+        logicOperator,
+        logicValue,
+        logicAction,
+        tagIds,
+        stageId,
+        boardId,
+        pipelineId
+      }) => {
         return {
           fieldId,
           tempFieldId,
           logicOperator,
-          logicValue
+          logicValue,
+          logicAction,
+          tagIds,
+          stageId,
+          boardId,
+          pipelineId
         };
       }
     )
@@ -46,8 +64,8 @@ function FieldLogics(props: Props) {
     currentField.logics ? currentField.logics.length > 0 : false
   );
 
-  const onChangeLogicAction = e =>
-    onFieldChange('logicAction', e.currentTarget.value);
+  // const onChangeLogicAction = e =>
+  //   onFieldChange('logicAction', e.currentTarget.value);
 
   const onChangeLogic = (name, value, index) => {
     // find current editing one
@@ -69,7 +87,12 @@ function FieldLogics(props: Props) {
         fieldId: '',
         tempFieldId: '',
         logicOperator: 'is',
-        logicValue: ''
+        logicValue: '',
+        logicAction: 'show',
+        tagIds: undefined,
+        stageId: undefined,
+        boardId: undefined,
+        pipelineId: undefined
       }
     ]);
   };
@@ -88,7 +111,7 @@ function FieldLogics(props: Props) {
     if (isEnabled) {
       return (
         <>
-          <FormGroup>
+          {/* <FormGroup>
             <FormControl
               componentClass="select"
               defaultValue={currentField.logicAction}
@@ -96,7 +119,7 @@ function FieldLogics(props: Props) {
               options={showOptions}
               onChange={onChangeLogicAction}
             />
-          </FormGroup>
+          </FormGroup> */}
           {logics.map((logic, index) => (
             <FieldLogic
               key={index}
@@ -105,6 +128,8 @@ function FieldLogics(props: Props) {
               onChangeLogic={onChangeLogic}
               removeLogic={removeLogic}
               index={index}
+              tags={props.tags}
+              currentField={props.currentField}
             />
           ))}
 

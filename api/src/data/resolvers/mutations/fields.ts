@@ -76,7 +76,6 @@ const fieldMutations = {
       }
 
       const tempId = f.tempFieldId;
-
       const field = await Fields.createField({
         ...f,
         contentType,
@@ -93,8 +92,10 @@ const fieldMutations = {
       const logics = f.logics || [];
 
       for (const logic of logics) {
-        if (f.logics && !logic.fieldId && logic.tempFieldId) {
-          f.logics[logics.indexOf(logic)].fieldId = temp[logic.tempFieldId];
+        if (f.logics && logic.tempFieldId) {
+          if (!logic.fieldId) {
+            f.logics[logics.indexOf(logic)].fieldId = temp[logic.tempFieldId];
+          }
         }
       }
 
@@ -128,6 +129,24 @@ const fieldMutations = {
       });
 
       response.push(field);
+    }
+
+    const fieldsWithSelfId = await Fields.find({
+      contentTypeId,
+      'logics.fieldId': 'self'
+    }).lean();
+
+    for (const field of fieldsWithSelfId) {
+      const { logics = [] } = field;
+      const index = logics.findIndex(e => e.fieldId === 'self');
+      if (index > -1) {
+        logics[index].fieldId = field._id;
+        field.logics = logics;
+      }
+      await Fields.updateField(field._id, {
+        ...field,
+        lastUpdatedUserId: user._id
+      });
     }
 
     return response;

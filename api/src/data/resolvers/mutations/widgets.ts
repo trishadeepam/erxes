@@ -5,11 +5,14 @@ import {
   ConversationMessages,
   Conversations,
   Customers,
+  Fields,
   Forms,
   Integrations,
   KnowledgeBaseArticles,
+  Tags,
   Users
 } from '../../../db/models';
+import { getCollection } from '../../../db/models/boardUtils';
 import Messages from '../../../db/models/ConversationMessages';
 import {
   IBrowserInfo,
@@ -46,7 +49,12 @@ import {
   sendRequest,
   sendToWebhook
 } from '../../utils';
-import { convertVisitorToCustomer, solveSubmissions } from '../../widgetUtils';
+import {
+  convertVisitorToCustomer,
+  isLogicFulfilled,
+  solveSubmissions
+} from '../../widgetUtils';
+import { itemsAdd } from './boardUtils';
 import { getDocument, getMessengerApps } from './cacheUtils';
 import { conversationNotifReceivers } from './conversations';
 
@@ -196,6 +204,65 @@ const widgetMutations = {
       content,
       formWidgetData: submissions
     });
+
+    // fields with actions
+    const fieldsWithActions = await Fields.find({
+      contentTypeId: formId,
+      $and: [
+        {
+          $or: [
+            { 'logics.logicAction': { $ne: 'show' } },
+            { 'logics.logicAction': { $ne: 'hide' } }
+          ]
+        }
+      ]
+    });
+
+    for (const { logics = [] } of fieldsWithActions) {
+      for (const logic of logics) {
+        const submission = submissions.find(e => e._id === logic.fieldId);
+        if (!submission) {
+          continue;
+        }
+
+        if (isLogicFulfilled(logic, submission.value)) {
+          if (logic.logicAction === 'tag') {
+            const tagIds = [
+              ...new Set([
+                ...(logic.tagIds || []),
+                ...(cachedCustomer.tagIds || [])
+              ])
+            ];
+            await Tags.tagObject({
+              type: 'customer',
+              targetIds: [cachedCustomer._id],
+              tagIds
+            });
+          }
+
+          if (['task', 'deal', 'ticket'].includes(logic.logicAction)) {
+            const { create } = getCollection(logic.logicAction);
+            const doc: any = {};
+
+            doc.stageId = logic.stageId;
+            doc.sourceConversationIds = [conversation._id];
+            doc.customerIds = [conversation.customerId];
+            doc.assignedUserIds = [conversation.assignedUserId];
+
+            const integration = await Integrations.getIntegration({
+              _id: integrationId
+            });
+
+            doc.name = `${Customers.getCustomerName(cachedCustomer)} - ${
+              integration.name
+            }`;
+            const user = await Users.getUser(integration.createdUserId);
+
+            await itemsAdd(doc, logic.logicAction, user, create, null);
+          }
+        }
+      }
+    }
 
     // increasing form submitted count
     await Integrations.increaseContactsGathered(formId);

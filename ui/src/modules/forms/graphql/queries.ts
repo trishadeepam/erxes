@@ -160,14 +160,19 @@ const fields = `
       content
       description
       options
+      hasCustomOptions
       isRequired
       order
       column
-      logicAction
       logics {
         fieldId
         logicOperator
         logicValue
+        logicAction
+        tagIds
+        stageId
+        pipelineId
+        boardId
       }
       groupName
       associatedFieldId

@@ -68,11 +68,12 @@ const fields = `
       text
       description
       options
+      hasCustomOptions
       isRequired
       isDefinedByErxes
       order
       associatedFieldId
-      logicAction
+      
       column
       associatedField {
         _id
@@ -83,6 +84,11 @@ const fields = `
         fieldId
         logicOperator
         logicValue
+        logicAction
+        tagIds
+        pipelineId
+        boardId
+        stageId
       }
       groupName
       stageId

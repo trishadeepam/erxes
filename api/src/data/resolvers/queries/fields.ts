@@ -28,15 +28,11 @@ const fieldQueries = {
     {
       contentType,
       contentTypeId,
-      isVisible,
-      boardId,
-      pipelineId
+      isVisible
     }: {
       contentType: string;
       contentTypeId: string;
       isVisible: boolean;
-      boardId?: string;
-      pipelineId?: string;
     }
   ) {
     const query: IFieldsQuery = { contentType };
@@ -47,49 +43,6 @@ const fieldQueries = {
 
     if (isVisible) {
       query.isVisible = isVisible;
-    }
-
-    if (boardId || pipelineId) {
-      return Fields.aggregate([
-        {
-          $lookup: {
-            from: 'fields_groups',
-            localField: 'groupId',
-            foreignField: '_id',
-            as: 'group'
-          }
-        },
-        { $unwind: '$group' },
-        {
-          $match: {
-            contentType,
-            $and: [
-              {
-                $or: [
-                  { 'group.boardIds': boardId },
-                  {
-                    'group.boardIds': {
-                      $size: 0
-                    }
-                  }
-                ]
-              },
-              {
-                $or: [
-                  {
-                    'group.pipelineIds': pipelineId
-                  },
-                  {
-                    'group.pipelineIds': {
-                      $size: 0
-                    }
-                  }
-                ]
-              }
-            ]
-          }
-        }
-      ]);
     }
 
     return Fields.find(query).sort({ order: 1 });

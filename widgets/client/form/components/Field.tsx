@@ -27,6 +27,7 @@ type State = {
   dateTimeValue: Date | string;
   isAttachingFile?: boolean;
   multipleSelectValues?: string[];
+  otherValue?: string;
 };
 
 export default class Field extends React.Component<Props, State> {
@@ -50,6 +51,15 @@ export default class Field extends React.Component<Props, State> {
     return <input {...attrs} className="form-control" />;
   }
 
+  static renderCustomOption(attrs: any) {
+    return (
+      <div>
+        <input type="radio" name="fruit" id="other_fruit" value="other" />
+        <span>{attrs.option}</span>
+      </div>
+    );
+  }
+
   static renderTextarea(attrs: any) {
     return <textarea {...attrs} className="form-control" />;
   }
@@ -65,12 +75,12 @@ export default class Field extends React.Component<Props, State> {
     if (value) {
       values = value.split(',,');
     }
-    
+
     return (
       <div className="check-control">
         {options.map((option, index) => {
           const checked = values.indexOf(option) > -1 ? true : false;
-          
+
           return (
             <div key={index}>
               <label>
@@ -96,7 +106,9 @@ export default class Field extends React.Component<Props, State> {
     options: string[],
     id: string,
     onChange: (e: React.FormEvent<HTMLInputElement>) => void,
-    value?: string
+    value?: string,
+    onChangeText?: (e: React.FormEvent<HTMLInputElement>) => void,
+    customValue?: string
   ) {
     const selectedIndex = options.indexOf(value || '');
 
@@ -115,6 +127,26 @@ export default class Field extends React.Component<Props, State> {
             <span>{option}</span>
           </div>
         ))}
+        <div id={`custom_${id}`}>
+          <input
+            type="radio"
+            name={name}
+            id={`custom_option_${id}`}
+            data-option="other-option"
+            className="form-control"
+            checked={customValue ? true : false}
+            onChange={onChange}
+          />
+          <span>Other:</span>
+          <input
+            type="text"
+            name="other"
+            id={`custom_text_${id}`}
+            className="input-other"
+            onChange={onChangeText}
+            value={customValue}
+          />
+        </div>
       </div>
     );
   }
@@ -125,7 +157,8 @@ export default class Field extends React.Component<Props, State> {
     this.state = {
       dateValue: '',
       dateTimeValue: '',
-      multipleSelectValues: []
+      multipleSelectValues: [],
+      otherValue: ''
     };
   }
 
@@ -242,7 +275,19 @@ export default class Field extends React.Component<Props, State> {
   };
 
   onRadioButtonsChange = (e: React.FormEvent<HTMLInputElement>) => {
-    this.onChange(e.currentTarget.getAttribute('data-option') || '');
+    const option = e.currentTarget.getAttribute('data-option') || '';
+    this.onChange(option);
+    this.setState({ otherValue: '' });
+
+    if (option === 'other-option') {
+      this.setState({ otherValue: '  ' });
+    }
+  };
+
+  onRadioButtonTextChange = (e: React.FormEvent<HTMLInputElement>) => {
+    const value = e.currentTarget.value;
+    this.setState({ otherValue: value });
+    this.onChange(value || '');
   };
 
   onCheckboxesChange = () => {
@@ -413,7 +458,9 @@ export default class Field extends React.Component<Props, State> {
           options,
           field._id,
           this.onRadioButtonsChange,
-          String(value)
+          String(value),
+          this.onRadioButtonTextChange,
+          this.state.otherValue
         );
 
       case 'isSubscribed':

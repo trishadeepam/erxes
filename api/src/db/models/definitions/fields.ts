@@ -16,6 +16,9 @@ export interface ILogic {
   tempFieldId?: string;
   logicOperator?: string;
   logicValue?: string | number | Date | string[];
+  logicAction: string;
+  tagIds?: string[];
+  stageId?: string;
 }
 
 export const logicSchema = new Schema(
@@ -27,6 +30,19 @@ export const logicSchema = new Schema(
     }),
     logicValue: field({
       type: Schema.Types.Mixed,
+      optional: true
+    }),
+    logicAction: field({
+      type: String,
+      label:
+        'If action is show field will appear when logics fulfilled, if action is hide it will disappear when logic fulfilled'
+    }),
+    tagIds: field({
+      type: [String],
+      optional: true
+    }),
+    stageId: field({
+      type: String,
       optional: true
     })
   },
@@ -65,15 +81,15 @@ export interface IField extends IVisibility {
   canHide?: boolean;
   lastUpdatedUserId?: string;
   associatedFieldId?: string;
-
-  logics?: ILogic[];
   logicAction?: string;
+  logics?: ILogic[];
   tempFieldId?: string;
   column?: number;
   groupName?: string;
   pageNumber?: number;
 
   stageId?: string;
+  hasCustomOptions?: boolean;
 }
 
 export interface IFieldDocument extends IField, Document {
@@ -119,7 +135,6 @@ export const fieldSchema = schemaWrapper(
       label: 'Validation'
     }),
     text: field({ type: String, label: 'Text' }),
-    field: field({ type: String, optional: true, label: 'Field identifier' }),
     description: field({
       type: String,
       optional: true,
@@ -129,6 +144,11 @@ export const fieldSchema = schemaWrapper(
       type: [String],
       optional: true,
       label: 'Options'
+    }),
+    hasCustomOptions: field({
+      type: Boolean,
+      default: false,
+      label: 'hasCustomOptions'
     }),
     isRequired: field({ type: Boolean, label: 'Is required' }),
     isDefinedByErxes: field({ type: Boolean, label: 'Is defined by erxes' }),

@@ -1,6 +1,7 @@
 const fieldCommonFields = `
   description: String
   options: [String]
+  hasCustomOptions: Boolean
   type: String
   validation: String
   text: String
@@ -20,6 +21,11 @@ export const fieldsTypes = `
     fieldId: String!
     logicOperator: String
     logicValue: JSON
+    logicAction: String
+    tagIds: [String]
+    stageId: String
+    pipelineId: String
+    boardId: String
   }
 
   type Field {
@@ -50,6 +56,11 @@ export const fieldsTypes = `
     tempFieldId: String
     logicOperator: String
     logicValue: JSON
+    logicAction: String!
+    tagIds: [String]
+    stageId: String
+    pipelineId: String
+    boardId: String
   }
 
   input FieldItem {

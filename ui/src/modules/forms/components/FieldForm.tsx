@@ -24,6 +24,7 @@ import FieldLogics from './FieldLogics';
 import FieldPreview from './FieldPreview';
 import Select from 'react-select-plus';
 import BoardSelect from 'modules/boards/containers/BoardSelect';
+import { ITag } from 'modules/tags/types';
 
 type Props = {
   onSubmit: (field: IField) => void;
@@ -33,6 +34,7 @@ type Props = {
   field: IField;
   fields: IField[];
   numberOfPages: number;
+  tags: ITag[];
 };
 
 type State = {
@@ -200,6 +202,8 @@ class FieldForm extends React.Component<Props, State> {
       return null;
     }
 
+    const options = Array.from(new Set(field.options));
+
     return (
       <FormGroup>
         <ControlLabel htmlFor="type">Options:</ControlLabel>
@@ -207,9 +211,40 @@ class FieldForm extends React.Component<Props, State> {
         <FormControl
           id="options"
           componentClass="textarea"
-          value={(field.options || []).join('\n')}
+          value={options.join('\n')}
           onChange={onChange}
         />
+      </FormGroup>
+    );
+  }
+
+  renderCustomOption() {
+    const { field } = this.state;
+
+    if (field.type !== 'radio') {
+      return null;
+    }
+
+    const onChange = e => {
+      field.hasCustomOptions = e.target.checked ? true : false;
+      this.setState({ field });
+    };
+
+    return (
+      <FormGroup>
+        <FlexRow>
+          <ControlLabel htmlFor="description">
+            {__('Enable Other option')}
+          </ControlLabel>
+          <Toggle
+            defaultChecked={field.hasCustomOptions || false}
+            icons={{
+              checked: <span>Yes</span>,
+              unchecked: <span>No</span>
+            }}
+            onChange={onChange}
+          />
+        </FlexRow>
       </FormGroup>
     );
   }
@@ -364,6 +399,8 @@ class FieldForm extends React.Component<Props, State> {
 
           {this.renderOptions()}
 
+          {this.renderCustomOption()}
+
           {this.renderMultipleSelectCheckBox()}
 
           <FormGroup>
@@ -381,6 +418,7 @@ class FieldForm extends React.Component<Props, State> {
               />
             </FlexRow>
           </FormGroup>
+
           <FormGroup>
             <ControlLabel htmlFor="text" required={false}>
               Group Name
@@ -401,15 +439,15 @@ class FieldForm extends React.Component<Props, State> {
           {this.renderBoardItemSelect()}
           {this.renderCustomProperty()}
         </CollapseContent>
-        {fields.length > 0 && (
-          <CollapseContent title={__('Logics & Actions')} compact={true}>
-            <FieldLogics
-              fields={fields}
-              currentField={field}
-              onFieldChange={this.onFieldChange}
-            />
-          </CollapseContent>
-        )}
+
+        <CollapseContent title={__('Logics & Actions')} compact={true}>
+          <FieldLogics
+            fields={fields}
+            currentField={field}
+            onFieldChange={this.onFieldChange}
+            tags={this.props.tags}
+          />
+        </CollapseContent>
 
         <Modal.Footer>
           <Button

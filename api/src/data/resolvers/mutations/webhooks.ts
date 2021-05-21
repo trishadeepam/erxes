@@ -29,11 +29,9 @@ const webhookMutations = {
       }
     })
       .then(async () => {
-        console.log('SUCCESS');
         await Webhooks.updateStatus(webhook._id, WEBHOOK_STATUS.AVAILABLE);
       })
       .catch(async () => {
-        console.log('FAILED');
         await Webhooks.updateStatus(webhook._id, WEBHOOK_STATUS.UNAVAILABLE);
       });
 
