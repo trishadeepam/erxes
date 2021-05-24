@@ -202,7 +202,15 @@ class FieldForm extends React.Component<Props, State> {
       return null;
     }
 
-    const options = Array.from(new Set(field.options));
+    let options = Array.from(new Set(field.options)).filter(
+      e => e !== 'Other: '
+    );
+
+    if (field.hasCustomOptions) {
+      options.push('Other: ');
+    }
+
+    options = Array.from(new Set(options));
 
     return (
       <FormGroup>
@@ -477,6 +485,14 @@ class FieldForm extends React.Component<Props, State> {
 
   renderContent() {
     const { field } = this.state;
+
+    // const options = Array.from(new Set(field.options)).filter(e => e !== 'Other: ');
+
+    // if (field.hasCustomOptions) {
+    //   options.push('Other: ');
+    // }
+
+    // field.options = Array.from(new Set(options));
 
     return (
       <FlexItem>
