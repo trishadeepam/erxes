@@ -188,7 +188,14 @@ const widgetMutations = {
 
     const content = form.title;
 
-    const cachedCustomer = await solveSubmissions(args);
+    const {
+      cachedCustomer,
+      taskCustomData,
+      ticketCustomData,
+      dealCustomData
+    } = await solveSubmissions(args);
+
+    console.log(taskCustomData);
 
     // create conversation
     const conversation = await Conversations.createConversation({
@@ -248,6 +255,20 @@ const widgetMutations = {
             doc.sourceConversationIds = [conversation._id];
             doc.customerIds = [conversation.customerId];
             doc.assignedUserIds = [conversation.assignedUserId];
+
+            switch (logic.logicAction) {
+              case 'task':
+                doc.customFieldsData = taskCustomData;
+                break;
+
+              case 'deal':
+                doc.customFieldsData = dealCustomData;
+                break;
+
+              case 'ticket':
+                doc.customFieldsData = ticketCustomData;
+                break;
+            }
 
             const integration = await Integrations.getIntegration({
               _id: integrationId

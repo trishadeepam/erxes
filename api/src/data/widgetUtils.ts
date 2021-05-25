@@ -396,6 +396,10 @@ export const solveSubmissions = async (args: {
 
   let cachedCustomer;
 
+  const taskCustomData: ICustomField[] = [];
+  const dealCustomData: ICustomField[] = [];
+  const ticketCustomData: ICustomField[] = [];
+
   for (const groupId of Object.keys(submissionsGrouped)) {
     let email;
     let phone;
@@ -428,7 +432,6 @@ export const solveSubmissions = async (args: {
 
     const customFieldsData: ICustomField[] = [];
     const companyCustomData: ICustomField[] = [];
-    const boardItemCustomData: ICustomField[] = [];
 
     for (const submission of submissionsGrouped[groupId]) {
       const submissionType = submission.type || '';
@@ -573,21 +576,21 @@ export const solveSubmissions = async (args: {
         }
 
         if (fieldGroup && fieldGroup.contentType === 'task') {
-          boardItemCustomData.push({
+          taskCustomData.push({
             field: submission.associatedFieldId,
             value: submission.value
           });
         }
 
         if (fieldGroup && fieldGroup.contentType === 'deal') {
-          boardItemCustomData.push({
+          dealCustomData.push({
             field: submission.associatedFieldId,
             value: submission.value
           });
         }
 
         if (fieldGroup && fieldGroup.contentType === 'ticket') {
-          boardItemCustomData.push({
+          ticketCustomData.push({
             field: submission.associatedFieldId,
             value: submission.value
           });
@@ -800,7 +803,7 @@ export const solveSubmissions = async (args: {
     submittedAt: new Date()
   });
 
-  return cachedCustomer;
+  return { cachedCustomer, taskCustomData, dealCustomData, ticketCustomData };
 };
 
 export const isLogicFulfilled = (logic: ILogic, valueToTest: any) => {
