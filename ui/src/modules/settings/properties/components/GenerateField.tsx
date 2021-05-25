@@ -191,6 +191,12 @@ export default class GenerateField extends React.Component<Props, State> {
   }
 
   renderRadioOrCheckInputs(options, attrs, hasError?: boolean) {
+    const { field } = this.props;
+    options = options.filter(e => e !== 'Other: ');
+
+    if (field.hasCustomOptions) {
+      options.push('Other: ');
+    }
     return (
       <div>
         {options.map((option, index) => (

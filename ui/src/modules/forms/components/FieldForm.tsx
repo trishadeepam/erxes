@@ -202,16 +202,6 @@ class FieldForm extends React.Component<Props, State> {
       return null;
     }
 
-    let options = Array.from(new Set(field.options)).filter(
-      e => e !== 'Other: '
-    );
-
-    if (field.hasCustomOptions) {
-      options.push('Other: ');
-    }
-
-    options = Array.from(new Set(options));
-
     return (
       <FormGroup>
         <ControlLabel htmlFor="type">Options:</ControlLabel>
@@ -219,7 +209,7 @@ class FieldForm extends React.Component<Props, State> {
         <FormControl
           id="options"
           componentClass="textarea"
-          value={options.join('\n')}
+          value={(field.options || []).join('\n')}
           onChange={onChange}
         />
       </FormGroup>
@@ -486,14 +476,6 @@ class FieldForm extends React.Component<Props, State> {
   renderContent() {
     const { field } = this.state;
 
-    // const options = Array.from(new Set(field.options)).filter(e => e !== 'Other: ');
-
-    // if (field.hasCustomOptions) {
-    //   options.push('Other: ');
-    // }
-
-    // field.options = Array.from(new Set(options));
-
     return (
       <FlexItem>
         <LeftSection>{this.renderLeftContent()}</LeftSection>
@@ -513,7 +495,7 @@ class FieldForm extends React.Component<Props, State> {
 
   renderCustomPropertyGroup() {
     const { field, group } = this.state;
-
+    const { fields } = this.props;
     if (
       [
         'email',
@@ -530,6 +512,26 @@ class FieldForm extends React.Component<Props, State> {
       return null;
     }
 
+    const options = [
+      { value: '', label: '' },
+      { value: 'customer', label: 'Customer' },
+      { value: 'company', label: 'Company' }
+    ];
+
+    for (const { logics = [] } of fields) {
+      if (logics.findIndex(e => e.logicAction === 'deal') > -1) {
+        options.push({ value: 'deal', label: 'Sales pipeline' });
+      }
+
+      if (logics.findIndex(e => e.logicAction === 'task') > -1) {
+        options.push({ value: 'task', label: 'Task' });
+      }
+
+      if (logics.findIndex(e => e.logicAction === 'ticket') > -1) {
+        options.push({ value: 'ticket', label: 'Ticket' });
+      }
+    }
+
     return (
       <>
         <FormGroup>
@@ -540,12 +542,11 @@ class FieldForm extends React.Component<Props, State> {
             defaultValue={group}
             onChange={this.onPropertyGroupChange}
           >
-            <option value={''} />
-            <option value={'customer'}>Customer</option>
-            <option value={'company'}>Company</option>
-            <option value={'task'}>Task</option>
-            <option value={'ticket'}>Ticket</option>
-            <option value={'deal'}>Sales pipeline</option>
+            {options.map(e => (
+              <option key={e.value} value={e.value}>
+                {e.label}
+              </option>
+            ))}
           </FormControl>
         </FormGroup>
       </>
