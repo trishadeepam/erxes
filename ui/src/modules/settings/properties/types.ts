@@ -35,7 +35,7 @@ export interface IField {
   lastUpdatedUser?: IUser;
   lastUpdatedUserId?: string;
   associatedFieldId?: string;
-  column?: number;
+  column?: string;
   associatedField?: {
     _id: string;
     text: string;

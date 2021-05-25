@@ -561,10 +561,7 @@ class FieldForm extends React.Component<Props, State> {
     }
 
     const onChangeColumn = e =>
-      this.onFieldChange(
-        'column',
-        parseInt((e.currentTarget as HTMLInputElement).value, 10)
-      );
+      this.onFieldChange('column', (e.currentTarget as HTMLInputElement).value);
 
     return (
       <FormGroup>
@@ -576,10 +573,12 @@ class FieldForm extends React.Component<Props, State> {
           value={field.column || ''}
           onChange={onChangeColumn}
         >
-          <option value={1}>Full width</option>
-          <option value={2}>Half width</option>
-          <option value={3}>1/3 width</option>
-          <option value={4}>1/4 width</option>
+          <option value={'1'}>Full width</option>
+          <option value={'2'}>Half width</option>
+          <option value={'3'}>1/3 width</option>
+          <option value={'1.5'}>2/3 width</option>
+          <option value={'4'}>1/4 width</option>
+          <option value={'1.33'}>3/4 width</option>
         </FormControl>
       </FormGroup>
     );

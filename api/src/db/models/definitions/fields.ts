@@ -84,7 +84,7 @@ export interface IField extends IVisibility {
   logicAction?: string;
   logics?: ILogic[];
   tempFieldId?: string;
-  column?: number;
+  column?: string;
   groupName?: string;
   pageNumber?: number;
 
@@ -172,7 +172,7 @@ export const fieldSchema = schemaWrapper(
       label: 'Stores custom property fieldId for form field id'
     }),
     logics: field({ type: [logicSchema] }),
-    column: field({ type: Number, optional: true }),
+    column: field({ type: String, optional: true }),
     logicAction: field({
       type: String,
       label:

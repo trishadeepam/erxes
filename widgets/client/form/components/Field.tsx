@@ -555,7 +555,7 @@ export default class Field extends React.Component<Props, State> {
     const fieldStyle = () => {
       if (field.column) {
         return {
-          width: `${100 / field.column}%`,
+          width: `${(100 / Number(field.column)).toFixed()}%`,
           display: 'inline-block'
         };
       }

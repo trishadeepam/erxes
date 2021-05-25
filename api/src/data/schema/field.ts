@@ -10,7 +10,7 @@ const fieldCommonFields = `
   order: Int
   associatedFieldId: String
   logicAction: String
-  column: Int
+  column: String
   groupName: String
   pageNumber: Int
   stageId: String

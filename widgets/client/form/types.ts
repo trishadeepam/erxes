@@ -30,7 +30,7 @@ export interface IField {
   isVisible: boolean;
   lastUpdatedUserId: string;
   associatedFieldId?: string;
-  column?: number;
+  column?: string;
 
   logicAction?: string;
   logics?: ILogic[];
