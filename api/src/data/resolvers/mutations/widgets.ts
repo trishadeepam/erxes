@@ -39,7 +39,11 @@ import { trackViewPageEvent } from '../../../events';
 import { get, set } from '../../../inmemoryStorage';
 import { graphqlPubsub } from '../../../pubsub';
 import { AUTO_BOT_MESSAGES, BOT_MESSAGE_TYPES } from '../../constants';
-import { sendToVisitorLog } from '../../logUtils';
+import {
+  ACTIVITY_LOG_ACTIONS,
+  putActivityLog,
+  sendToVisitorLog
+} from '../../logUtils';
 import { IContext } from '../../types';
 import {
   registerOnboardHistory,
@@ -279,7 +283,20 @@ const widgetMutations = {
             }`;
             const user = await Users.getUser(integration.createdUserId);
 
-            await itemsAdd(doc, logic.logicAction, user, create, null);
+            const item = await itemsAdd(
+              doc,
+              logic.logicAction,
+              user,
+              create,
+              null
+            );
+
+            const a = await putActivityLog({
+              action: ACTIVITY_LOG_ACTIONS.CREATE_BOARD_ITEM,
+              data: { item, contentType: logic.logicAction }
+            });
+
+            console.log(a);
           }
         }
       }

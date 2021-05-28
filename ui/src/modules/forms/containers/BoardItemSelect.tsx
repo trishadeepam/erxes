@@ -13,6 +13,7 @@ type IProps = {
   relType?: string;
   type: string;
   onChangeCard: (name?: string, cardId?: string) => void;
+  onFetchProperties: (customProperties: IField[]) => void;
 };
 
 class BoardItemSelectContainer extends React.Component<IProps> {
@@ -39,11 +40,10 @@ class BoardItemSelectContainer extends React.Component<IProps> {
       .query({
         query: gql(fieldQueries.fields),
         fetchPolicy: 'network-only',
-        variables: { boardId, pipelineId }
+        variables: { contentType: this.props.type, boardId, pipelineId }
       })
       .then(({ data }: any) => {
-        console.log(data);
-        // callback(data[`${type}s`]);
+        callback(data);
       });
   };
 

@@ -10,7 +10,7 @@ import { __ } from 'modules/common/utils';
 import { IField, IFieldLogic } from 'modules/settings/properties/types';
 import SelectTags from 'modules/tags/containers/SelectTags';
 import { ITag } from 'modules/tags/types';
-import React from 'react';
+import React, { useState } from 'react';
 import {
   dateTypeChoices,
   numberTypeChoices,
@@ -20,6 +20,9 @@ import { DateWrapper, LogicItem, LogicRow, RowFill, RowSmall } from '../styles';
 // import BoardSelect from 'modules/boards/containers/BoardSelect';
 // import CardSelect from 'modules/boards/components/portable/CardSelect';
 import BoardItemSelectContainer from '../containers/BoardItemSelect';
+import { FlexRow } from '../styles';
+import Toggle from 'modules/common/components/Toggle';
+import Select from 'react-select-plus';
 
 type Props = {
   onChangeLogic: (
@@ -212,6 +215,9 @@ function FieldLogic(props: Props) {
     );
   };
 
+  const [properties, setProperties] = useState<IField[]>([]);
+  const [selectedProperties, setSelectProperties] = useState<IField[]>([]);
+
   const renderBoardItemSelect = () => {
     if (!['task', 'deal', 'ticket'].includes(logic.logicAction)) {
       return null;
@@ -222,6 +228,11 @@ function FieldLogic(props: Props) {
       onChangeLogic('itemName', name, index);
     };
 
+    const onFetchProperties = customProperties => {
+      console.log('customProperties: ', customProperties);
+      setProperties(customProperties.fields);
+    };
+
     return (
       <BoardItemSelectContainer
         type={logic.logicAction}
@@ -229,6 +240,7 @@ function FieldLogic(props: Props) {
         pipelineId={logic.pipelineId}
         stageId={logic.stageId}
         onChangeCard={onChangeCardSelect}
+        onFetchProperties={onFetchProperties}
       />
     );
   };
@@ -272,6 +284,59 @@ function FieldLogic(props: Props) {
     );
   };
 
+  const [propertiesEnabled, setEnabled] = useState(false);
+
+  const renderProperties = () => {
+    if (!logic.pipelineId) {
+      return null;
+    }
+    const onChange = e => {
+      setEnabled(e.target.checked ? true : false);
+    };
+
+    const onSelectProperty = options => {
+      setSelectProperties(options);
+    };
+
+    return (
+      <>
+        <FormGroup>
+          <FlexRow>
+            <ControlLabel htmlFor="description">
+              {__('Select custom properties as form field')}
+            </ControlLabel>
+            <Toggle
+              defaultChecked={propertiesEnabled}
+              icons={{
+                checked: <span>Yes</span>,
+                unchecked: <span>No</span>
+              }}
+              onChange={onChange}
+            />
+          </FlexRow>
+        </FormGroup>
+        {propertiesEnabled ? (
+          <FormGroup>
+            <ControlLabel>Properties</ControlLabel>
+            <p>
+              {'Following properties will be added as field into this form.'}
+            </p>
+            <Select
+              placeholder={__('Select properties')}
+              onChange={onSelectProperty}
+              value={selectedProperties}
+              options={
+                properties &&
+                properties.map(e => ({ label: e.text, value: e._id }))
+              }
+              multi={true}
+            />
+          </FormGroup>
+        ) : null}
+      </>
+    );
+  };
+
   return (
     <LogicItem>
       <LogicRow>
@@ -290,6 +355,7 @@ function FieldLogic(props: Props) {
           {renderFields()}
           {renderTags()}
           {renderBoardItemSelect()}
+
           <LogicRow>
             <RowSmall>
               <ControlLabel>Operator</ControlLabel>
@@ -306,6 +372,7 @@ function FieldLogic(props: Props) {
               <RowFill>{renderLogicValue()}</RowFill>
             </Formgroup>
           </LogicRow>
+          {renderProperties()}
         </RowFill>
         <Button onClick={remove} btnStyle="danger" icon="times" />
       </LogicRow>

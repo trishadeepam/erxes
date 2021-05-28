@@ -19,6 +19,7 @@ type Props = {
     callback: (cards: any) => void
   ) => void;
   onChangeCard: (name?: string, cardId?: string) => void;
+  onFetchProperties: (fields: IField[]) => void;
 };
 
 type State = {
@@ -29,6 +30,7 @@ type State = {
   pipelineId: string;
   cards: any;
   cardId: string;
+  properties?: IField[];
 };
 
 class AddForm extends React.Component<Props, State> {
@@ -62,7 +64,8 @@ class AddForm extends React.Component<Props, State> {
         this.state.pipelineId,
         (fields: IField[]) => {
           if (fields) {
-            console.log('field: ', fields);
+            this.props.onFetchProperties(fields);
+            this.setState({ properties: fields });
           }
         }
       );

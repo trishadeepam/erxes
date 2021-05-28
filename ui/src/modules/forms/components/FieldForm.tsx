@@ -219,7 +219,7 @@ class FieldForm extends React.Component<Props, State> {
   renderCustomOption() {
     const { field } = this.state;
 
-    if (field.type !== 'radio') {
+    if (!['radio', 'check'].includes(field.type)) {
       return null;
     }
 
