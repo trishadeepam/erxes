@@ -11,6 +11,8 @@ export interface IFieldLogic {
   boardId?: string;
   pipelineId?: string;
   stageId?: string;
+  itemId?: string;
+  itemName?: string;
   __typename?: string;
 }
 export interface IField {

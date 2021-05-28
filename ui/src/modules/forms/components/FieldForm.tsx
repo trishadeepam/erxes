@@ -438,12 +438,23 @@ class FieldForm extends React.Component<Props, State> {
           {this.renderCustomProperty()}
         </CollapseContent>
 
-        <CollapseContent title={__('Logics & Actions')} compact={true}>
+        <CollapseContent title={__('Logics')} compact={true}>
           <FieldLogics
             fields={fields}
             currentField={field}
             onFieldChange={this.onFieldChange}
             tags={this.props.tags}
+            type="logic"
+          />
+        </CollapseContent>
+
+        <CollapseContent title={__('Actions')} compact={true}>
+          <FieldLogics
+            fields={fields}
+            currentField={field}
+            onFieldChange={this.onFieldChange}
+            tags={this.props.tags}
+            type="action"
           />
         </CollapseContent>
 

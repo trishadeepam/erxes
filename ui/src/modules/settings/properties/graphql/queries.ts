@@ -89,6 +89,8 @@ const fields = `
         pipelineId
         boardId
         stageId
+        itemId
+        itemName
       }
       groupName
       stageId

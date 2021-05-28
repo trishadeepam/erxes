@@ -17,34 +17,41 @@ import {
   stringTypeChoices
 } from '../constants';
 import { DateWrapper, LogicItem, LogicRow, RowFill, RowSmall } from '../styles';
-import BoardSelect from 'modules/boards/containers/BoardSelect';
+// import BoardSelect from 'modules/boards/containers/BoardSelect';
+// import CardSelect from 'modules/boards/components/portable/CardSelect';
+import BoardItemSelectContainer from '../containers/BoardItemSelect';
 
 type Props = {
   onChangeLogic: (
     name: string,
     value: string | number | Date,
-    index: number
+    index: number,
+    title?: string
   ) => void;
   logic: IFieldLogic;
   fields: IField[];
   index: number;
   removeLogic: (index: number) => void;
+  fetchCards?: (stageId: string, callback: (cards: any) => void) => void;
   tags: ITag[];
   currentField: IField;
-  type?: string;
+  type: string;
 };
 
-const showOptions = [
+const logicOptions = [
   { value: 'show', label: 'Show this field' },
-  { value: 'hide', label: 'Hide this field' },
-  { value: 'tag', label: 'Add a tag' },
-  { value: 'deal', label: 'Create a Sales Pipeline' },
+  { value: 'hide', label: 'Hide this field' }
+];
+
+const actionOptions = [
+  { value: 'tag', label: 'Tag this contact' },
+  { value: 'deal', label: 'Create a deal' },
   { value: 'task', label: 'Create a task' },
   { value: 'ticket', label: 'Create a ticket' }
 ];
 
 function FieldLogic(props: Props) {
-  const { fields, logic, onChangeLogic, removeLogic, index } = props;
+  const { fields, logic, onChangeLogic, removeLogic, index, type } = props;
 
   const getSelectedField = () => {
     return fields.find(
@@ -53,7 +60,11 @@ function FieldLogic(props: Props) {
   };
 
   const getOperatorOptions = () => {
-    const selectedField = getSelectedField();
+    let selectedField = getSelectedField();
+
+    if (type === 'action') {
+      selectedField = props.currentField;
+    }
 
     if (selectedField && selectedField.validation) {
       if (selectedField.validation === 'number') {
@@ -72,7 +83,7 @@ function FieldLogic(props: Props) {
     const value = e.target.value;
     onChangeLogic('fieldId', '', index);
 
-    if (value === props.currentField._id) {
+    if (props.type === 'action') {
       onChangeLogic('fieldId', 'self', index);
     }
 
@@ -103,6 +114,11 @@ function FieldLogic(props: Props) {
   };
 
   const onChangeLogicAction = e => {
+    onChangeLogic('boardId', '', index);
+    onChangeLogic('pipelineId', '', index);
+    onChangeLogic('stageId', '', index);
+    onChangeLogic('itemId', '', index);
+    onChangeLogic('itemName', '', index);
     onChangeLogic('logicAction', e.currentTarget.value, index);
   };
 
@@ -111,7 +127,11 @@ function FieldLogic(props: Props) {
   };
 
   const renderLogicValue = () => {
-    const selectedField = getSelectedField();
+    let selectedField = getSelectedField();
+
+    if (type === 'action') {
+      selectedField = props.currentField;
+    }
 
     if (selectedField) {
       if (
@@ -176,7 +196,7 @@ function FieldLogic(props: Props) {
   };
 
   const renderTags = () => {
-    if (logic.logicAction !== 'tag') {
+    if (logic.logicAction !== 'tag' || !logic.logicAction) {
       return null;
     }
 
@@ -184,7 +204,7 @@ function FieldLogic(props: Props) {
       <FormGroup>
         <SelectTags
           type={'customer'}
-          description="tag lead"
+          description="tag contact"
           onChange={onChangeTags}
           defaultValue={logic.tagIds || []}
         />
@@ -192,42 +212,32 @@ function FieldLogic(props: Props) {
     );
   };
 
-  // const [stageId, stgIdOnChange] = useState(logic.stageId || '');
-
-  const onChangeStage = value => {
-    console.log('asd: ', logic.stageId);
-    onChangeLogic('stageId', value, index);
-  };
-
-  const onChangePipeline = value => {
-    onChangeLogic('pipelineId', value, index);
-  };
-
-  const onChangeBoard = value => {
-    onChangeLogic('boardId', value, index);
-  };
-
   const renderBoardItemSelect = () => {
     if (!['task', 'deal', 'ticket'].includes(logic.logicAction)) {
       return null;
     }
 
+    const onChangeCardSelect = (name, cardId) => {
+      onChangeLogic('itemId', cardId, index);
+      onChangeLogic('itemName', name, index);
+    };
+
     return (
-      <FormGroup>
-        <BoardSelect
-          type={logic.logicAction || 'task'}
-          stageId={logic.stageId}
-          pipelineId={logic.pipelineId || ''}
-          boardId={logic.boardId || ''}
-          onChangeStage={onChangeStage}
-          onChangePipeline={onChangePipeline}
-          onChangeBoard={onChangeBoard}
-        />
-      </FormGroup>
+      <BoardItemSelectContainer
+        type={logic.logicAction}
+        boardId={logic.boardId}
+        pipelineId={logic.pipelineId}
+        stageId={logic.stageId}
+        onChangeCard={onChangeCardSelect}
+      />
     );
   };
 
   const renderFields = () => {
+    if (type === 'action') {
+      return null;
+    }
+
     let options = fields;
     if (!['show', 'hide'].includes(logic.logicAction)) {
       const { currentField } = props;
@@ -272,7 +282,7 @@ function FieldLogic(props: Props) {
               componentClass="select"
               defaultValue={logic.logicAction}
               name="logicAction"
-              options={showOptions}
+              options={type === 'logic' ? logicOptions : actionOptions}
               onChange={onChangeLogicAction}
             />
           </FormGroup>

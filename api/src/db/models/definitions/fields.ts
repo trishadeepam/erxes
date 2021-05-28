@@ -19,6 +19,8 @@ export interface ILogic {
   logicAction: string;
   tagIds?: string[];
   stageId?: string;
+  itemId?: string;
+  itemName?: string;
 }
 
 export const logicSchema = new Schema(
@@ -42,6 +44,14 @@ export const logicSchema = new Schema(
       optional: true
     }),
     stageId: field({
+      type: String,
+      optional: true
+    }),
+    itemId: field({
+      type: String,
+      optional: true
+    }),
+    itemName: field({
       type: String,
       optional: true
     })

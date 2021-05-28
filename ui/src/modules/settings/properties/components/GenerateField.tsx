@@ -20,6 +20,7 @@ type Props = {
   onValueChange?: (data: { _id: string; value: any }) => void;
   defaultValue?: any;
   hasLogic?: boolean;
+  hasAction?: boolean;
 };
 
 type State = {
@@ -395,7 +396,7 @@ export default class GenerateField extends React.Component<Props, State> {
   }
 
   render() {
-    const { field, hasLogic } = this.props;
+    const { field, hasLogic, hasAction } = this.props;
 
     return (
       <FormGroup>
@@ -403,6 +404,7 @@ export default class GenerateField extends React.Component<Props, State> {
           {field.text}
         </ControlLabel>
         {hasLogic && <LogicIndicator>Logic</LogicIndicator>}
+        {hasAction && <LogicIndicator>Action</LogicIndicator>}
         {field.description ? <p>{field.description}</p> : null}
 
         {this.renderControl()}

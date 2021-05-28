@@ -17,6 +17,7 @@ type Props = {
   fields: IField[];
   currentField: IField;
   tags: ITag[];
+  type: string;
 };
 
 // const showOptions = [
@@ -26,7 +27,7 @@ type Props = {
 // ];
 
 function FieldLogics(props: Props) {
-  const { fields, currentField, onFieldChange } = props;
+  const { fields, currentField, onFieldChange, type } = props;
 
   const [logics, setLogics] = useState(
     (currentField.logics || []).map(
@@ -60,10 +61,6 @@ function FieldLogics(props: Props) {
     onFieldChange('logics', logics);
   }, [logics, onFieldChange]);
 
-  const [isEnabled, toggleState] = useState(
-    currentField.logics ? currentField.logics.length > 0 : false
-  );
-
   // const onChangeLogicAction = e =>
   //   onFieldChange('logicAction', e.currentTarget.value);
 
@@ -81,6 +78,12 @@ function FieldLogics(props: Props) {
   };
 
   const addLogic = () => {
+    let logicAction = 'show';
+
+    if (type === 'action') {
+      logicAction = 'tag';
+    }
+
     setLogics([
       ...logics,
       {
@@ -88,7 +91,7 @@ function FieldLogics(props: Props) {
         tempFieldId: '',
         logicOperator: 'is',
         logicValue: '',
-        logicAction: 'show',
+        logicAction,
         tagIds: undefined,
         stageId: undefined,
         boardId: undefined,
@@ -98,8 +101,7 @@ function FieldLogics(props: Props) {
   };
 
   const onEnableLogic = () => {
-    toggleState(true);
-    onFieldChange('logicAction', 'show');
+    onFieldChange('logicAction', type === 'logic' ? 'show' : 'tag');
     addLogic();
   };
 
@@ -108,7 +110,30 @@ function FieldLogics(props: Props) {
   };
 
   const renderContent = () => {
-    if (isEnabled) {
+    let enabled = false;
+
+    let hasLogic = false;
+    let hasAction = false;
+
+    for (const logic of currentField.logics || []) {
+      if (['show', 'hide'].includes(logic.logicAction)) {
+        hasLogic = true;
+      }
+
+      if (['tag', 'deal', 'task', 'ticket'].includes(logic.logicAction)) {
+        hasAction = true;
+      }
+    }
+
+    if (type === 'action' && hasAction) {
+      enabled = true;
+    }
+
+    if (type === 'logic' && hasLogic) {
+      enabled = true;
+    }
+
+    if (enabled) {
       return (
         <>
           {/* <FormGroup>
@@ -130,11 +155,12 @@ function FieldLogics(props: Props) {
               index={index}
               tags={props.tags}
               currentField={props.currentField}
+              type={type}
             />
           ))}
 
           <LinkButton onClick={addLogic}>
-            <Icon icon="plus-1" /> Add Logic Rule
+            <Icon icon="plus-1" /> {`Add another ${type}`}
           </LinkButton>
         </>
       );
@@ -148,7 +174,7 @@ function FieldLogics(props: Props) {
         icon="check-circle"
         onClick={onEnableLogic}
       >
-        Enable Logic
+        {`Enable ${type}`}
       </Button>
     );
   };

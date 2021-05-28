@@ -26,6 +26,8 @@ export const fieldsTypes = `
     stageId: String
     pipelineId: String
     boardId: String
+    itemName: String
+    itemId: String
   }
 
   type Field {
@@ -58,6 +60,8 @@ export const fieldsTypes = `
     logicValue: JSON
     logicAction: String!
     tagIds: [String]
+    itemId: String
+    itemName: String
     stageId: String
     pipelineId: String
     boardId: String

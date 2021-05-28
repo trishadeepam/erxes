@@ -173,6 +173,8 @@ const fields = `
         stageId
         pipelineId
         boardId
+        itemId
+        itemName
       }
       groupName
       associatedFieldId
