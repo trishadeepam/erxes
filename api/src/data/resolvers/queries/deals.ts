@@ -1,4 +1,4 @@
-import { Deals, Products } from '../../../db/models';
+import { Deals, Products, LoanApplications } from '../../../db/models';
 import {
   checkPermission,
   moduleRequireLogin
@@ -17,6 +17,7 @@ import {
 
 interface IDealListParams extends IListParams {
   productIds?: [string];
+  loanApplicationId: string;
 }
 
 const dealQueries = {
@@ -57,8 +58,18 @@ const dealQueries = {
     const products = await Products.find({
       _id: { $in: [...new Set(dealProductIds)] }
     });
-
+    const loanApplicationIds = deals.flatMap(deal =>
+      deal.applicationId ? deal.applicationId : null
+    );
+    const loanApplications = await LoanApplications.find({
+      _id: { $in: [...new Set(loanApplicationIds)] }
+    });
     for (const deal of deals) {
+      if (deal.applicationId) {
+        deal.loanApplication = loanApplications.find(
+          la => la._id === deal.loanApplicationId
+        );
+      }
       if (
         !deal.productsData ||
         (deal.productsData && deal.productsData.length === 0)
@@ -79,7 +90,6 @@ const dealQueries = {
         });
       }
     }
-
     return deals;
   },
 

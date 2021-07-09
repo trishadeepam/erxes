@@ -16,7 +16,6 @@ export const field = options => {
     options.type = String;
     options.default = () => Random.id();
   }
-
   return options;
 };
 

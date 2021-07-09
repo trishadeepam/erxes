@@ -241,7 +241,8 @@ export const ACTIVITY_PERFORMER_TYPES = {
 export const PRODUCT_TYPES = {
   PRODUCT: 'product',
   SERVICE: 'service',
-  ALL: ['product', 'service']
+  LOAN: 'loan',
+  ALL: ['product', 'service', 'loan']
 };
 
 export const PRODUCT_STATUSES = {
@@ -473,7 +474,20 @@ export const BOARD_TYPES = {
   GROWTH_HACK: 'growthHack',
   ALL: ['deal', 'ticket', 'task', 'growthHack']
 };
-
+export const INTEREST_FREQUENCIES = {
+  DAILY: 'per-day',
+  WEELKY: 'per-week',
+  MONTHLY: 'per-month',
+  QUARTERLY: 'per-quarter',
+  ANNUAL: 'per-year'
+};
+export const INTEREST_FREQUENCY = [
+  { value: INTEREST_FREQUENCIES.ANNUAL, label: 'Per Year' },
+  { value: INTEREST_FREQUENCIES.DAILY, label: 'Per Day' },
+  { value: INTEREST_FREQUENCIES.MONTHLY, label: 'Per Month' },
+  { value: INTEREST_FREQUENCIES.QUARTERLY, label: 'Per Quarter' },
+  { value: INTEREST_FREQUENCIES.WEELKY, label: 'Per Week' }
+];
 export const MESSAGE_TYPES = {
   VIDEO_CALL: 'videoCall',
   VIDEO_CALL_REQUEST: 'videoCallRequest',

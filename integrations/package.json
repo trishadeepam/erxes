@@ -48,6 +48,7 @@
     "sanitize-html": "^1.20.1",
     "sinon": "^7.5.0",
     "smooch-core": "^8.8.0",
+    "swagger-ui-express": "^4.1.6",
     "telnyx": "^1.7.2",
     "ts-node": "8.0.3",
     "underscore": "^1.10.2",
@@ -57,6 +58,7 @@
     "kerberos": "^1.0.0"
   },
   "devDependencies": {
+    "faker": "^5.5.3",
     "jest": "22.0.4",
     "ts-jest": "22.0.4",
     "ts-node-dev": "^1.0.0-pre.32",

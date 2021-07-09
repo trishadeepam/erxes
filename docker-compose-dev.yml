@@ -1,0 +1,41 @@
+version: "3.7"
+services:
+  mongo:
+    image: mongo:3.6.13
+    container_name: mongo
+    restart: unless-stopped
+    healthcheck:
+      test: echo 'rs.initiate().ok' | mongo localhost:27017/test?replicaSet=rs0 --quiet
+      interval: 2s
+      timeout: 2s
+      retries: 200
+    command: ["--replSet", "rs0", "--bind_ip_all"]
+    networks:
+      - erxes-net
+    # MongoDB data will be saved into ./mongo-data folder.
+    volumes:
+      - ./mongo-data:/data/db
+  elasticsearch:
+    image: docker.elastic.co/elasticsearch/elasticsearch:7.5.2
+    container_name: elasticsearch
+    environment:
+      - bootstrap.memory_lock=true
+      - "ES_JAVA_OPTS=-Xms512m -Xmx512m"s
+      - discovery.type=single-node
+    ulimits:
+      memlock:
+        soft: -1
+        hard: -1
+    volumes:
+      - ./elasticsearch-data:/usr/share/elasticsearch/data
+    networks:
+      - erxes-net
+    healthcheck:
+      test: curl -s http://localhost:9200 >/dev/null; if [[ $$? == 52 ]]; then echo 0; else echo 1; fi
+      interval: 30s
+      timeout: 10s
+      retries: 5
+
+networks:
+  erxes-net:
+    driver: bridge

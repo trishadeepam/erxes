@@ -78,7 +78,12 @@ export const Footer = styled.div`
 export const HeaderRow = styled(FlexContent)`
   margin-bottom: 30px;
 `;
-
+export const HeaderRowMini = styled(FlexContent)`
+  margin-bottom: 0px;
+`;
+export const HeaderRowSmall = styled(FlexContent)`
+  margin-bottom: 20px;
+`;
 export const HeaderContent = styled.div`
   flex: 1;
 

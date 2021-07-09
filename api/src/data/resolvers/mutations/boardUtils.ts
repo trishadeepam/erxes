@@ -115,7 +115,6 @@ export const itemsAdd = async (
     companyIds: doc.companyIds,
     customerIds: doc.customerIds
   });
-
   await sendNotifications({
     item,
     user,

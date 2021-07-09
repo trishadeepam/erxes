@@ -14,6 +14,7 @@ import { debugError } from './debuggers';
 import memoryStorage from './inmemoryStorage';
 import messageBroker from './messageBroker';
 import { graphqlPubsub } from './pubsub';
+import { putCreateLog, putDeleteLog, putUpdateLog } from './data/logUtils';
 
 interface ISubAfterMutations {
   [action: string]: {
@@ -53,12 +54,11 @@ export const execInEveryPlugin = callback => {
     __dirname,
     process.env.NODE_ENV === 'production' ? './plugins' : '../../plugins'
   );
-
   if (fs.existsSync(pluginsPath)) {
     fs.readdir(pluginsPath, (_error, plugins) => {
       const pluginsCount = plugins.length;
-
       plugins.forEach((plugin, index) => {
+        let modelExtensions = [];
         let routes = [];
         let msgBrokers = [];
         let models = [];
@@ -69,7 +69,6 @@ export const execInEveryPlugin = callback => {
         let afterMutations = [];
         let activityContents = [];
         let constants = {};
-
         const graphqlSchema = {
           types: '',
           queries: '',
@@ -77,7 +76,7 @@ export const execInEveryPlugin = callback => {
           subscriptions: ''
         };
 
-        const ext = process.env.NODE_ENV === 'production' ? 'js' : 'ts';
+        const ext = process.env.NODE_ENV === 'production' ? 'js' : 'js';
 
         const permissionsPath = `${pluginsPath}/${plugin}/api/permissions.${ext}`;
         const routesPath = `${pluginsPath}/${plugin}/api/routes.${ext}`;
@@ -90,6 +89,7 @@ export const execInEveryPlugin = callback => {
         const afterMutationsPath = `${pluginsPath}/${plugin}/api/graphql/afterMutations.${ext}`;
         const activityContentsPath = `${pluginsPath}/${plugin}/api/graphql/activityContents.${ext}`;
         const modelsPath = `${pluginsPath}/${plugin}/api/models.${ext}`;
+        const modelExtensionsPath = `${pluginsPath}/${plugin}/api/modelExtensions.${ext}`;
         const constantsPath = `${pluginsPath}/${plugin}/api/constants.${ext}`;
 
         if (fs.existsSync(permissionsPath)) {
@@ -113,7 +113,9 @@ export const execInEveryPlugin = callback => {
         if (fs.existsSync(modelsPath)) {
           models = tryRequire(modelsPath).default;
         }
-
+        if (fs.existsSync(modelExtensionsPath)) {
+          modelExtensions = tryRequire(modelExtensionsPath).default;
+        }
         if (fs.existsSync(constantsPath)) {
           constants = tryRequire(constantsPath).default;
         }
@@ -166,6 +168,7 @@ export const execInEveryPlugin = callback => {
 
         callback({
           isLastIteration: pluginsCount === index + 1,
+          modelExtensions,
           routes,
           msgBrokers,
           graphqlSchema,
@@ -184,6 +187,7 @@ export const execInEveryPlugin = callback => {
     callback({
       isLastIteration: true,
       constants: {},
+      modelExtensions: [],
       graphqlSchema: {},
       graphqlResolvers: [],
       graphqlQueries: [],
@@ -219,6 +223,7 @@ export const extendViaPlugins = (
     execInEveryPlugin(
       async ({
         isLastIteration,
+        modelExtensions,
         graphqlSchema,
         graphqlResolvers,
         graphqlQueries,
@@ -235,26 +240,28 @@ export const extendViaPlugins = (
             return res.send(route.handler({ req, models: allModels }));
           });
         });
-
         if (models && models.length) {
           models.forEach(model => {
-            for (const perField of Object.keys(model.schema)) {
-              model.schema[perField] = field(model.schema[perField]);
-            }
-
+            // for (const perField of Object.keys(model.schema)) {
+            //   console.log(`${model.name} - ${perField}`)
+            //   console.log(model.schema[perField])
+            //   model.schema[perField] = field(model.schema[perField]);
+            // }
             if (model.klass) {
-              model.schema = new mongoose.Schema(model.schema).loadClass(
-                model.klass
-              );
+              model.schema.loadClass(model.klass);
             }
-
             allModels[model.name] = mongoose.model(
               model.name.replace(/([a-z])([A-Z])/g, '$1_$2').toLowerCase(),
               model.schema
             );
           });
         }
-
+        if (modelExtensions && modelExtensions.length > 0) {
+          modelExtensions.forEach(extension => {
+            const { extensionHandler, model } = extension;
+            extensionHandler(allModels[model].schema);
+          });
+        }
         if (graphqlSchema.types) {
           types = `
             ${types}
@@ -291,7 +298,8 @@ export const extendViaPlugins = (
             graphqlPubsub,
             checkLogin,
             checkPermission,
-            messageBroker
+            messageBroker,
+            logUtils: { putCreateLog, putDeleteLog, putUpdateLog }
           };
         };
 
@@ -323,7 +331,6 @@ export const extendViaPlugins = (
             };
           }
         }
-
         if (graphqlResolvers) {
           for (const resolver of graphqlResolvers) {
             if (!Object.keys(resolvers).includes(resolver.type)) {
@@ -344,7 +351,7 @@ export const extendViaPlugins = (
             if (!Object.keys(pluginsConsumers).includes(mbroker.channel)) {
               pluginsConsumers[mbroker.channel] = {};
             }
-            pluginsConsumers[mbroker.channel] = mbroker;
+            pluginsConsumers[mbroker.channel] = mbroker.init(resolvers);
           });
         }
 
@@ -396,14 +403,18 @@ export const pluginsConsume = client => {
   const context = {
     models: allModels,
     memoryStorage,
-    graphqlPubsub
+    graphqlPubsub,
+    logUtils: { putCreateLog, putDeleteLog, putUpdateLog }
   };
 
   for (const channel of Object.keys(pluginsConsumers)) {
     const mbroker = pluginsConsumers[channel];
 
     if (mbroker.method === 'RPCQueue') {
-      consumeRPCQueue(channel, async msg => mbroker.handler(msg, context));
+      consumeRPCQueue(
+        channel,
+        async msg => await mbroker.handler(msg, context)
+      );
     } else {
       consumeQueue(channel, async msg => await mbroker.handler(msg, context));
     }

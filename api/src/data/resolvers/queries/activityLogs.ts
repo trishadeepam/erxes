@@ -1,3 +1,4 @@
+import { isArray } from 'underscore';
 import {
   Conformities,
   Conversations,
@@ -42,6 +43,9 @@ const activityLogQueries = {
     });
 
     const collectItems = (items: any, type?: string) => {
+      if (!isArray(items)) {
+        items = [items];
+      }
       if (items) {
         items.map(item => {
           let result: IActivityLogDocument = {} as any;

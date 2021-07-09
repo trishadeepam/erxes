@@ -2,9 +2,15 @@ import EditForm from 'modules/boards/components/editForm/EditForm';
 import Left from 'modules/boards/components/editForm/Left';
 import Sidebar from 'modules/boards/components/editForm/Sidebar';
 import Top from 'modules/boards/components/editForm/Top';
-import { FlexContent, HeaderContentSmall } from 'modules/boards/styles/item';
+import {
+  FlexContent,
+  HeaderContentSmall,
+  HeaderRowSmall
+} from 'modules/boards/styles/item';
 import { IEditFormContent, IItem, IOptions } from 'modules/boards/types';
 import ControlLabel from 'modules/common/components/form/Label';
+import { Tabs, TabTitle } from 'modules/common/components/tabs';
+import { __ } from 'modules/common/utils';
 import ProductSection from 'modules/deals/components/ProductSection';
 import { IProduct } from 'modules/settings/productService/types';
 import PortableTasks from 'modules/tasks/components/PortableTasks';
@@ -24,7 +30,9 @@ type Props = {
   beforePopupClose: (afterPopupClose?: () => void) => void;
   sendToBoard?: (item: any) => void;
 };
-
+type StringState = {
+  currentTab: string;
+};
 type State = {
   amount: any;
   products: IProduct[];
@@ -32,7 +40,7 @@ type State = {
   paymentsData: IPaymentsData;
   changePayData: IPaymentsData;
   updatedItem?: IItem;
-};
+} & StringState;
 
 export default class DealEditForm extends React.Component<Props, State> {
   constructor(props) {
@@ -46,10 +54,13 @@ export default class DealEditForm extends React.Component<Props, State> {
       // collecting data for ItemCounter component
       products: item.products ? item.products.map(p => p.product) : [],
       paymentsData: item.paymentsData,
-      changePayData: {}
+      changePayData: {},
+      currentTab: 'deal'
     };
   }
-
+  onChange = (name: string, value: string) => {
+    this.setState({ [name]: value } as Pick<StringState, keyof StringState>);
+  };
   renderAmount = () => {
     const { amount } = this.state;
 
@@ -172,7 +183,10 @@ export default class DealEditForm extends React.Component<Props, State> {
     remove
   }: IEditFormContent) => {
     const { item, options, onUpdate, addItem, sendToBoard } = this.props;
-
+    const { currentTab } = this.state;
+    const tabOnClick = (name: string) => {
+      this.onChange('currentTab', name);
+    };
     return (
       <>
         <Top
@@ -183,28 +197,53 @@ export default class DealEditForm extends React.Component<Props, State> {
           saveItem={saveItem}
           onChangeStage={onChangeStage}
         />
+        <HeaderRowSmall>
+          <Tabs full={true}>
+            <TabTitle
+              className={currentTab === 'deal' ? 'active' : ''}
+              onClick={tabOnClick.bind(this, 'deal')}
+            >
+              {__('Deal Interaction')}
+            </TabTitle>
+            <TabTitle
+              className={currentTab === 'company' ? 'active' : ''}
+              onClick={tabOnClick.bind(this, 'company')}
+            >
+              {__('Company')}
+            </TabTitle>
+            <TabTitle
+              className={currentTab === 'customer' ? 'active' : ''}
+              onClick={tabOnClick.bind(this, 'customer')}
+            >
+              {__('Customer')}
+            </TabTitle>
+          </Tabs>
+        </HeaderRowSmall>
+        {currentTab === 'deal' && (
+          <FlexContent>
+            <Left
+              options={options}
+              saveItem={saveItem}
+              copyItem={copy}
+              removeItem={remove}
+              onUpdate={onUpdate}
+              sendToBoard={sendToBoard}
+              item={item}
+              addItem={addItem}
+              onChangeStage={onChangeStage}
+            />
 
-        <FlexContent>
-          <Left
-            options={options}
-            saveItem={saveItem}
-            copyItem={copy}
-            removeItem={remove}
-            onUpdate={onUpdate}
-            sendToBoard={sendToBoard}
-            item={item}
-            addItem={addItem}
-            onChangeStage={onChangeStage}
-          />
-
-          <Sidebar
-            options={options}
-            item={item}
-            sidebar={this.renderProductSection}
-            saveItem={saveItem}
-            renderItems={this.renderItems}
-          />
-        </FlexContent>
+            <Sidebar
+              options={options}
+              item={item}
+              sidebar={this.renderProductSection}
+              saveItem={saveItem}
+              renderItems={this.renderItems}
+            />
+          </FlexContent>
+        )}
+        {currentTab === 'customer' && <div>Customer</div>}
+        {currentTab === 'company' && <div>Company</div>}
       </>
     );
   };

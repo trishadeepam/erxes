@@ -30,6 +30,8 @@ import initTwitter from './twitter/controller';
 import userMiddleware from './userMiddleware';
 import initDaily from './videoCall/controller';
 import initWhatsapp from './whatsapp/controller';
+import initLos from './loanApplication/controller';
+import initLosMessageBroker from './loanApplication/messageBroker';
 
 const app = express();
 
@@ -177,6 +179,9 @@ initSmooch(app);
 // init telnyx
 initTelnyx(app);
 
+// init los
+initLos(app);
+
 // Error handling middleware
 app.use((error, _req, res, _next) => {
   console.error(error.stack);
@@ -184,7 +189,6 @@ app.use((error, _req, res, _next) => {
 });
 
 const { PORT } = process.env;
-
 app.listen(PORT, () => {
   connect().then(async () => {
     await initBroker(app);
@@ -193,6 +197,8 @@ app.listen(PORT, () => {
 
     // Initialize startup
     init();
+    // Initialize any message brokers
+    initLosMessageBroker();
   });
 
   debugInit(`Integrations server is running on port ${PORT}`);

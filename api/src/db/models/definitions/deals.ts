@@ -4,9 +4,15 @@ import {
   commonItemFieldsSchema,
   IItemCommonFields
 } from './boards';
+import * as _ from 'underscore';
 import { customFieldSchema, ICustomField } from './common';
 import { ICompany } from './companies';
-import { PRODUCT_STATUSES, PRODUCT_TYPES } from './constants';
+import {
+  PRODUCT_STATUSES,
+  PRODUCT_TYPES,
+  INTEREST_FREQUENCIES,
+  INTEREST_FREQUENCY
+} from './constants';
 import { field, schemaWrapper } from './utils';
 
 export interface IProduct {
@@ -60,6 +66,11 @@ export interface IProductData extends Document {
   amount?: number;
   tickUsed?: boolean;
   assignUserId?: string;
+  loanAmount: number;
+  processingFees: number;
+  interestRate: number;
+  loanTenureInMonths: number;
+  interestFrequency: String;
 }
 
 interface IPaymentsData {
@@ -72,6 +83,7 @@ interface IPaymentsData {
 export interface IDeal extends IItemCommonFields {
   productsData?: IProductData[];
   paymentsData?: IPaymentsData[];
+  loanApplicationId: string;
 }
 
 export interface IDealDocument extends IDeal, Document {
@@ -102,7 +114,7 @@ export const productSchema = schemaWrapper(
       label: 'Custom fields data'
     }),
     createdAt: field({
-      type: Date,
+      type: 'Date',
       default: new Date(),
       label: 'Created at'
     }),
@@ -151,7 +163,20 @@ export const productDataSchema = new Schema(
     discount: field({ type: Number }), // Discount
     amount: field({ type: Number }), // Amount
     tickUsed: field({ type: Boolean }), // TickUsed
-    assignUserId: field({ type: String }) // AssignUserId
+    assignUserId: field({ type: String }), // AssignUserId
+    loanAmount: field({ type: Number, label: 'Loan Amount' }),
+    processingFees: field({ type: Number, label: 'Processing Fees (%)' }),
+    interestRate: field({ type: Number, label: 'Interest Rate(%)' }),
+    loanTenureInMonths: field({
+      type: Number,
+      label: 'Loan Tenure in Months'
+    }),
+    interestFrequency: field({
+      type: String,
+      enum: _.values(INTEREST_FREQUENCIES),
+      label: 'Interest Frequency',
+      selectOptions: INTEREST_FREQUENCY
+    })
   },
   { _id: false }
 );
@@ -161,6 +186,11 @@ export const dealSchema = schemaWrapper(
     ...commonItemFieldsSchema,
 
     productsData: field({ type: [productDataSchema], label: 'Products' }),
-    paymentsData: field({ type: Object, optional: true, label: 'Payments' })
+    paymentsData: field({ type: Object, optional: true, label: 'Payments' }),
+    loanApplicationId: field({
+      type: String,
+      optional: true,
+      label: 'Loan Application'
+    })
   })
 );

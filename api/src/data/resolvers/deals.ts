@@ -7,8 +7,10 @@ import {
   PipelineLabels,
   Pipelines,
   Products,
-  Stages
+  Stages,
+  LoanApplications
 } from '../../db/models';
+
 import { IDealDocument } from '../../db/models/definitions/deals';
 import { IContext } from '../types';
 import { boardId } from './boardUtils';
@@ -34,7 +36,16 @@ export default {
 
     return Customers.find({ _id: { $in: customerIds } });
   },
-
+  async loanApplication(deal: IDealDocument) {
+    if (deal.loanApplicationId) {
+      const loanApplication = await LoanApplications.findOne({
+        _id: deal.loanApplicationId
+      });
+      return loanApplication;
+    } else {
+      return {};
+    }
+  },
   async products(deal: IDealDocument) {
     const products: any = [];
 

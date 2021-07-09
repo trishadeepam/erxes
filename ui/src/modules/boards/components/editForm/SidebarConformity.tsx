@@ -24,9 +24,17 @@ class SidebarConformity extends React.Component<Props> {
 
     return (
       <RightContent>
-        <CompanySection mainType={options.type} mainTypeId={item._id} />
+        <CompanySection
+          mainType={options.type}
+          mainTypeId={item._id}
+          companies={item.companies}
+        />
 
-        <CustomerSection mainType={options.type} mainTypeId={item._id} />
+        <CustomerSection
+          mainType={options.type}
+          mainTypeId={item._id}
+          customers={item.customers}
+        />
 
         {renderItems()}
       </RightContent>

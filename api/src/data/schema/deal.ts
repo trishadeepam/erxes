@@ -22,6 +22,7 @@ export const types = `
     products: JSON
     productsData: JSON
     paymentsData: JSON
+    loanApplication: JSON
     ${commonTypes}
   }
 
@@ -40,6 +41,7 @@ export const types = `
 const dealMutationParams = `
   paymentsData: JSON,
   productsData: JSON,
+  loanApplication: JSON,
 `;
 
 const commonQueryParams = `
@@ -47,6 +49,7 @@ const commonQueryParams = `
   pipelineId: String
   customerIds: [String]
   companyIds: [String]
+  loanApplicationId: String
   assignedUserIds: [String]
   productIds: [String]
   closeDateType: String

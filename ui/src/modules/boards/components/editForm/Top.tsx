@@ -1,4 +1,9 @@
-import { HeaderContent, HeaderRow, TitleRow } from 'modules/boards/styles/item';
+import {
+  HeaderContent,
+  HeaderRow,
+  HeaderRowMini,
+  TitleRow
+} from 'modules/boards/styles/item';
 import FormControl from 'modules/common/components/form/Control';
 import Icon from 'modules/common/components/Icon';
 import React, { useEffect, useState } from 'react';
@@ -72,7 +77,7 @@ function Top(props: Props) {
         {amount && amount()}
       </HeaderRow>
 
-      <HeaderRow>
+      <HeaderRowMini>
         <HeaderContent>{renderMove()}</HeaderContent>
 
         <CloseDate
@@ -81,7 +86,7 @@ function Top(props: Props) {
           reminderMinute={item.reminderMinute}
           isComplete={item.isComplete}
         />
-      </HeaderRow>
+      </HeaderRowMini>
     </React.Fragment>
   );
 }
