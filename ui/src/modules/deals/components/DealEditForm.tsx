@@ -18,6 +18,11 @@ import PortableTickets from 'modules/tickets/components/PortableTickets';
 import { pluginsOfItemSidebar } from 'pluginUtils';
 import React from 'react';
 import { IDeal, IDealParams, IPaymentsData } from '../types';
+import Form from '@rjsf/bootstrap-4';
+import { customerPostSchema } from './form';
+import { companyPostSchema } from './companyform';
+import { loanPostSchema } from './loanform';
+import { agentPostSchema } from './agentform';
 
 type Props = {
   options: IOptions;
@@ -33,6 +38,13 @@ type Props = {
 type StringState = {
   currentTab: string;
 };
+
+const divStyle = {
+  background: '#F9F9F9',
+  padding: '20px',
+  margin: '20px'
+};
+
 type State = {
   amount: any;
   products: IProduct[];
@@ -47,7 +59,7 @@ export default class DealEditForm extends React.Component<Props, State> {
     super(props);
 
     const item = props.item;
-
+    console.log(item);
     this.state = {
       amount: item.amount || {},
       productsData: item.products ? item.products.map(p => ({ ...p })) : [],
@@ -58,9 +70,11 @@ export default class DealEditForm extends React.Component<Props, State> {
       currentTab: 'deal'
     };
   }
+
   onChange = (name: string, value: string) => {
     this.setState({ [name]: value } as Pick<StringState, keyof StringState>);
   };
+
   renderAmount = () => {
     const { amount } = this.state;
 
@@ -78,6 +92,61 @@ export default class DealEditForm extends React.Component<Props, State> {
         ))}
       </HeaderContentSmall>
     );
+  };
+
+  companyFormData = () => {
+    const item = this.props.item;
+    const businessDetails = item.loanApplication.businessDetails;
+
+    return {
+      title: businessDetails.businessName,
+      location: 'Not in China',
+      owned: 'rent',
+      store_size: '',
+      total_stores: '4',
+      earning_members: '2',
+      monthly_income: 400000,
+      shop_address: JSON.stringify(businessDetails.businessAddress)
+    };
+  };
+
+  customerFormData = () => {
+    const item = this.props.item;
+    const personalDetails = item.loanApplication.personalDetails;
+    return {
+      title: '',
+      email: '',
+      mobile: '',
+      pan: '',
+      dob: Date.parse(personalDetails.dob),
+      gst: '',
+      udyam: '',
+      marital_status: personalDetails.marital_status,
+      dependents: personalDetails.numberOfDependents,
+      gender: personalDetails.sex,
+      education: personalDetails.userEducation,
+      religion: personalDetails.userEthnicity
+    };
+  };
+
+  loanFormData = () => {
+    const item = this.props.item;
+    return {
+      loan_amount: item.loanApplication.loanDetails.loanAmount,
+      loan_purpose: item.loanApplication.loanDetails.loanPurpose,
+      coborrower_name: '',
+      coborrower_mobile: '',
+      coborrower_relationship: '',
+      coborrower_address: ''
+    };
+  };
+
+  agentFormData = () => {
+    return {
+      name: 'Shanta Ram',
+      location: 'Andheri',
+      mobile: '8989898989'
+    };
   };
 
   onChangeField = <T extends keyof State>(name: T, value: State[T]) => {
@@ -217,6 +286,18 @@ export default class DealEditForm extends React.Component<Props, State> {
             >
               {__('Customer')}
             </TabTitle>
+            <TabTitle
+              className={currentTab === 'loan_details' ? 'active' : ''}
+              onClick={tabOnClick.bind(this, 'loan_details')}
+            >
+              {__('Loan')}
+            </TabTitle>
+            <TabTitle
+              className={currentTab === 'agent_details' ? 'active' : ''}
+              onClick={tabOnClick.bind(this, 'agent_details')}
+            >
+              {__('Agent')}
+            </TabTitle>
           </Tabs>
         </HeaderRowSmall>
         {currentTab === 'deal' && (
@@ -242,8 +323,56 @@ export default class DealEditForm extends React.Component<Props, State> {
             />
           </FlexContent>
         )}
-        {currentTab === 'customer' && <div>Customer</div>}
-        {currentTab === 'company' && <div>Company</div>}
+        {currentTab === 'company' && (
+          <div style={divStyle}>
+            <Form
+              schema={companyPostSchema}
+              // uiSchema={uiSchema}
+              //
+              formData={this.companyFormData()}
+            >
+              <button type="submit" style={{ display: 'none' }} />
+            </Form>
+          </div>
+        )}
+        {currentTab === 'customer' && (
+          <div style={divStyle}>
+            <Form
+              schema={customerPostSchema}
+              // uiSchema={uiSchema}
+              //
+              formData={this.customerFormData()}
+            >
+              <button type="submit" style={{ display: 'none' }} />
+            </Form>
+          </div>
+        )}
+
+        {currentTab === 'loan_details' && (
+          <div style={divStyle}>
+            <Form
+              schema={loanPostSchema}
+              // uiSchema={uiSchema}
+              //
+              formData={this.loanFormData()}
+            >
+              <button type="submit" style={{ display: 'none' }} />
+            </Form>
+          </div>
+        )}
+
+        {currentTab === 'agent_details' && (
+          <div style={divStyle}>
+            <Form
+              schema={agentPostSchema}
+              // uiSchema={uiSchema}
+              //
+              formData={this.agentFormData()}
+            >
+              <button type="submit" style={{ display: 'none' }} />
+            </Form>
+          </div>
+        )}
       </>
     );
   };

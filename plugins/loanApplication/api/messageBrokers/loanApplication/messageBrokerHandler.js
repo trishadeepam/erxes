@@ -1,8 +1,5 @@
 import messageBrokerUtils from './messageBrokerUtils'
-import config from '../../config'
 import { isNull, isUndefined } from 'lodash'
-import { boardId } from '../../../../../api/src/data/resolvers/boardUtils'
-import user from '../../../../../api/src/data/resolvers/user'
 
 async function createCustomer (data, resolvers, { models }) {
   const { customer, integrationId, userId } = data
@@ -16,7 +13,7 @@ async function createCustomer (data, resolvers, { models }) {
     }
     const user = await models.Users.findOne({ _id: userId })
     if (isNull(user)) {
-      throw new Error('USER_DOES_NOT_EXIST')
+      throw new Error(`USER_DOES_NOT_EXIST - ${userId}`)
     }
     customer.integrationId = integrationId
     if (isUndefined(customer.customFieldsData)) {
@@ -28,6 +25,7 @@ async function createCustomer (data, resolvers, { models }) {
     })
     return newCustomer
   } catch (e) {
+    console.log(e.stack)
     throw new Error(e.message)
   }
 }
@@ -84,12 +82,14 @@ async function createLoanApplication (data, resolvers, context) {
       { user, docModifier: doc => doc }
     )
     // Now create a new deal for this application
+    const productCode = data.loanApplication.productCode
     const deal = await createNewDeal(
       {
         userId: user._id,
         loanApplicationId: newLoanApplication._id,
         boardName,
-        pipeLineName
+        pipeLineName,
+        productCode
       },
       resolvers,
       context
@@ -104,11 +104,12 @@ async function createLoanApplication (data, resolvers, context) {
 }
 
 async function createNewDeal (data, resolvers, { models }) {
-  const { loanApplicationId, userId, boardName, pipeLineName } = data
+  const { loanApplicationId, userId, boardName, pipeLineName, productCode} = data
   // Find the correct board
   // Then get the correct pipeline
   // Then create the deal for that pipeline
   try {
+    console.log(`board name ${boardName} pipeline ${pipeLineName}`)
     const application = await models.LoanApplications.findOne({
       _id: loanApplicationId
     })
@@ -146,9 +147,9 @@ async function createNewDeal (data, resolvers, { models }) {
       pipelineId: pipeline._id
     })
     const stage = stages.find(s => s.order === 1)
-    console.log(application.currentLoanOffer.productCode)
+    console.log(application.currentLoanOffer)
     const product = await models.Products.findOne({
-      code: application.currentLoanOffer.productCode
+      code: productCode
     })
     if (isNull(product)) {
       throw new Error('PRODUCT_CODE_INVALID')
@@ -175,7 +176,28 @@ async function createNewDeal (data, resolvers, { models }) {
     throw new Error(e.message)
   }
 }
-
+const createCoBorrower = async (data, resolvers, { models }) => {
+  try {
+    const { loanAplicationId, ...rest } = data
+    const loanApplication = models.LoanApplications.findOne({
+      id: loanAplicationId
+    })
+    if (isNull(loanApplication)) {
+      throw new Error('LOAN_APPLICATION_DOES_NOT_EXIST')
+    }
+    const customer = await createCustomer(rest, resolvers, { models })
+    loanApplication.coBorrowerId = customer._id
+    rest.loanApplication = loanApplication
+    const response = await updateLoanApplication(rest, resolvers, { models })
+    return {
+      customer,
+      loanApplication: response.loanApplication
+    }
+  } catch (e) {
+    console.log(e.stack)
+    throw new Error(e.message)
+  }
+}
 const updateCustomer = async (data, resolvers, { models }) => {
   const { userId, customer } = data
   try {
@@ -224,7 +246,7 @@ const updateCompany = async (data, resolvers, { models }) => {
 const updateLoanApplication = async (data, resolvers, { models }) => {
   const { userId, loanApplication } = data
   try {
-    const existing = await models.LoanApplication.findOne({
+    const existing = await models.LoanApplications.findOne({
       _id: loanApplication._id
     })
     if (isNull(existing)) {
@@ -236,47 +258,62 @@ const updateLoanApplication = async (data, resolvers, { models }) => {
       throw new Error('USER_DOES_NOT_EXIST')
     }
     let root
-    const updatedloanApp = await resolvers.Mutation.editLoanApplication(
-      root,
-      loanApplication,
-      { user }
-    )
+
+    const application = await models.LoanApplications.findOne({_id: data.loanApplication._id})
+
+    if (data.loanApplication.stageName != undefined) {
+      const stage = await models.Stages.findOne({name: data.loanApplication.stageName})
+      if (stage != null && stage != undefined){
+        loanApplication.stageId = stage.doc._id
+      }
+    }
+
+    const updatedApp = messageBrokerUtils.getUpdatedLoanApplication(application, data)
+
+    const updateReponse = await models.LoanApplications.editApplication(updatedApp, user)
+    console.log(updateReponse)
     // update the deal deatils
-    const deal = models.Deals.findOne({ applicationId: updatedloanApp._id })
-    // FIXME: need to build this
-    const newDeal = messageBrokerUtils.editDeal(deal, updatedloanApp)
-    await resolvers.Mutation.editDeal(root, newDeal, {
+    const deal = await models.Deals.findOne({ loanApplicationId: loanApplication._id })
+
+
+
+    const newDeal = messageBrokerUtils.editDeal(deal, loanApplication)
+    await resolvers.Mutation.dealsEdit(root, newDeal, {
       user,
       docModifier: doc => doc
     })
     return {
-      loanApplication: updatedloanApp,
+      loanApplication: loanApplication,
       deal: newDeal
     }
   } catch (e) {
     throw new Error(e.message)
   }
 }
-const getLoanApplication = async (data, resolvers, { models }) => {
-  const { userId, loanApplicationId } = data
-  const user = await models.Users.findOne({ _id: userId })
-  if (isNull(user)) {
-    throw new Error('USER_DOES_NOT_EXIST')
+
+const updateTask = async (data, resovlers, {models}) => {
+  const { task, loanApplicationId, userId, boardName, pipeLineName, details } = data
+  const priorities = ['Low', 'Normal', 'High', 'Critical']
+  try {
+    const task = await models.tasks.findOne({ _id: taskId })
+    if (isNull(task)) {
+      throw new Error('TASK_NOT_FOUND')
+    }
+    if (priorities.indexOf(priority) === -1) {
+      throw new Error('PRORITY_NOT_SUPPORTED')
+    }
+
+  }catch (e){
+    console.log(e.stack)
+    throw new Error(e.message)
   }
-  const application = models.LoanApplications.findOne({
-    _id: loanApplicationId
-  })
-  if (isNull(application)) {
-    throw new Error('INVALID_APPLICATION_ID')
-  }
-  return application
 }
 
 const createTask = async (data, resolvers, { models }) => {
-  const { task, loanApplicationId, userId, boardName, pipeLineName } = data
+  const { task, loanApplicationId, userId, boardName, pipeLineName, details } = data
   try {
-    const loanApplication = await models.LoanAPplications.findOne({
-      id: loanApplicationId
+    const loanApplication = await models.LoanApplications.findOne({
+      _id: loanApplicationId
     })
     const user = await models.Users.findOne({ _id: userId })
     if (isNull(user)) {
@@ -296,7 +333,7 @@ const createTask = async (data, resolvers, { models }) => {
     if (isNull(board)) {
       throw new Error('TASK_BOARD_DOES_NOT_EXIST')
     }
-    pipeline = await models.Pipelines.findOne({
+    const pipeline = await models.Pipelines.findOne({
       boardId: board._id,
       name: pipeLineName
     })
@@ -308,13 +345,15 @@ const createTask = async (data, resolvers, { models }) => {
     })
     const stage = stages.find(s => s.order === 1)
     task.userId = user._id
-    task.watchedUserIds = [user._id]
-    task.notifiedUserIds = [user._id]
-    task.assignedUserIds = messageBrokerUtils.buildAssignedUsers()
+    task.watchedUserIds = [user._id, ...task.watchedUserIds]
+    task.notifiedUserIds = [user._id, ...task.notifiedUserIds]
+    task.assignedUserIds = messageBrokerUtils.buildAssignedUsersForTasks(task.assignedUserIds)
     task.labelIds = messageBrokerUtils.buildLabelIdsForTask()
     task.stageId = stage._id
     task.initialStageId = stage._id
     task.processId = Math.random()
+    task.createdUser = user
+    task.type = 'cpv'
     let root
     const newTask = await resolvers.Mutation.tasksAdd(root, task, {
       user,
@@ -326,32 +365,35 @@ const createTask = async (data, resolvers, { models }) => {
       relType: 'task',
       relTypeIds: [newTask._id]
     })
-    return {
-      task: newTask
-    }
+    return newTask
   } catch (e) {
+    console.log(e.stack)
     throw new Error(e.message)
   }
   // Populate the watched user and assigned user based on type of task.
 }
 
 const changeTaskPriority = async (data, resolvers, { models }) => {
-  const { priority, taskId } = data
+  const { userId, priority, taskId } = data
   const priorities = ['Low', 'Normal', 'High', 'Critical']
   try {
-    const task = await models.tasks.findOne({ _id: taskId })
+    const task = await models.Tasks.findOne({ _id: taskId })
     if (isNull(task)) {
       throw new Error('TASK_NOT_FOUND')
     }
     if (priorities.indexOf(priority) === -1) {
-      throw new Error('PRORITY_NOT_SUPPORTED')
+      throw new Error('PRIORITY_NOT_SUPPORTED')
+    }
+    const user = await models.Users.findOne({ _id: userId })
+    if (isNull(user)) {
+      throw new Error('USER_DOES_NOT_EXIST')
     }
     let root
-    await resolvers.Mutation.taskEdit(root, {
+    await resolvers.Mutation.tasksEdit(root, {
       _id: task.id,
       processId: Math.random(),
       priority
-    })
+    },user)
     return {
       taskId: task.id
     }
@@ -359,6 +401,55 @@ const changeTaskPriority = async (data, resolvers, { models }) => {
     throw new Error(e.message)
   }
 }
+
+
+/** GETTERS */
+
+const getLoanApplication = async (data, resolvers, { models }) => {
+  const { userId, loanApplicationId } = data
+  const user = await models.Users.findOne({ _id: userId })
+  if (isNull(user)) {
+    throw new Error('USER_DOES_NOT_EXIST')
+  }
+  const application = await resolvers.Query.getLoanApplications({ _id: loanApplicationId })
+  // const application = await models.LoanApplications.findOne({
+  //   _id: loanApplicationId
+  // })
+  if (isNull(application)) {
+    throw new Error('INVALID_APPLICATION_ID')
+  }
+  return application
+}
+const getCustomer = async (data, resolvers, { models }) => {
+  const { userId, customerId, coBorrowerId } = data
+  const id = customerId || coBorrowerId
+  const user = await models.Users.findOne({ _id: userId })
+  if (isNull(user)) {
+    throw new Error('USER_DOES_NOT_EXIST')
+  }
+  const customer = await models.Customers.findOne({
+    _id: id
+  })
+  if (isNull(customer)) {
+    throw new Error('INVALID_CUSTOMER_ID')
+  }
+  return customer
+}
+const getCompany = async (data, resolvers, { models }) => {
+  const { userId, companyId } = data
+  const user = await models.Users.findOne({ _id: userId })
+  if (isNull(user)) {
+    throw new Error('USER_DOES_NOT_EXIST')
+  }
+  const company = await models.Companies.findOne({
+    _id: companyId
+  })
+  if (isNull(company)) {
+    throw new Error('INVALID_CUSTOMER_ID')
+  }
+  return company
+}
+
 export default {
   createCompany,
   createCustomer,
@@ -369,5 +460,8 @@ export default {
   updateLoanApplication,
   getLoanApplication,
   createTask,
-  changeTaskPriority
+  changeTaskPriority,
+  createCoBorrower,
+  getCustomer,
+  getCompany
 }

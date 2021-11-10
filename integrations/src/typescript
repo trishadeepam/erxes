@@ -1,0 +1,1982 @@
+Script started on 2021-08-01 11:03:53+05:30 [TERM="xterm-256color" TTY="/dev/pts/5" COLUMNS="105" LINES="27"]
+Error processing line 1 of /home/prashanth/anaconda3/lib/python3.7/site-packages/ruamel.yaml-0.16.12-py3.8-nspkg.pth:
+
+  Traceback (most recent call last):
+    File "/home/prashanth/anaconda3/lib/python3.7/site.py", line 168, in addpackage
+      exec(line)
+    File "<string>", line 1, in <module>
+    File "<frozen importlib._bootstrap>", line 580, in module_from_spec
+  AttributeError: 'NoneType' object has no attribute 'loader'
+
+Remainder of file ignored
+(base) ]0;prashanth@prashanth-HP-EliteBook-840-G5: /mnt/extmnt1/credit/origination/erxes/integrations/src[01;32mprashanth@prashanth-HP-EliteBook-840-G5[00m:[01;34m/mnt/extmnt1/credit/origination/erxes/integrations/src[00m$ cd  scripts/
+(base) ]0;prashanth@prashanth-HP-EliteBook-840-G5: /mnt/extmnt1/credit/origination/erxes/integrations/src/scripts[01;32mprashanth@prashanth-HP-EliteBook-840-G5[00m:[01;34m/mnt/extmnt1/credit/origination/erxes/integrations/src/scripts[00m$ cd scripts/[C[C[C[C[C[C[7Pexit[2Plscd CustomerApp/[C[C[C[C[C[C[C[C[C..[Kls -la[Kdocker-compose exec -T mongodb sh -c 'mongodump -d erxes_integrations --archive'> db.dump[C[C[C[C[C[Cls -ls[K[Kdocker-compose exec -T mongodb sh -c 'mongodump -d erxes_integrations'> db.dump[C[C[C[C[C[Cvi docker-compose.yml [K[C[C[C[C[C[Cdocker-compose exec -T mongodb sh -c 'mongodump -d erxes_integrations'> db.dump[C[C[C[C[C[Cls[K -lsdocker-compose exec -T mongodb sh -c 'mongodump -d erxes_integrations --archive'> db.dump[C[C[C[C[C[Cls[K -la[1Pcd ..CustomerApp/[C[C[C[C[C[Cls[Kexitcd scripts/[C[C[C[C[C[C[Kcd scripts/[C[C[C[C[C[C[7Pexit[2Plscd CustomerApp/[C[C[C[C[C[C[C[C[C..[Kls -la[Kdocker-compose exec -T mongodb sh -c 'mongodump -d erxes_integrations --archive'> db.dump[C[C[C[C[C[Cls -ls[K[K -lsdocker-compose exec -T mongodb sh -c 'mongodump -d erxes_integrations --archive'> db.dump[C[C[C[C[C[Cls[K -la[1Pcd ..CustomerApp/[C[C[C[C[C[Cls[Kexitcd scripts/[C[C[C[C[C[C[Knode testLosScript
+connecting....
+{ primaryBorrowerId: [32m'th9KXAMg5fXuucbvS'[39m,
+  coBorrowerId: [32m'uQ83zeBm52upH9tN6'[39m,
+  companyId: [32m'aRHGsDmMqbtYFcWYj'[39m,
+  softCreditId: [32m'2pKednWYq'[39m,
+  productType: [32m'shortterm'[39m,
+  bureauCreditScoreRefId: [32m'qY7E5eSXv'[39m,
+  applicationDocuments:
+   [ { documentType: [32m'pan'[39m,
+       documentName: [32m'pan'[39m,
+       documentRefId: [32m'M5Fiwe'[39m,
+       documentVerified: [33mtrue[39m,
+       documentVerificationDetails: [36m[Object][39m },
+     { documentType: [32m'udyam'[39m,
+       documentName: [32m'udyam'[39m,
+       documentRefId: [32m'snMqxd'[39m,
+       documentVerified: [33mtrue[39m,
+       documentVerificationDetails: [36m[Object][39m },
+     { documentType: [32m'sne'[39m,
+       documentName: [32m'sne'[39m,
+       documentRefId: [32m'MpPxES'[39m,
+       documentVerified: [33mtrue[39m,
+       documentVerificationDetails: [36m[Object][39m },
+     { documentType: [32m'mobile-bill'[39m,
+       documentName: [32m'mobile-bill'[39m,
+       documentRefId: [32m'Dh23an'[39m,
+       documentVerified: [33mtrue[39m,
+       documentVerificationDetails: [36m[Object][39m },
+     { documentType: [32m'bank-statement'[39m,
+       documentName: [32m'bank-statement'[39m,
+       documentRefId: [32m'MoqgAM'[39m,
+       documentVerified: [33mtrue[39m,
+       documentVerificationDetails: [36m[Object][39m } ],
+  borrowerType: [32m'retailer'[39m,
+  loanOffers:
+   [ { loanProduct: [32m'100 Day Loan'[39m,
+       productCode: [32m'9885'[39m,
+       loanAmount: [33m500000[39m,
+       interestRate: [33m2.5[39m,
+       interestFrequency: [32m'per-month'[39m,
+       loanTenureInDays: [33m100[39m,
+       loanOfferStage: [32m'revised'[39m,
+       loanOfferDate: [35m2021-08-01T05:39:50.221Z[39m,
+       processingFeesPercent: [33m3[39m,
+       processingFeesFixed: [33m100[39m,
+       lender: [32m'NP'[39m },
+     { loanProduct: [32m'100 Day Loan'[39m,
+       productCode: [32m'9885'[39m,
+       loanAmount: [33m100000[39m,
+       interestRate: [33m2.5[39m,
+       interestFrequency: [32m'per-month'[39m,
+       loanTenureInDays: [33m100[39m,
+       loanOfferStage: [32m'revised'[39m,
+       loanOfferDate: [35m2021-08-01T05:39:50.221Z[39m,
+       processingFeesPercent: [33m3[39m,
+       processingFeesFixed: [33m100[39m,
+       lender: [32m'NP'[39m },
+     { loanProduct: [32m'100 Day Loan'[39m,
+       productCode: [32m'9885'[39m,
+       loanAmount: [33m125000[39m,
+       interestRate: [33m2.5[39m,
+       interestFrequency: [32m'per-month'[39m,
+       loanTenureInDays: [33m100[39m,
+       loanOfferStage: [32m'revised'[39m,
+       loanOfferDate: [35m2021-08-01T05:39:50.221Z[39m,
+       processingFeesPercent: [33m3[39m,
+       processingFeesFixed: [33m100[39m,
+       lender: [32m'NP'[39m },
+     { loanProduct: [32m'100 Day Loan'[39m,
+       productCode: [32m'9885'[39m,
+       loanAmount: [33m150000[39m,
+       interestRate: [33m2.5[39m,
+       interestFrequency: [32m'per-month'[39m,
+       loanTenureInDays: [33m100[39m,
+       loanOfferStage: [32m'revised'[39m,
+       loanOfferDate: [35m2021-08-01T05:39:50.221Z[39m,
+       processingFeesPercent: [33m3[39m,
+       processingFeesFixed: [33m100[39m,
+       lender: [32m'NP'[39m },
+     { loanProduct: [32m'100 Day Loan'[39m,
+       productCode: [32m'9885'[39m,
+       loanAmount: [33m200000[39m,
+       interestRate: [33m2.5[39m,
+       interestFrequency: [32m'per-month'[39m,
+       loanTenureInDays: [33m100[39m,
+       loanOfferStage: [32m'revised'[39m,
+       loanOfferDate: [35m2021-08-01T05:39:50.221Z[39m,
+       processingFeesPercent: [33m3[39m,
+       processingFeesFixed: [33m100[39m,
+       lender: [32m'NP'[39m } ],
+  currentLoanOffer:
+   { loanProduct: [32m'100 Day Loan'[39m,
+     productCode: [32m'9885'[39m,
+     loanAmount: [33m200000[39m,
+     interestRate: [33m2.5[39m,
+     interestFrequency: [32m'per-month'[39m,
+     loanTenureInDays: [33m100[39m,
+     loanOfferStage: [32m'final'[39m,
+     loanOfferDate: [35m2021-08-01T05:39:50.221Z[39m,
+     processingFeesPercent: [33m3[39m,
+     processingFeesFixed: [33m100[39m,
+     lender: [32m'NP'[39m },
+  stages:
+   [ { previousStage: [32m'CPV'[39m,
+       currentStage: [32m'PD'[39m,
+       stageChangeDate: [35m2021-08-01T05:39:50.221Z[39m,
+       decisionEngineResponse: {},
+       stateSuccess: [32m'success'[39m },
+     { previousStage: [32m'CPV'[39m,
+       currentStage: [32m'PD'[39m,
+       stageChangeDate: [35m2021-08-01T05:39:50.221Z[39m,
+       decisionEngineResponse: {},
+       stateSuccess: [32m'success'[39m } ],
+  currentStage:
+   { previousStage: [32m'CPV'[39m,
+     currentStage: [32m'PD'[39m,
+     stageChangeDate: [35m2021-08-01T05:39:50.221Z[39m,
+     decisionEngineResponse: {},
+     stateSuccess: [32m'success'[39m },
+  statusChangeDate: [35m2021-08-01T05:39:50.221Z[39m,
+  applicationStatus: [32m'active'[39m,
+  creditScore:
+   { creditScore: [33m700[39m,
+     scoreSource: [32m'CIBIL'[39m,
+     scoreSouceRefId: [32m'yNu2t'[39m,
+     createdAt: [35m2021-08-01T05:39:50.221Z[39m,
+     scoreType: [32m'soft'[39m } }
+[90mundefined[39m
+^C
+(base) ]0;prashanth@prashanth-HP-EliteBook-840-G5: /mnt/extmnt1/credit/origination/erxes/integrations/src/scripts[01;32mprashanth@prashanth-HP-EliteBook-840-G5[00m:[01;34m/mnt/extmnt1/credit/origination/erxes/integrations/src/scripts[00m$ node testLosScript
+connecting....
+{ name: [32m'CPV Task'[39m,
+  taskType: [32m'cpv'[39m,
+  loanApplicationId: [32m'pyaaiRrWKkA3RdcFT'[39m,
+  description: [32m'Perform CPV'[39m,
+  borrowerType: [32m'retailer'[39m,
+  productType: [32m'shortterm'[39m }
+[90mundefined[39m
+^C
+(base) ]0;prashanth@prashanth-HP-EliteBook-840-G5: /mnt/extmnt1/credit/origination/erxes/integrations/src/scripts[01;32mprashanth@prashanth-HP-EliteBook-840-G5[00m:[01;34m/mnt/extmnt1/credit/origination/erxes/integrations/src/scripts[00m$ node testLosScript
+connecting....
+{ name: [32m'CPV Task'[39m,
+  taskType: [32m'cpv'[39m,
+  loanApplicationId: [32m'pyaaiRrWKkA3RdcFT'[39m,
+  description: [32m'Perform CPV'[39m,
+  borrowerType: [32m'retailer'[39m,
+  productType: [32m'shortterm'[39m }
+[90mundefined[39m
+^C
+(base) ]0;prashanth@prashanth-HP-EliteBook-840-G5: /mnt/extmnt1/credit/origination/erxes/integrations/src/scripts[01;32mprashanth@prashanth-HP-EliteBook-840-G5[00m:[01;34m/mnt/extmnt1/credit/origination/erxes/integrations/src/scripts[00m$ node testLosScript
+connecting....
+{ name: [32m'CPV Task'[39m,
+  taskType: [32m'cpv'[39m,
+  loanApplicationId: [32m'pyaaiRrWKkA3RdcFT'[39m,
+  description: [32m'Perform CPV'[39m,
+  borrowerType: [32m'retailer'[39m,
+  productType: [32m'shortterm'[39m }
+[90mundefined[39m
+^C
+(base) ]0;prashanth@prashanth-HP-EliteBook-840-G5: /mnt/extmnt1/credit/origination/erxes/integrations/src/scripts[01;32mprashanth@prashanth-HP-EliteBook-840-G5[00m:[01;34m/mnt/extmnt1/credit/origination/erxes/integrations/src/scripts[00m$ node testLosScript
+connecting....
+{ name: [32m'CPV Task'[39m,
+  taskType: [32m'cpv'[39m,
+  loanApplicationId: [32m'pyaaiRrWKkA3RdcFT'[39m,
+  description: [32m'Perform CPV'[39m,
+  borrowerType: [32m'retailer'[39m,
+  productType: [32m'shortterm'[39m }
+[90mundefined[39m
+^C
+(base) ]0;prashanth@prashanth-HP-EliteBook-840-G5: /mnt/extmnt1/credit/origination/erxes/integrations/src/scripts[01;32mprashanth@prashanth-HP-EliteBook-840-G5[00m:[01;34m/mnt/extmnt1/credit/origination/erxes/integrations/src/scripts[00m$ node testLosScript
+connecting....
+{ name: [32m'CPV Task'[39m,
+  taskType: [32m'cpv'[39m,
+  loanApplicationId: [32m'pyaaiRrWKkA3RdcFT'[39m,
+  description: [32m'Perform CPV'[39m,
+  borrowerType: [32m'retailer'[39m,
+  productType: [32m'shortterm'[39m }
+[90mundefined[39m
+^C
+(base) ]0;prashanth@prashanth-HP-EliteBook-840-G5: /mnt/extmnt1/credit/origination/erxes/integrations/src/scripts[01;32mprashanth@prashanth-HP-EliteBook-840-G5[00m:[01;34m/mnt/extmnt1/credit/origination/erxes/integrations/src/scripts[00m$ node testLosScript
+connecting....
+{ name: [32m'CPV Task'[39m,
+  taskType: [32m'cpv'[39m,
+  loanApplicationId: [32m'pyaaiRrWKkA3RdcFT'[39m,
+  description: [32m'Perform CPV'[39m,
+  borrowerType: [32m'retailer'[39m,
+  productType: [32m'shortterm'[39m }
+[90mundefined[39m
+^C
+(base) ]0;prashanth@prashanth-HP-EliteBook-840-G5: /mnt/extmnt1/credit/origination/erxes/integrations/src/scripts[01;32mprashanth@prashanth-HP-EliteBook-840-G5[00m:[01;34m/mnt/extmnt1/credit/origination/erxes/integrations/src/scripts[00m$ node testLosScript
+connecting....
+{ name: [32m'CPV Task'[39m,
+  taskType: [32m'cpv'[39m,
+  loanApplicationId: [32m'pyaaiRrWKkA3RdcFT'[39m,
+  description: [32m'Perform CPV'[39m,
+  borrowerType: [32m'retailer'[39m,
+  productType: [32m'shortterm'[39m }
+[90mundefined[39m
+^C
+(base) ]0;prashanth@prashanth-HP-EliteBook-840-G5: /mnt/extmnt1/credit/origination/erxes/integrations/src/scripts[01;32mprashanth@prashanth-HP-EliteBook-840-G5[00m:[01;34m/mnt/extmnt1/credit/origination/erxes/integrations/src/scripts[00m$ node testLosScript
+connecting....
+{ name: [32m'CPV Task'[39m,
+  taskType: [32m'cpv'[39m,
+  loanApplicationId: [32m'pyaaiRrWKkA3RdcFT'[39m,
+  description: [32m'Perform CPV'[39m,
+  borrowerType: [32m'retailer'[39m,
+  productType: [32m'shortterm'[39m }
+[90mundefined[39m
+^C
+(base) ]0;prashanth@prashanth-HP-EliteBook-840-G5: /mnt/extmnt1/credit/origination/erxes/integrations/src/scripts[01;32mprashanth@prashanth-HP-EliteBook-840-G5[00m:[01;34m/mnt/extmnt1/credit/origination/erxes/integrations/src/scripts[00m$ node testLosScript
+connecting....
+{ name: [32m'CPV Task'[39m,
+  taskType: [32m'cpv'[39m,
+  loanApplicationId: [32m'pyaaiRrWKkA3RdcFT'[39m,
+  description: [32m'Perform CPV'[39m,
+  borrowerType: [32m'retailer'[39m,
+  productType: [32m'shortterm'[39m }
+[90mundefined[39m
+^C
+(base) ]0;prashanth@prashanth-HP-EliteBook-840-G5: /mnt/extmnt1/credit/origination/erxes/integrations/src/scripts[01;32mprashanth@prashanth-HP-EliteBook-840-G5[00m:[01;34m/mnt/extmnt1/credit/origination/erxes/integrations/src/scripts[00m$ node testLosScript
+connecting....
+{ name: [32m'CPV Task'[39m,
+  taskType: [32m'cpv'[39m,
+  loanApplicationId: [32m'pyaaiRrWKkA3RdcFT'[39m,
+  description: [32m'Perform CPV'[39m,
+  borrowerType: [32m'retailer'[39m,
+  productType: [32m'shortterm'[39m }
+[90mundefined[39m
+^C
+(base) ]0;prashanth@prashanth-HP-EliteBook-840-G5: /mnt/extmnt1/credit/origination/erxes/integrations/src/scripts[01;32mprashanth@prashanth-HP-EliteBook-840-G5[00m:[01;34m/mnt/extmnt1/credit/origination/erxes/integrations/src/scripts[00m$ node testLosScript
+connecting....
+{ name: [32m'CPV Task'[39m,
+  taskType: [32m'cpv'[39m,
+  loanApplicationId: [32m'pyaaiRrWKkA3RdcFT'[39m,
+  description: [32m'Perform CPV'[39m,
+  borrowerType: [32m'retailer'[39m,
+  productType: [32m'shortterm'[39m }
+[90mundefined[39m
+^C
+(base) ]0;prashanth@prashanth-HP-EliteBook-840-G5: /mnt/extmnt1/credit/origination/erxes/integrations/src/scripts[01;32mprashanth@prashanth-HP-EliteBook-840-G5[00m:[01;34m/mnt/extmnt1/credit/origination/erxes/integrations/src/scripts[00m$ node testLosScript[K[K[K[K[K[K[K[Kms[K[K[K[K[K[K[K[K[K[K[K[Kls
+losFactories.js  testLmsScript.js  testLosScript.js
+(base) ]0;prashanth@prashanth-HP-EliteBook-840-G5: /mnt/extmnt1/credit/origination/erxes/integrations/src/scripts[01;32mprashanth@prashanth-HP-EliteBook-840-G5[00m:[01;34m/mnt/extmnt1/credit/origination/erxes/integrations/src/scripts[00m$ ts[K[Knode testMnsScri[K[K[K[K[K[K[KLmsScript
+connecting....
+{ customerId: [32m''[39m }
+[90mundefined[39m
+^C
+(base) ]0;prashanth@prashanth-HP-EliteBook-840-G5: /mnt/extmnt1/credit/origination/erxes/integrations/src/scripts[01;32mprashanth@prashanth-HP-EliteBook-840-G5[00m:[01;34m/mnt/extmnt1/credit/origination/erxes/integrations/src/scripts[00m$ node testLmsScript
+connecting....
+{ customerId: [32m'th9KXAMg5fXuucbvS'[39m }
+[90mundefined[39m
+^C
+(base) ]0;prashanth@prashanth-HP-EliteBook-840-G5: /mnt/extmnt1/credit/origination/erxes/integrations/src/scripts[01;32mprashanth@prashanth-HP-EliteBook-840-G5[00m:[01;34m/mnt/extmnt1/credit/origination/erxes/integrations/src/scripts[00m$ node testLmsScript
+connecting....
+{ customerId: [32m'th9KXAMg5fXuucbvS'[39m }
+[90mundefined[39m
+^C
+(base) ]0;prashanth@prashanth-HP-EliteBook-840-G5: /mnt/extmnt1/credit/origination/erxes/integrations/src/scripts[01;32mprashanth@prashanth-HP-EliteBook-840-G5[00m:[01;34m/mnt/extmnt1/credit/origination/erxes/integrations/src/scripts[00m$ node testLmsScript
+connecting....
+{ customerId: [32m'th9KXAMg5fXuucbvS'[39m }
+[90mundefined[39m
+^C
+(base) ]0;prashanth@prashanth-HP-EliteBook-840-G5: /mnt/extmnt1/credit/origination/erxes/integrations/src/scripts[01;32mprashanth@prashanth-HP-EliteBook-840-G5[00m:[01;34m/mnt/extmnt1/credit/origination/erxes/integrations/src/scripts[00m$ node testLmsScript
+connecting....
+{ customerId: [32m'th9KXAMg5fXuucbvS'[39m }
+[90mundefined[39m
+^C
+(base) ]0;prashanth@prashanth-HP-EliteBook-840-G5: /mnt/extmnt1/credit/origination/erxes/integrations/src/scripts[01;32mprashanth@prashanth-HP-EliteBook-840-G5[00m:[01;34m/mnt/extmnt1/credit/origination/erxes/integrations/src/scripts[00m$ node testLmsScript
+connecting....
+{ customerId: [32m'th9KXAMg5fXuucbvS'[39m }
+[90mundefined[39m
+^C
+(base) ]0;prashanth@prashanth-HP-EliteBook-840-G5: /mnt/extmnt1/credit/origination/erxes/integrations/src/scripts[01;32mprashanth@prashanth-HP-EliteBook-840-G5[00m:[01;34m/mnt/extmnt1/credit/origination/erxes/integrations/src/scripts[00m$ node testLmsScript
+connecting....
+{ customerId: [32m'th9KXAMg5fXuucbvS'[39m }
+[90mundefined[39m
+^C
+(base) ]0;prashanth@prashanth-HP-EliteBook-840-G5: /mnt/extmnt1/credit/origination/erxes/integrations/src/scripts[01;32mprashanth@prashanth-HP-EliteBook-840-G5[00m:[01;34m/mnt/extmnt1/credit/origination/erxes/integrations/src/scripts[00m$ node testLmsScript
+connecting....
+{ customerId: [32m'th9KXAMg5fXuucbvS'[39m }
+[90mundefined[39m
+^C
+(base) ]0;prashanth@prashanth-HP-EliteBook-840-G5: /mnt/extmnt1/credit/origination/erxes/integrations/src/scripts[01;32mprashanth@prashanth-HP-EliteBook-840-G5[00m:[01;34m/mnt/extmnt1/credit/origination/erxes/integrations/src/scripts[00m$ node testLmsScript
+connecting....
+{ customerId: [32m'th9KXAMg5fXuucbvS'[39m }
+[90mundefined[39m
+^C
+(base) ]0;prashanth@prashanth-HP-EliteBook-840-G5: /mnt/extmnt1/credit/origination/erxes/integrations/src/scripts[01;32mprashanth@prashanth-HP-EliteBook-840-G5[00m:[01;34m/mnt/extmnt1/credit/origination/erxes/integrations/src/scripts[00m$ node testLmsScript
+connecting....
+{ customerId: [32m'th9KXAMg5fXuucbvS'[39m }
+[90mundefined[39m
+^C
+(base) ]0;prashanth@prashanth-HP-EliteBook-840-G5: /mnt/extmnt1/credit/origination/erxes/integrations/src/scripts[01;32mprashanth@prashanth-HP-EliteBook-840-G5[00m:[01;34m/mnt/extmnt1/credit/origination/erxes/integrations/src/scripts[00m$ node testLmsScript
+connecting....
+{ customerId: [32m'th9KXAMg5fXuucbvS'[39m }
+[90mundefined[39m
+^C
+(base) ]0;prashanth@prashanth-HP-EliteBook-840-G5: /mnt/extmnt1/credit/origination/erxes/integrations/src/scripts[01;32mprashanth@prashanth-HP-EliteBook-840-G5[00m:[01;34m/mnt/extmnt1/credit/origination/erxes/integrations/src/scripts[00m$ node testLmsScript
+connecting....
+{ customerId: [32m'th9KXAMg5fXuucbvS'[39m }
+[90mundefined[39m
+^C
+(base) ]0;prashanth@prashanth-HP-EliteBook-840-G5: /mnt/extmnt1/credit/origination/erxes/integrations/src/scripts[01;32mprashanth@prashanth-HP-EliteBook-840-G5[00m:[01;34m/mnt/extmnt1/credit/origination/erxes/integrations/src/scripts[00m$ node testLmsScript
+connecting....
+{ customerId: [32m'th9KXAMg5fXuucbvS'[39m }
+[90mundefined[39m
+^C
+(base) ]0;prashanth@prashanth-HP-EliteBook-840-G5: /mnt/extmnt1/credit/origination/erxes/integrations/src/scripts[01;32mprashanth@prashanth-HP-EliteBook-840-G5[00m:[01;34m/mnt/extmnt1/credit/origination/erxes/integrations/src/scripts[00m$ node testLmsScript
+connecting....
+{ customerId: [32m'th9KXAMg5fXuucbvS'[39m }
+[90mundefined[39m
+^C
+(base) ]0;prashanth@prashanth-HP-EliteBook-840-G5: /mnt/extmnt1/credit/origination/erxes/integrations/src/scripts[01;32mprashanth@prashanth-HP-EliteBook-840-G5[00m:[01;34m/mnt/extmnt1/credit/origination/erxes/integrations/src/scripts[00m$ node testLmsScript
+connecting....
+{ customerId: [32m'th9KXAMg5fXuucbvS'[39m }
+[90mundefined[39m
+^C
+(base) ]0;prashanth@prashanth-HP-EliteBook-840-G5: /mnt/extmnt1/credit/origination/erxes/integrations/src/scripts[01;32mprashanth@prashanth-HP-EliteBook-840-G5[00m:[01;34m/mnt/extmnt1/credit/origination/erxes/integrations/src/scripts[00m$ node testLmsScript
+connecting....
+{ customerId: [32m'th9KXAMg5fXuucbvS'[39m }
+[90mundefined[39m
+^C
+(base) ]0;prashanth@prashanth-HP-EliteBook-840-G5: /mnt/extmnt1/credit/origination/erxes/integrations/src/scripts[01;32mprashanth@prashanth-HP-EliteBook-840-G5[00m:[01;34m/mnt/extmnt1/credit/origination/erxes/integrations/src/scripts[00m$ node testLmsScript
+connecting....
+{ customerId: [32m'th9KXAMg5fXuucbvS'[39m }
+[90mundefined[39m
+^X^C
+(base) ]0;prashanth@prashanth-HP-EliteBook-840-G5: /mnt/extmnt1/credit/origination/erxes/integrations/src/scripts[01;32mprashanth@prashanth-HP-EliteBook-840-G5[00m:[01;34m/mnt/extmnt1/credit/origination/erxes/integrations/src/scripts[00m$ node testLmsScript
+connecting....
+{ customerId: [32m'th9KXAMg5fXuucbvS'[39m }
+[90mundefined[39m
+^C
+(base) ]0;prashanth@prashanth-HP-EliteBook-840-G5: /mnt/extmnt1/credit/origination/erxes/integrations/src/scripts[01;32mprashanth@prashanth-HP-EliteBook-840-G5[00m:[01;34m/mnt/extmnt1/credit/origination/erxes/integrations/src/scripts[00m$ node testLmsScript
+connecting....
+{ customerId: [32m'th9KXAMg5fXuucbvS'[39m }
+[90mundefined[39m
+^C
+(base) ]0;prashanth@prashanth-HP-EliteBook-840-G5: /mnt/extmnt1/credit/origination/erxes/integrations/src/scripts[01;32mprashanth@prashanth-HP-EliteBook-840-G5[00m:[01;34m/mnt/extmnt1/credit/origination/erxes/integrations/src/scripts[00m$ node testLmsScript
+connecting....
+{ customerId: [32m'th9KXAMg5fXuucbvS'[39m }
+[90mundefined[39m
+^C
+(base) ]0;prashanth@prashanth-HP-EliteBook-840-G5: /mnt/extmnt1/credit/origination/erxes/integrations/src/scripts[01;32mprashanth@prashanth-HP-EliteBook-840-G5[00m:[01;34m/mnt/extmnt1/credit/origination/erxes/integrations/src/scripts[00m$ node testLmsScript
+connecting....
+{ customerId: [32m'th9KXAMg5fXuucbvS'[39m }
+[90mundefined[39m
+^C
+(base) ]0;prashanth@prashanth-HP-EliteBook-840-G5: /mnt/extmnt1/credit/origination/erxes/integrations/src/scripts[01;32mprashanth@prashanth-HP-EliteBook-840-G5[00m:[01;34m/mnt/extmnt1/credit/origination/erxes/integrations/src/scripts[00m$ node testLmsScript
+connecting....
+{ customerId: [32m'th9KXAMg5fXuucbvS'[39m }
+[90mundefined[39m
+^C
+(base) ]0;prashanth@prashanth-HP-EliteBook-840-G5: /mnt/extmnt1/credit/origination/erxes/integrations/src/scripts[01;32mprashanth@prashanth-HP-EliteBook-840-G5[00m:[01;34m/mnt/extmnt1/credit/origination/erxes/integrations/src/scripts[00m$ node testLmsScript
+connecting....
+{ customerId: [32m'th9KXAMg5fXuucbvS'[39m }
+[90mundefined[39m
+^C
+(base) ]0;prashanth@prashanth-HP-EliteBook-840-G5: /mnt/extmnt1/credit/origination/erxes/integrations/src/scripts[01;32mprashanth@prashanth-HP-EliteBook-840-G5[00m:[01;34m/mnt/extmnt1/credit/origination/erxes/integrations/src/scripts[00m$ node testLmsScript
+connecting....
+{ customerId: [32m'th9KXAMg5fXuucbvS'[39m }
+[90mundefined[39m
+^C
+(base) ]0;prashanth@prashanth-HP-EliteBook-840-G5: /mnt/extmnt1/credit/origination/erxes/integrations/src/scripts[01;32mprashanth@prashanth-HP-EliteBook-840-G5[00m:[01;34m/mnt/extmnt1/credit/origination/erxes/integrations/src/scripts[00m$ node testLmsScript
+connecting....
+{ customerId: [32m'th9KXAMg5fXuucbvS'[39m }
+[90mundefined[39m
+^C
+(base) ]0;prashanth@prashanth-HP-EliteBook-840-G5: /mnt/extmnt1/credit/origination/erxes/integrations/src/scripts[01;32mprashanth@prashanth-HP-EliteBook-840-G5[00m:[01;34m/mnt/extmnt1/credit/origination/erxes/integrations/src/scripts[00m$ node testLmsScript
+connecting....
+{ customerId: [32m'th9KXAMg5fXuucbvS'[39m }
+[90mundefined[39m
+^C
+(base) ]0;prashanth@prashanth-HP-EliteBook-840-G5: /mnt/extmnt1/credit/origination/erxes/integrations/src/scripts[01;32mprashanth@prashanth-HP-EliteBook-840-G5[00m:[01;34m/mnt/extmnt1/credit/origination/erxes/integrations/src/scripts[00m$ node testLmsScript
+connecting....
+{ customerId: [32m'th9KXAMg5fXuucbvS'[39m }
+[90mundefined[39m
+^C
+(base) ]0;prashanth@prashanth-HP-EliteBook-840-G5: /mnt/extmnt1/credit/origination/erxes/integrations/src/scripts[01;32mprashanth@prashanth-HP-EliteBook-840-G5[00m:[01;34m/mnt/extmnt1/credit/origination/erxes/integrations/src/scripts[00m$ node testLmsScript
+connecting....
+{ customerId: [32m'th9KXAMg5fXuucbvS'[39m }
+[90mundefined[39m
+^C
+(base) ]0;prashanth@prashanth-HP-EliteBook-840-G5: /mnt/extmnt1/credit/origination/erxes/integrations/src/scripts[01;32mprashanth@prashanth-HP-EliteBook-840-G5[00m:[01;34m/mnt/extmnt1/credit/origination/erxes/integrations/src/scripts[00m$ node testLmsScript
+connecting....
+{ customerId: [32m'th9KXAMg5fXuucbvS'[39m }
+[90mundefined[39m
+^C
+(base) ]0;prashanth@prashanth-HP-EliteBook-840-G5: /mnt/extmnt1/credit/origination/erxes/integrations/src/scripts[01;32mprashanth@prashanth-HP-EliteBook-840-G5[00m:[01;34m/mnt/extmnt1/credit/origination/erxes/integrations/src/scripts[00m$ node testLmsScript[1PsScriptosScript[C[C[C[C[C[C[Kv [Ki Lo[K[KTestLos[K[K[K[K[K[K[KtestLosScript.js 
+[?1049h[22;0;0t[>4;2m[?1h=[?2004h[1;27r[?12h[?12l[22;2t[22;1t[27m[23m[29m[m[H[2J[?25l[27;1H"testLosScript.js" [noeol] 32L, 918C[2;1H▽[6n[2;1H  [1;1H[>c]10;?]11;?[1;1H[38;5;130mconst[m testRabbitMq = [38;5;130masync[m () => [36m[106m{[m
+  [36mlet[m client
+  [38;5;130mtry[m [36m{[m
+    console.log([31m'connecting....'[m)
+    [38;5;130mconst[m loanApplication = taskFactory()
+    console.log(loanApplication)
+    client = [38;5;130mawait[m messageBroker([36m{[m[8;7Hname: [31m'integrations'[m,[9;7Hserver: [31m''[m,[10;7Henvs: process.env
+    [36m}[m)
+    [38;5;130mconst[m message = [36m{[m[13;7Haction: [31m'createTask'[m,[14;7Hdata: loanApplication,[15;7Hkind: [31m'los'[m,[16;7HuserId: [31m'EoKWiMsYJ2nAkA8oz'[m
+    [36m}[m
+    client.sendMessage([31m'loan-application:request'[m, message)
+    [38;5;130mconst[m response = [38;5;130mawait[m client.consumeQueue([31m'loan-application:response'[m)
+    console.log(response)
+  [36m}[m [38;5;130mcatch[m (e) [36m{[m
+    console.log(e.message)
+    console.log(e.stack)
+  [36m}[m
+[36m[106m}[m
+testRabbitMq()[27;88H31,1[10CBot[25;1H[?25hP+q436f\P+q6b75\P+q6b64\P+q6b72\P+q6b6c\P+q2332\P+q2334\P+q2569\P+q2a37\P+q6b31\[27m[23m[29m[m[H[2J[?25l[1;1H[93mconst[m testRabbitMq = [93masync[m () => [1m[96m[46m{[m
+  [1m[96mlet[m client
+  [93mtry[m [1m[96m{[m
+    console.log([95m'connecting....'[m)
+    [93mconst[m loanApplication = taskFactory()
+    console.log(loanApplication)
+    client = [93mawait[m messageBroker([1m[96m{[m[8;7Hname: [95m'integrations'[m,[9;7Hserver: [95m''[m,[10;7Henvs: process.env
+    [1m[96m}[m)
+    [93mconst[m message = [1m[96m{[m[13;7Haction: [95m'createTask'[m,[14;7Hdata: loanApplication,[15;7Hkind: [95m'los'[m,[16;7HuserId: [95m'EoKWiMsYJ2nAkA8oz'[m
+    [1m[96m}[m
+    client.sendMessage([95m'loan-application:request'[m, message)
+    [93mconst[m response = [93mawait[m client.consumeQueue([95m'loan-application:response'[m)
+    console.log(response)
+  [1m[96m}[m [93mcatch[m (e) [1m[96m{[m
+    console.log(e.message)
+    console.log(e.stack)
+  [1m[96m}[m
+[1m[96m[46m}[m
+testRabbitMq()[27;88H31,1[10CBot"testLosScript.js" [noeol] 32L, 918C[25;1H[?25h[?25l[27;78H~@k[25;1H[27;78H   [26;1H[1;34H[1m[96m{[25;1H}[m[27;89H2[26;1H[?25h[?25l[27;78H~@k[26;1H[27;78H   [26;1H[?25h[?25l[27;78H~@k[26;1H[27;78H   [26;1H[?25h[?25l[27;78H~@k[26;1H[27;78H   [26;1H[?25h[?25l[27;78H~@k[26;1H[27;78H   [26;1H[?25h[?25l[27;78H~@k[26;1H[27;78H   [26;1H[?25h[?25l[27;78H~@k[26;1H[27;78H   [26;1H[?25h[?25l[27;78H~@k[26;1H[27;78H   [26;1H[?25h[?25l[27;78H~@k[26;1H[27;78H   [26;1H[?25h[?25l[27;78H~@k[26;1H[27;78H   [26;1H[?25h[?25l[27;78H~@k[26;1H[27;78H   [26;1H[?25h[?25l[27;78H~@k[26;1H[27;78H   [26;1H[?25h[?25l[27;78H~@k[26;1H[27;78H   [26;1H[?25h[?25l[27;78H~@k[26;1H[27;78H   [26;1H[?25h[?25l[27;78H~@k[26;1H[27;78H   [25;1H[1;34H[1m[96m[46m{[25;1H}[m[27;89H1[25;1H[?25h[?25l[27;78H~@k[25;1H[27;78H   [24;1H[1;34H[1m[96m{[25;1H}[m[27;89H0[24;1H[?25h[?25l[27;78H~@k[24;1H[27;78H   [23;1H[27;88H29[23;1H[?25h[?25l[27;78H~@k[23;1H[27;78H   [22;1H[27;89H8[22;1H[?25h[?25l[27;78H~@k[22;1H[27;78H   [21;1H[27;89H7[21;1H[?25h[?25l[27;78H~@k[21;1H[27;78H   [20;1H[27;89H6[20;1H[?25h[?25l[27;78H~@k[20;1H[27;78H   [19;1H[27;89H5[19;1H[?25h[?25l[27;78H~@k[19;1H[27;78H   [18;1H[27;89H4[18;1H[?25h[?25l[27;78H~@k[18;1H[27;78H   [17;1H[27;89H3[17;1H[?25h[?25l[27;78H~@k[17;1H[27;78H   [16;1H[27;89H2[16;1H[?25h[?25l[27;78H~@k[16;1H[27;78H   [15;1H[27;89H1[15;1H[?25h[?25l[27;78H~@k[15;1H[27;78H   [14;1H[27;89H0[14;1H[?25h[?25l[27;78H~@k[14;1H[27;78H   [13;1H[27;88H19[13;1H[?25h[?25l[27;78H~@k[13;1H[27;78H   [12;1H[27;89H8[12;1H[?25h[?25l[27;78H~@k[12;1H[27;78H   [11;1H[27;89H7[11;1H[?25h[?25l[27;78H~@k[11;1H[27;78H   [10;1H[27;89H6[10;1H[?25h[?25l[27;78H~@k[10;1H[27;78H   [9;1H[27;89H5[9;1H[?25h[?25l[27;78H~@k[9;1H[27;78H   [8;1H[27;89H4[8;1H[?25h[?25l[27;78H~@k[8;1H[27;78H   [7;1H[27;89H3[7;1H[?25h[?25l[27;78H~@k[7;1H[27;78H   [6;1H[27;89H2[6;1H[?25h[?25l[27;78H~@k[6;1H[27;78H   [6;1H[1;26r[1;1H[L[1;27r[1;1Hdotenv.config()[27;1H[K[27;88H11,1[10C83%[6;1H[?25h[?25l[27;78H~@k[6;1H[27;78H   [7;1H[1;26r[1;1H[2L[1;27r[1;1H[93mconst[m [1m[96m{[m customerFactory, companyFactory, loanApplicationFactory, taskFactory [1m[96m}[m = require([95m'./losFactories''[m[2;1H)[27;88H[K[27;88H10,1[10C57%[7;1H[?25h[?25l[27;78H~@k[7;1H[27;78H   [6;1H[27;88H9,1 [6;1H[?25h[?25l[27;78H~@k[6;1H[27;78H   [6;1H[1;26r[1;1H[L[1;27r[27;88H[K[27;88H8,1[11C42%[6;1H[?25h[?25l[27;78H~@k[6;1H[27;78H   [6;1H[1;26r[1;1H[L[1;27r[1;1H[93mconst[m dotenv = require([95m'dotenv'[m)[27;88H[K[27;88H7,1[11C28%[6;1H[?25h[?25l[27;78H~@k[6;1H[27;78H   [6;1H[1;26r[1;1H[L[1;27r[1;1H[93mconst[m messageBroker = require([95m'erxes-message-broker'[m).[93mdefault[m[27;88H[K[27;88H6,1[11C14%[6;1H[?25h[?25l[27;78H~@k[6;1H[27;78H   [5;1H[1;26r[1;1H[L[1;27r[1;1H[96m// import * as sinon from 'sinon'[m[27;88H[K[27;88H5,1[11CTop[5;1H[?25h[?25l[27;78H~@k[5;1H[27;78H   [4;1H[27;88H4,0-1[4;1H[?25h[?25l[27;78H~@k[4;1H[27;78H   [3;1H[27;88H3,1  [3;1H[?25h[?25l[27;78H~@k[3;1H[27;78H   [2;1H[27;88H2[2;1H[?25h[?25l[27;78H~@k[2;1H[27;78H   [1;1H[27;88H1[1;1H[?25h[?25l[27;78H~@k[1;1H[27;78H   [1;1H[?25h[?25l[27;78H~@k[1;1H[27;78H   [2;1H[27;88H2[2;1H[?25h[?25l[27;78H~@k[2;1H[27;78H   [3;1H[27;88H3[3;1H[?25h[?25l[27;78H~@k[3;1H[27;78H   [4;1H[27;88H4,0-1[4;1H[?25h[?25l[27;78H~@k[4;1H[27;78H   [5;1H[27;88H5,1  [5;1H[?25h[?25l[27;78H~@k[5;1H[27;78H   [7;1H[27;88H6[7;1H[?25h[?25l[27;78H~@k[7;1H[27;78H   [8;1H[27;88H7[8;1H[?25h[?25l[27;78H~@k[8;1H[27;78H   [9;1H[27;88H8[9;1H[?25h[?25l[27;78H~@k[9;1H[27;78H   [10;1H[27;88H9[10;1H[?25h[?25l[27;78H~@k[10;1H[27;78H   [11;1H[27;88H10,1[11;1H[?25h[?25l[27;78H~@k[11;1H[27;78H   [12;1H[27;89H1[12;1H[?25h[?25l[27;78H~@k[12;1H[27;78H   [13;1H[27;89H2[13;1H[?25h[?25l[27;78H~@k[13;1H[27;78H   [14;1H[27;89H3[14;1H[?25h[?25l[27;78H~@k[14;1H[27;78H   [15;1H[27;89H4[15;1H[?25h[?25l[27;78H~@k[15;1H[27;78H   [16;1H[27;89H5[16;1H[?25h[?25l[27;78H~@k[16;1H[27;78H   [17;1H[27;89H6[17;1H[?25h[?25l[27;78H~@k[17;1H[27;78H   [18;1H[27;89H7[18;1H[?25h[?25l[27;78H~@k[18;1H[27;78H   [19;1H[27;89H8[19;1H[?25h[?25l[27;78H~@k[19;1H[27;78H   [20;1H[27;89H9[20;1H[?25h[?25l[27;78H~@k[20;1H[27;78H   [21;1H[27;88H20[21;1H[?25h[?25l[27;78H~@k[21;1H[27;78H   [20;1H[27;88H19[20;1H[?25h[?25l[27;78H~@k[20;1H[27;78H   [19;1H[27;89H8[19;1H[?25h[?25l[27;78H~@k[19;1H[27;78H   [18;1H[27;89H7[18;1H[?25h[?25l[27;78H~@k[18;1H[27;78H   [17;1H[27;89H6[17;1H[?25h[?25l[27;78H:[17;1H[27;78H[K[27;1H:[?2004h[?25hq[?25l[?2004l[23;2t[23;1t[27;1H[K[27;1H[?2004l[?1l>[?25h[>4;m[?1049l[23;0;0t(base) ]0;prashanth@prashanth-HP-EliteBook-840-G5: /mnt/extmnt1/credit/origination/erxes/integrations/src/scripts[01;32mprashanth@prashanth-HP-EliteBook-840-G5[00m:[01;34m/mnt/extmnt1/credit/origination/erxes/integrations/src/scripts[00m$ create[K[K[K[K[K[Knode testLosScript.js [K[Ks
+connecting....
+{ name: [32m'CPV Task'[39m,
+  taskType: [32m'cpv'[39m,
+  loanApplicationId: [32m'pyaaiRrWKkA3RdcFT'[39m,
+  description: [32m'Perform CPV'[39m,
+  borrowerType: [32m'retailer'[39m,
+  productType: [32m'shortterm'[39m }
+[90mundefined[39m
+^C
+(base) ]0;prashanth@prashanth-HP-EliteBook-840-G5: /mnt/extmnt1/credit/origination/erxes/integrations/src/scripts[01;32mprashanth@prashanth-HP-EliteBook-840-G5[00m:[01;34m/mnt/extmnt1/credit/origination/erxes/integrations/src/scripts[00m$ node testLosScript.js
+connecting....
+{ name: [32m'CPV Task'[39m,
+  taskType: [32m'cpv'[39m,
+  loanApplicationId: [32m'pyaaiRrWKkA3RdcFT'[39m,
+  description: [32m'Perform CPV'[39m,
+  borrowerType: [32m'retailer'[39m,
+  productType: [32m'shortterm'[39m }
+[90mundefined[39m
+^C
+(base) ]0;prashanth@prashanth-HP-EliteBook-840-G5: /mnt/extmnt1/credit/origination/erxes/integrations/src/scripts[01;32mprashanth@prashanth-HP-EliteBook-840-G5[00m:[01;34m/mnt/extmnt1/credit/origination/erxes/integrations/src/scripts[00m$ node testLosScript.js
+connecting....
+{ name: [32m'CPV Task'[39m,
+  taskType: [32m'cpv'[39m,
+  loanApplicationId: [32m'pyaaiRrWKkA3RdcFT'[39m,
+  description: [32m'Perform CPV'[39m,
+  borrowerType: [32m'retailer'[39m,
+  productType: [32m'shortterm'[39m }
+[90mundefined[39m
+^C
+(base) ]0;prashanth@prashanth-HP-EliteBook-840-G5: /mnt/extmnt1/credit/origination/erxes/integrations/src/scripts[01;32mprashanth@prashanth-HP-EliteBook-840-G5[00m:[01;34m/mnt/extmnt1/credit/origination/erxes/integrations/src/scripts[00m$ node testLosScript.js[1PsScript.jsmsScript.js
+connecting....
+{ customerId: [32m'th9KXAMg5fXuucbvS'[39m }
+[90mundefined[39m
+^C
+(base) ]0;prashanth@prashanth-HP-EliteBook-840-G5: /mnt/extmnt1/credit/origination/erxes/integrations/src/scripts[01;32mprashanth@prashanth-HP-EliteBook-840-G5[00m:[01;34m/mnt/extmnt1/credit/origination/erxes/integrations/src/scripts[00m$ node testLmsScript.js
+connecting....
+{ customerId: [32m'th9KXAMg5fXuucbvS'[39m }
+[90mundefined[39m
+^C
+(base) ]0;prashanth@prashanth-HP-EliteBook-840-G5: /mnt/extmnt1/credit/origination/erxes/integrations/src/scripts[01;32mprashanth@prashanth-HP-EliteBook-840-G5[00m:[01;34m/mnt/extmnt1/credit/origination/erxes/integrations/src/scripts[00m$ node testLmsScript.js
+connecting....
+{ customerId: [32m'th9KXAMg5fXuucbvS'[39m }
+[90mundefined[39m
+^C
+(base) ]0;prashanth@prashanth-HP-EliteBook-840-G5: /mnt/extmnt1/credit/origination/erxes/integrations/src/scripts[01;32mprashanth@prashanth-HP-EliteBook-840-G5[00m:[01;34m/mnt/extmnt1/credit/origination/erxes/integrations/src/scripts[00m$ node testLmsScript.js
+connecting....
+{ customerId: [32m'th9KXAMg5fXuucbvS'[39m }
+[90mundefined[39m
+^C
+(base) ]0;prashanth@prashanth-HP-EliteBook-840-G5: /mnt/extmnt1/credit/origination/erxes/integrations/src/scripts[01;32mprashanth@prashanth-HP-EliteBook-840-G5[00m:[01;34m/mnt/extmnt1/credit/origination/erxes/integrations/src/scripts[00m$ node testLmsScript.js
+connecting....
+{ customerId: [32m'th9KXAMg5fXuucbvS'[39m }
+[90mundefined[39m
+^C
+(base) ]0;prashanth@prashanth-HP-EliteBook-840-G5: /mnt/extmnt1/credit/origination/erxes/integrations/src/scripts[01;32mprashanth@prashanth-HP-EliteBook-840-G5[00m:[01;34m/mnt/extmnt1/credit/origination/erxes/integrations/src/scripts[00m$ node testLmsScript.js
+connecting....
+{ customerId: [32m'th9KXAMg5fXuucbvS'[39m }
+[90mundefined[39m
+^C
+(base) ]0;prashanth@prashanth-HP-EliteBook-840-G5: /mnt/extmnt1/credit/origination/erxes/integrations/src/scripts[01;32mprashanth@prashanth-HP-EliteBook-840-G5[00m:[01;34m/mnt/extmnt1/credit/origination/erxes/integrations/src/scripts[00m$ node testLmsScript.js
+connecting....
+{ customerId: [32m'th9KXAMg5fXuucbvS'[39m }
+[90mundefined[39m
+^C
+(base) ]0;prashanth@prashanth-HP-EliteBook-840-G5: /mnt/extmnt1/credit/origination/erxes/integrations/src/scripts[01;32mprashanth@prashanth-HP-EliteBook-840-G5[00m:[01;34m/mnt/extmnt1/credit/origination/erxes/integrations/src/scripts[00m$ node testLmsScript.js
+connecting....
+{ customerId: [32m'th9KXAMg5fXuucbvS'[39m }
+[90mundefined[39m
+^C
+(base) ]0;prashanth@prashanth-HP-EliteBook-840-G5: /mnt/extmnt1/credit/origination/erxes/integrations/src/scripts[01;32mprashanth@prashanth-HP-EliteBook-840-G5[00m:[01;34m/mnt/extmnt1/credit/origination/erxes/integrations/src/scripts[00m$ node testLmsScript.js
+connecting....
+{ customerId: [32m'th9KXAMg5fXuucbvS'[39m }
+[90mundefined[39m
+^C
+(base) ]0;prashanth@prashanth-HP-EliteBook-840-G5: /mnt/extmnt1/credit/origination/erxes/integrations/src/scripts[01;32mprashanth@prashanth-HP-EliteBook-840-G5[00m:[01;34m/mnt/extmnt1/credit/origination/erxes/integrations/src/scripts[00m$ node testLmsScript.js
+connecting....
+{ customerId: [32m'th9KXAMg5fXuucbvS'[39m }
+[90mundefined[39m
+^C
+(base) ]0;prashanth@prashanth-HP-EliteBook-840-G5: /mnt/extmnt1/credit/origination/erxes/integrations/src/scripts[01;32mprashanth@prashanth-HP-EliteBook-840-G5[00m:[01;34m/mnt/extmnt1/credit/origination/erxes/integrations/src/scripts[00m$ node testLmsScript.js
+connecting....
+{ customerId: [32m'th9KXAMg5fXuucbvS'[39m }
+[90mundefined[39m
+^C
+(base) ]0;prashanth@prashanth-HP-EliteBook-840-G5: /mnt/extmnt1/credit/origination/erxes/integrations/src/scripts[01;32mprashanth@prashanth-HP-EliteBook-840-G5[00m:[01;34m/mnt/extmnt1/credit/origination/erxes/integrations/src/scripts[00m$ node testLmsScript.js
+connecting....
+{ customerId: [32m'th9KXAMg5fXuucbvS'[39m }
+[90mundefined[39m
+^C
+(base) ]0;prashanth@prashanth-HP-EliteBook-840-G5: /mnt/extmnt1/credit/origination/erxes/integrations/src/scripts[01;32mprashanth@prashanth-HP-EliteBook-840-G5[00m:[01;34m/mnt/extmnt1/credit/origination/erxes/integrations/src/scripts[00m$ node testLmsScript.js
+connecting....
+{ customerId: [32m'th9KXAMg5fXuucbvS'[39m }
+[90mundefined[39m
+^C
+(base) ]0;prashanth@prashanth-HP-EliteBook-840-G5: /mnt/extmnt1/credit/origination/erxes/integrations/src/scripts[01;32mprashanth@prashanth-HP-EliteBook-840-G5[00m:[01;34m/mnt/extmnt1/credit/origination/erxes/integrations/src/scripts[00m$ node testLmsScript.js
+connecting....
+{ customerId: [32m'th9KXAMg5fXuucbvS'[39m }
+[90mundefined[39m
+^C
+(base) ]0;prashanth@prashanth-HP-EliteBook-840-G5: /mnt/extmnt1/credit/origination/erxes/integrations/src/scripts[01;32mprashanth@prashanth-HP-EliteBook-840-G5[00m:[01;34m/mnt/extmnt1/credit/origination/erxes/integrations/src/scripts[00m$ node testLmsScript.js
+connecting....
+{ customerId: [32m'th9KXAMg5fXuucbvS'[39m }
+[90mundefined[39m
+^C
+(base) ]0;prashanth@prashanth-HP-EliteBook-840-G5: /mnt/extmnt1/credit/origination/erxes/integrations/src/scripts[01;32mprashanth@prashanth-HP-EliteBook-840-G5[00m:[01;34m/mnt/extmnt1/credit/origination/erxes/integrations/src/scripts[00m$ node testLmsScript.js
+connecting....
+{ customerId: [32m'th9KXAMg5fXuucbvS'[39m }
+[90mundefined[39m
+^C
+(base) ]0;prashanth@prashanth-HP-EliteBook-840-G5: /mnt/extmnt1/credit/origination/erxes/integrations/src/scripts[01;32mprashanth@prashanth-HP-EliteBook-840-G5[00m:[01;34m/mnt/extmnt1/credit/origination/erxes/integrations/src/scripts[00m$ node testLmsScript.js
+connecting....
+{ customerId: [32m'th9KXAMg5fXuucbvS'[39m }
+[90mundefined[39m
+^C
+(base) ]0;prashanth@prashanth-HP-EliteBook-840-G5: /mnt/extmnt1/credit/origination/erxes/integrations/src/scripts[01;32mprashanth@prashanth-HP-EliteBook-840-G5[00m:[01;34m/mnt/extmnt1/credit/origination/erxes/integrations/src/scripts[00m$ node testLmsScript.js
+connecting....
+{ customerId: [32m'th9KXAMg5fXuucbvS'[39m }
+[90mundefined[39m
+^C
+(base) ]0;prashanth@prashanth-HP-EliteBook-840-G5: /mnt/extmnt1/credit/origination/erxes/integrations/src/scripts[01;32mprashanth@prashanth-HP-EliteBook-840-G5[00m:[01;34m/mnt/extmnt1/credit/origination/erxes/integrations/src/scripts[00m$ node testLmsScript.js
+connecting....
+{ customerId: [32m'th9KXAMg5fXuucbvS'[39m }
+[90mundefined[39m
+^C
+(base) ]0;prashanth@prashanth-HP-EliteBook-840-G5: /mnt/extmnt1/credit/origination/erxes/integrations/src/scripts[01;32mprashanth@prashanth-HP-EliteBook-840-G5[00m:[01;34m/mnt/extmnt1/credit/origination/erxes/integrations/src/scripts[00m$ node testLmsScript.js
+connecting....
+{ customerId: [32m'th9KXAMg5fXuucbvS'[39m }
+[90mundefined[39m
+^C
+(base) ]0;prashanth@prashanth-HP-EliteBook-840-G5: /mnt/extmnt1/credit/origination/erxes/integrations/src/scripts[01;32mprashanth@prashanth-HP-EliteBook-840-G5[00m:[01;34m/mnt/extmnt1/credit/origination/erxes/integrations/src/scripts[00m$ node testLmsScript.js
+connecting....
+{ customerId: [32m'th9KXAMg5fXuucbvS'[39m }
+[90mundefined[39m
+^C
+(base) ]0;prashanth@prashanth-HP-EliteBook-840-G5: /mnt/extmnt1/credit/origination/erxes/integrations/src/scripts[01;32mprashanth@prashanth-HP-EliteBook-840-G5[00m:[01;34m/mnt/extmnt1/credit/origination/erxes/integrations/src/scripts[00m$ node testLmsScript.js
+connecting....
+{ customerId: [32m'th9KXAMg5fXuucbvS'[39m }
+[90mundefined[39m
+^C
+(base) ]0;prashanth@prashanth-HP-EliteBook-840-G5: /mnt/extmnt1/credit/origination/erxes/integrations/src/scripts[01;32mprashanth@prashanth-HP-EliteBook-840-G5[00m:[01;34m/mnt/extmnt1/credit/origination/erxes/integrations/src/scripts[00m$ node testLmsScript.js
+connecting....
+{ customerId: [32m'th9KXAMg5fXuucbvS'[39m }
+[90mundefined[39m
+^C
+(base) ]0;prashanth@prashanth-HP-EliteBook-840-G5: /mnt/extmnt1/credit/origination/erxes/integrations/src/scripts[01;32mprashanth@prashanth-HP-EliteBook-840-G5[00m:[01;34m/mnt/extmnt1/credit/origination/erxes/integrations/src/scripts[00m$ node testLmsScript.js
+connecting....
+{ customerId: [32m'th9KXAMg5fXuucbvS'[39m }
+[90mundefined[39m
+^C
+(base) ]0;prashanth@prashanth-HP-EliteBook-840-G5: /mnt/extmnt1/credit/origination/erxes/integrations/src/scripts[01;32mprashanth@prashanth-HP-EliteBook-840-G5[00m:[01;34m/mnt/extmnt1/credit/origination/erxes/integrations/src/scripts[00m$ node testLmsScript.js
+connecting....
+{ customerId: [32m'th9KXAMg5fXuucbvS'[39m }
+[90mundefined[39m
+^C
+(base) ]0;prashanth@prashanth-HP-EliteBook-840-G5: /mnt/extmnt1/credit/origination/erxes/integrations/src/scripts[01;32mprashanth@prashanth-HP-EliteBook-840-G5[00m:[01;34m/mnt/extmnt1/credit/origination/erxes/integrations/src/scripts[00m$ node testLmsScript.js
+connecting....
+{ customerId: [32m'th9KXAMg5fXuucbvS'[39m }
+[90mundefined[39m
+^C
+(base) ]0;prashanth@prashanth-HP-EliteBook-840-G5: /mnt/extmnt1/credit/origination/erxes/integrations/src/scripts[01;32mprashanth@prashanth-HP-EliteBook-840-G5[00m:[01;34m/mnt/extmnt1/credit/origination/erxes/integrations/src/scripts[00m$ node testLmsScript.js
+connecting....
+{ customerId: [32m'th9KXAMg5fXuucbvS'[39m }
+[90mundefined[39m
+^C
+(base) ]0;prashanth@prashanth-HP-EliteBook-840-G5: /mnt/extmnt1/credit/origination/erxes/integrations/src/scripts[01;32mprashanth@prashanth-HP-EliteBook-840-G5[00m:[01;34m/mnt/extmnt1/credit/origination/erxes/integrations/src/scripts[00m$ node testLmsScript.js
+connecting....
+{ customerId: [32m'th9KXAMg5fXuucbvS'[39m }
+[90mundefined[39m
+^C
+(base) ]0;prashanth@prashanth-HP-EliteBook-840-G5: /mnt/extmnt1/credit/origination/erxes/integrations/src/scripts[01;32mprashanth@prashanth-HP-EliteBook-840-G5[00m:[01;34m/mnt/extmnt1/credit/origination/erxes/integrations/src/scripts[00m$ node testLmsScript.js
+connecting....
+{ customerId: [32m'th9KXAMg5fXuucbvS'[39m }
+[90mundefined[39m
+^C
+(base) ]0;prashanth@prashanth-HP-EliteBook-840-G5: /mnt/extmnt1/credit/origination/erxes/integrations/src/scripts[01;32mprashanth@prashanth-HP-EliteBook-840-G5[00m:[01;34m/mnt/extmnt1/credit/origination/erxes/integrations/src/scripts[00m$ node testLmsScript.js
+connecting....
+{ customerId: [32m'th9KXAMg5fXuucbvS'[39m }
+[90mundefined[39m
+^C
+(base) ]0;prashanth@prashanth-HP-EliteBook-840-G5: /mnt/extmnt1/credit/origination/erxes/integrations/src/scripts[01;32mprashanth@prashanth-HP-EliteBook-840-G5[00m:[01;34m/mnt/extmnt1/credit/origination/erxes/integrations/src/scripts[00m$ node testLmsScript.js
+connecting....
+{ customerId: [32m'th9KXAMg5fXuucbvS'[39m }
+[90mundefined[39m
+^C
+(base) ]0;prashanth@prashanth-HP-EliteBook-840-G5: /mnt/extmnt1/credit/origination/erxes/integrations/src/scripts[01;32mprashanth@prashanth-HP-EliteBook-840-G5[00m:[01;34m/mnt/extmnt1/credit/origination/erxes/integrations/src/scripts[00m$ node testLmsScript.js
+connecting....
+{ customerId: [32m'th9KXAMg5fXuucbvS'[39m }
+[90mundefined[39m
+^C
+(base) ]0;prashanth@prashanth-HP-EliteBook-840-G5: /mnt/extmnt1/credit/origination/erxes/integrations/src/scripts[01;32mprashanth@prashanth-HP-EliteBook-840-G5[00m:[01;34m/mnt/extmnt1/credit/origination/erxes/integrations/src/scripts[00m$ node testLmsScript.js
+connecting....
+{ customerId: [32m'th9KXAMg5fXuucbvS'[39m }
+[90mundefined[39m
+^C
+(base) ]0;prashanth@prashanth-HP-EliteBook-840-G5: /mnt/extmnt1/credit/origination/erxes/integrations/src/scripts[01;32mprashanth@prashanth-HP-EliteBook-840-G5[00m:[01;34m/mnt/extmnt1/credit/origination/erxes/integrations/src/scripts[00m$ node testLmsScript.js
+connecting....
+{ customerId: [32m'th9KXAMg5fXuucbvS'[39m }
+[90mundefined[39m
+^C
+(base) ]0;prashanth@prashanth-HP-EliteBook-840-G5: /mnt/extmnt1/credit/origination/erxes/integrations/src/scripts[01;32mprashanth@prashanth-HP-EliteBook-840-G5[00m:[01;34m/mnt/extmnt1/credit/origination/erxes/integrations/src/scripts[00m$ node testLmsScript.js
+connecting....
+{ customerId: [32m'th9KXAMg5fXuucbvS'[39m }
+[90mundefined[39m
+^C
+(base) ]0;prashanth@prashanth-HP-EliteBook-840-G5: /mnt/extmnt1/credit/origination/erxes/integrations/src/scripts[01;32mprashanth@prashanth-HP-EliteBook-840-G5[00m:[01;34m/mnt/extmnt1/credit/origination/erxes/integrations/src/scripts[00m$ node testLmsScript.js
+connecting....
+{ customerId: [32m'th9KXAMg5fXuucbvS'[39m }
+[90mundefined[39m
+^C
+(base) ]0;prashanth@prashanth-HP-EliteBook-840-G5: /mnt/extmnt1/credit/origination/erxes/integrations/src/scripts[01;32mprashanth@prashanth-HP-EliteBook-840-G5[00m:[01;34m/mnt/extmnt1/credit/origination/erxes/integrations/src/scripts[00m$ node testLmsScript.js
+connecting....
+{ customerId: [32m'th9KXAMg5fXuucbvS'[39m }
+[90mundefined[39m
+^C
+(base) ]0;prashanth@prashanth-HP-EliteBook-840-G5: /mnt/extmnt1/credit/origination/erxes/integrations/src/scripts[01;32mprashanth@prashanth-HP-EliteBook-840-G5[00m:[01;34m/mnt/extmnt1/credit/origination/erxes/integrations/src/scripts[00m$ node testLmsScript.js
+connecting....
+{ customerId: [32m'th9KXAMg5fXuucbvS'[39m }
+[90mundefined[39m
+^C
+(base) ]0;prashanth@prashanth-HP-EliteBook-840-G5: /mnt/extmnt1/credit/origination/erxes/integrations/src/scripts[01;32mprashanth@prashanth-HP-EliteBook-840-G5[00m:[01;34m/mnt/extmnt1/credit/origination/erxes/integrations/src/scripts[00m$ node testLmsScript.js
+connecting....
+{ customerId: [32m'th9KXAMg5fXuucbvS'[39m }
+[90mundefined[39m
+^C
+(base) ]0;prashanth@prashanth-HP-EliteBook-840-G5: /mnt/extmnt1/credit/origination/erxes/integrations/src/scripts[01;32mprashanth@prashanth-HP-EliteBook-840-G5[00m:[01;34m/mnt/extmnt1/credit/origination/erxes/integrations/src/scripts[00m$ node testLmsScript.js
+connecting....
+{ customerId: [32m'th9KXAMg5fXuucbvS'[39m }
+[90mundefined[39m
+^C
+(base) ]0;prashanth@prashanth-HP-EliteBook-840-G5: /mnt/extmnt1/credit/origination/erxes/integrations/src/scripts[01;32mprashanth@prashanth-HP-EliteBook-840-G5[00m:[01;34m/mnt/extmnt1/credit/origination/erxes/integrations/src/scripts[00m$ node testLmsScript.js
+connecting....
+{ customerId: [32m'th9KXAMg5fXuucbvS'[39m }
+[90mundefined[39m
+^C
+(base) ]0;prashanth@prashanth-HP-EliteBook-840-G5: /mnt/extmnt1/credit/origination/erxes/integrations/src/scripts[01;32mprashanth@prashanth-HP-EliteBook-840-G5[00m:[01;34m/mnt/extmnt1/credit/origination/erxes/integrations/src/scripts[00m$ node testLmsScript.js
+connecting....
+{ customerId: [32m'th9KXAMg5fXuucbvS'[39m }
+[90mundefined[39m
+^C
+(base) ]0;prashanth@prashanth-HP-EliteBook-840-G5: /mnt/extmnt1/credit/origination/erxes/integrations/src/scripts[01;32mprashanth@prashanth-HP-EliteBook-840-G5[00m:[01;34m/mnt/extmnt1/credit/origination/erxes/integrations/src/scripts[00m$ node testLmsScript.js
+connecting....
+{ customerId: [32m'th9KXAMg5fXuucbvS'[39m }
+[90mundefined[39m
+^C
+(base) ]0;prashanth@prashanth-HP-EliteBook-840-G5: /mnt/extmnt1/credit/origination/erxes/integrations/src/scripts[01;32mprashanth@prashanth-HP-EliteBook-840-G5[00m:[01;34m/mnt/extmnt1/credit/origination/erxes/integrations/src/scripts[00m$ node testLmsScript.js
+connecting....
+{ customerId: [32m'th9KXAMg5fXuucbvS'[39m }
+[90mundefined[39m
+^C
+(base) ]0;prashanth@prashanth-HP-EliteBook-840-G5: /mnt/extmnt1/credit/origination/erxes/integrations/src/scripts[01;32mprashanth@prashanth-HP-EliteBook-840-G5[00m:[01;34m/mnt/extmnt1/credit/origination/erxes/integrations/src/scripts[00m$ node testLmsScript.js
+connecting....
+{ customerId: [32m'th9KXAMg5fXuucbvS'[39m }
+[90mundefined[39m
+^C
+(base) ]0;prashanth@prashanth-HP-EliteBook-840-G5: /mnt/extmnt1/credit/origination/erxes/integrations/src/scripts[01;32mprashanth@prashanth-HP-EliteBook-840-G5[00m:[01;34m/mnt/extmnt1/credit/origination/erxes/integrations/src/scripts[00m$ node testLmsScript.js[C[C[C[C[C[C[Knode testLmsScript.js[1PsScript.jsosScript.js
+connecting....
+{ primaryBorrowerId: [32m'zybLHDqPCjnhJxuTe'[39m,
+  coBorrowerId: [32m'zxq78WzLmuTehbKJQ'[39m,
+  companyId: [32m'yExDmDP68iB4ztnq9'[39m,
+  softCreditId: [32m'8tFpJjkZY'[39m,
+  productType: [32m'shortterm'[39m,
+  bureauCreditScoreRefId: [32m'KkEjrk4d2'[39m,
+  applicationDocuments:
+   [ { documentType: [32m'pan'[39m,
+       documentName: [32m'pan'[39m,
+       documentRefId: [32m'CnMGgb'[39m,
+       documentVerified: [33mtrue[39m,
+       documentVerificationDetails: [36m[Object][39m },
+     { documentType: [32m'udyam'[39m,
+       documentName: [32m'udyam'[39m,
+       documentRefId: [32m'ap67Ra'[39m,
+       documentVerified: [33mtrue[39m,
+       documentVerificationDetails: [36m[Object][39m },
+     { documentType: [32m'sne'[39m,
+       documentName: [32m'sne'[39m,
+       documentRefId: [32m'Sw4piC'[39m,
+       documentVerified: [33mtrue[39m,
+       documentVerificationDetails: [36m[Object][39m },
+     { documentType: [32m'mobile-bill'[39m,
+       documentName: [32m'mobile-bill'[39m,
+       documentRefId: [32m'ERrniB'[39m,
+       documentVerified: [33mtrue[39m,
+       documentVerificationDetails: [36m[Object][39m },
+     { documentType: [32m'bank-statement'[39m,
+       documentName: [32m'bank-statement'[39m,
+       documentRefId: [32m'PXdEB6'[39m,
+       documentVerified: [33mtrue[39m,
+       documentVerificationDetails: [36m[Object][39m } ],
+  borrowerType: [32m'retailer'[39m,
+  loanOffers:
+   [ { loanProduct: [32m'100 Day Loan'[39m,
+       productCode: [32m'9885'[39m,
+       loanAmount: [33m500000[39m,
+       interestRate: [33m2.5[39m,
+       interestFrequency: [32m'per-month'[39m,
+       loanTenureInDays: [33m100[39m,
+       loanOfferStage: [32m'revised'[39m,
+       loanOfferDate: [35m2021-08-02T03:54:03.916Z[39m,
+       processingFeesPercent: [33m3[39m,
+       processingFeesFixed: [33m100[39m,
+       lender: [32m'NP'[39m },
+     { loanProduct: [32m'100 Day Loan'[39m,
+       productCode: [32m'9885'[39m,
+       loanAmount: [33m100000[39m,
+       interestRate: [33m2.5[39m,
+       interestFrequency: [32m'per-month'[39m,
+       loanTenureInDays: [33m100[39m,
+       loanOfferStage: [32m'revised'[39m,
+       loanOfferDate: [35m2021-08-02T03:54:03.916Z[39m,
+       processingFeesPercent: [33m3[39m,
+       processingFeesFixed: [33m100[39m,
+       lender: [32m'NP'[39m },
+     { loanProduct: [32m'100 Day Loan'[39m,
+       productCode: [32m'9885'[39m,
+       loanAmount: [33m125000[39m,
+       interestRate: [33m2.5[39m,
+       interestFrequency: [32m'per-month'[39m,
+       loanTenureInDays: [33m100[39m,
+       loanOfferStage: [32m'revised'[39m,
+       loanOfferDate: [35m2021-08-02T03:54:03.916Z[39m,
+       processingFeesPercent: [33m3[39m,
+       processingFeesFixed: [33m100[39m,
+       lender: [32m'NP'[39m },
+     { loanProduct: [32m'100 Day Loan'[39m,
+       productCode: [32m'9885'[39m,
+       loanAmount: [33m150000[39m,
+       interestRate: [33m2.5[39m,
+       interestFrequency: [32m'per-month'[39m,
+       loanTenureInDays: [33m100[39m,
+       loanOfferStage: [32m'revised'[39m,
+       loanOfferDate: [35m2021-08-02T03:54:03.916Z[39m,
+       processingFeesPercent: [33m3[39m,
+       processingFeesFixed: [33m100[39m,
+       lender: [32m'NP'[39m },
+     { loanProduct: [32m'100 Day Loan'[39m,
+       productCode: [32m'9885'[39m,
+       loanAmount: [33m200000[39m,
+       interestRate: [33m2.5[39m,
+       interestFrequency: [32m'per-month'[39m,
+       loanTenureInDays: [33m100[39m,
+       loanOfferStage: [32m'revised'[39m,
+       loanOfferDate: [35m2021-08-02T03:54:03.916Z[39m,
+       processingFeesPercent: [33m3[39m,
+       processingFeesFixed: [33m100[39m,
+       lender: [32m'NP'[39m } ],
+  currentLoanOffer:
+   { loanProduct: [32m'100 Day Loan'[39m,
+     productCode: [32m'9885'[39m,
+     loanAmount: [33m200000[39m,
+     interestRate: [33m2.5[39m,
+     interestFrequency: [32m'per-month'[39m,
+     loanTenureInDays: [33m100[39m,
+     loanOfferStage: [32m'final'[39m,
+     loanOfferDate: [35m2021-08-02T03:54:03.916Z[39m,
+     processingFeesPercent: [33m3[39m,
+     processingFeesFixed: [33m100[39m,
+     lender: [32m'NP'[39m },
+  stages:
+   [ { previousStage: [32m'CPV'[39m,
+       currentStage: [32m'PD'[39m,
+       stageChangeDate: [35m2021-08-02T03:54:03.916Z[39m,
+       decisionEngineResponse: {},
+       stateSuccess: [32m'success'[39m },
+     { previousStage: [32m'CPV'[39m,
+       currentStage: [32m'PD'[39m,
+       stageChangeDate: [35m2021-08-02T03:54:03.916Z[39m,
+       decisionEngineResponse: {},
+       stateSuccess: [32m'success'[39m } ],
+  currentStage:
+   { previousStage: [32m'CPV'[39m,
+     currentStage: [32m'PD'[39m,
+     stageChangeDate: [35m2021-08-02T03:54:03.916Z[39m,
+     decisionEngineResponse: {},
+     stateSuccess: [32m'success'[39m },
+  statusChangeDate: [35m2021-08-02T03:54:03.916Z[39m,
+  applicationStatus: [32m'active'[39m,
+  creditScore:
+   { creditScore: [33m700[39m,
+     scoreSource: [32m'CIBIL'[39m,
+     scoreSouceRefId: [32m'PKdfu'[39m,
+     createdAt: [35m2021-08-02T03:54:03.917Z[39m,
+     scoreType: [32m'soft'[39m } }
+[90mundefined[39m
+^C
+(base) ]0;prashanth@prashanth-HP-EliteBook-840-G5: /mnt/extmnt1/credit/origination/erxes/integrations/src/scripts[01;32mprashanth@prashanth-HP-EliteBook-840-G5[00m:[01;34m/mnt/extmnt1/credit/origination/erxes/integrations/src/scripts[00m$ node testLosScript.js
+connecting....
+{ primaryBorrowerId: [32m'zybLHDqPCjnhJxuTe'[39m,
+  coBorrowerId: [32m'zxq78WzLmuTehbKJQ'[39m,
+  companyId: [32m'yExDmDP68iB4ztnq9'[39m,
+  softCreditId: [32m'6ivpX6W7B'[39m,
+  productType: [32m'shortterm'[39m,
+  bureauCreditScoreRefId: [32m'RjYSJAq6k'[39m,
+  applicationDocuments:
+   [ { documentType: [32m'pan'[39m,
+       documentName: [32m'pan'[39m,
+       documentRefId: [32m'SzRrQL'[39m,
+       documentVerified: [33mtrue[39m,
+       documentVerificationDetails: [36m[Object][39m },
+     { documentType: [32m'udyam'[39m,
+       documentName: [32m'udyam'[39m,
+       documentRefId: [32m'qNz4kG'[39m,
+       documentVerified: [33mtrue[39m,
+       documentVerificationDetails: [36m[Object][39m },
+     { documentType: [32m'sne'[39m,
+       documentName: [32m'sne'[39m,
+       documentRefId: [32m'SLNFAo'[39m,
+       documentVerified: [33mtrue[39m,
+       documentVerificationDetails: [36m[Object][39m },
+     { documentType: [32m'mobile-bill'[39m,
+       documentName: [32m'mobile-bill'[39m,
+       documentRefId: [32m'3Yn2GA'[39m,
+       documentVerified: [33mtrue[39m,
+       documentVerificationDetails: [36m[Object][39m },
+     { documentType: [32m'bank-statement'[39m,
+       documentName: [32m'bank-statement'[39m,
+       documentRefId: [32m'wvwsto'[39m,
+       documentVerified: [33mtrue[39m,
+       documentVerificationDetails: [36m[Object][39m } ],
+  borrowerType: [32m'retailer'[39m,
+  loanOffers:
+   [ { loanProduct: [32m'100 Day Loan'[39m,
+       productCode: [32m'4638'[39m,
+       loanAmount: [33m500000[39m,
+       interestRate: [33m2.5[39m,
+       interestFrequency: [32m'per-month'[39m,
+       loanTenureInDays: [33m100[39m,
+       loanOfferStage: [32m'revised'[39m,
+       loanOfferDate: [35m2021-08-02T03:55:12.255Z[39m,
+       processingFeesPercent: [33m3[39m,
+       processingFeesFixed: [33m100[39m,
+       lender: [32m'NP'[39m },
+     { loanProduct: [32m'100 Day Loan'[39m,
+       productCode: [32m'4638'[39m,
+       loanAmount: [33m100000[39m,
+       interestRate: [33m2.5[39m,
+       interestFrequency: [32m'per-month'[39m,
+       loanTenureInDays: [33m100[39m,
+       loanOfferStage: [32m'revised'[39m,
+       loanOfferDate: [35m2021-08-02T03:55:12.255Z[39m,
+       processingFeesPercent: [33m3[39m,
+       processingFeesFixed: [33m100[39m,
+       lender: [32m'NP'[39m },
+     { loanProduct: [32m'100 Day Loan'[39m,
+       productCode: [32m'4638'[39m,
+       loanAmount: [33m125000[39m,
+       interestRate: [33m2.5[39m,
+       interestFrequency: [32m'per-month'[39m,
+       loanTenureInDays: [33m100[39m,
+       loanOfferStage: [32m'revised'[39m,
+       loanOfferDate: [35m2021-08-02T03:55:12.255Z[39m,
+       processingFeesPercent: [33m3[39m,
+       processingFeesFixed: [33m100[39m,
+       lender: [32m'NP'[39m },
+     { loanProduct: [32m'100 Day Loan'[39m,
+       productCode: [32m'4638'[39m,
+       loanAmount: [33m150000[39m,
+       interestRate: [33m2.5[39m,
+       interestFrequency: [32m'per-month'[39m,
+       loanTenureInDays: [33m100[39m,
+       loanOfferStage: [32m'revised'[39m,
+       loanOfferDate: [35m2021-08-02T03:55:12.255Z[39m,
+       processingFeesPercent: [33m3[39m,
+       processingFeesFixed: [33m100[39m,
+       lender: [32m'NP'[39m },
+     { loanProduct: [32m'100 Day Loan'[39m,
+       productCode: [32m'4638'[39m,
+       loanAmount: [33m200000[39m,
+       interestRate: [33m2.5[39m,
+       interestFrequency: [32m'per-month'[39m,
+       loanTenureInDays: [33m100[39m,
+       loanOfferStage: [32m'revised'[39m,
+       loanOfferDate: [35m2021-08-02T03:55:12.255Z[39m,
+       processingFeesPercent: [33m3[39m,
+       processingFeesFixed: [33m100[39m,
+       lender: [32m'NP'[39m } ],
+  currentLoanOffer:
+   { loanProduct: [32m'100 Day Loan'[39m,
+     productCode: [32m'9885'[39m,
+     loanAmount: [33m200000[39m,
+     interestRate: [33m2.5[39m,
+     interestFrequency: [32m'per-month'[39m,
+     loanTenureInDays: [33m100[39m,
+     loanOfferStage: [32m'final'[39m,
+     loanOfferDate: [35m2021-08-02T03:55:12.255Z[39m,
+     processingFeesPercent: [33m3[39m,
+     processingFeesFixed: [33m100[39m,
+     lender: [32m'NP'[39m },
+  stages:
+   [ { previousStage: [32m'CPV'[39m,
+       currentStage: [32m'PD'[39m,
+       stageChangeDate: [35m2021-08-02T03:55:12.255Z[39m,
+       decisionEngineResponse: {},
+       stateSuccess: [32m'success'[39m },
+     { previousStage: [32m'CPV'[39m,
+       currentStage: [32m'PD'[39m,
+       stageChangeDate: [35m2021-08-02T03:55:12.255Z[39m,
+       decisionEngineResponse: {},
+       stateSuccess: [32m'success'[39m } ],
+  currentStage:
+   { previousStage: [32m'CPV'[39m,
+     currentStage: [32m'PD'[39m,
+     stageChangeDate: [35m2021-08-02T03:55:12.255Z[39m,
+     decisionEngineResponse: {},
+     stateSuccess: [32m'success'[39m },
+  statusChangeDate: [35m2021-08-02T03:55:12.255Z[39m,
+  applicationStatus: [32m'active'[39m,
+  creditScore:
+   { creditScore: [33m700[39m,
+     scoreSource: [32m'CIBIL'[39m,
+     scoreSouceRefId: [32m'tYtsY'[39m,
+     createdAt: [35m2021-08-02T03:55:12.255Z[39m,
+     scoreType: [32m'soft'[39m } }
+[90mundefined[39m
+^C
+(base) ]0;prashanth@prashanth-HP-EliteBook-840-G5: /mnt/extmnt1/credit/origination/erxes/integrations/src/scripts[01;32mprashanth@prashanth-HP-EliteBook-840-G5[00m:[01;34m/mnt/extmnt1/credit/origination/erxes/integrations/src/scripts[00m$ node testLosScript.js
+connecting....
+{ primaryBorrowerId: [32m'zybLHDqPCjnhJxuTe'[39m,
+  coBorrowerId: [32m'zxq78WzLmuTehbKJQ'[39m,
+  companyId: [32m'yExDmDP68iB4ztnq9'[39m,
+  softCreditId: [32m'eE92dGJoA'[39m,
+  productType: [32m'shortterm'[39m,
+  bureauCreditScoreRefId: [32m'rGMpKtnGj'[39m,
+  applicationDocuments:
+   [ { documentType: [32m'pan'[39m,
+       documentName: [32m'pan'[39m,
+       documentRefId: [32m'ogw5px'[39m,
+       documentVerified: [33mtrue[39m,
+       documentVerificationDetails: [36m[Object][39m },
+     { documentType: [32m'udyam'[39m,
+       documentName: [32m'udyam'[39m,
+       documentRefId: [32m'L4vDkJ'[39m,
+       documentVerified: [33mtrue[39m,
+       documentVerificationDetails: [36m[Object][39m },
+     { documentType: [32m'sne'[39m,
+       documentName: [32m'sne'[39m,
+       documentRefId: [32m'XqwGjz'[39m,
+       documentVerified: [33mtrue[39m,
+       documentVerificationDetails: [36m[Object][39m },
+     { documentType: [32m'mobile-bill'[39m,
+       documentName: [32m'mobile-bill'[39m,
+       documentRefId: [32m'oj7HyL'[39m,
+       documentVerified: [33mtrue[39m,
+       documentVerificationDetails: [36m[Object][39m },
+     { documentType: [32m'bank-statement'[39m,
+       documentName: [32m'bank-statement'[39m,
+       documentRefId: [32m'iHipqE'[39m,
+       documentVerified: [33mtrue[39m,
+       documentVerificationDetails: [36m[Object][39m } ],
+  borrowerType: [32m'retailer'[39m,
+  loanOffers:
+   [ { loanProduct: [32m'100 Day Loan'[39m,
+       productCode: [32m'4638'[39m,
+       loanAmount: [33m500000[39m,
+       interestRate: [33m2.5[39m,
+       interestFrequency: [32m'per-month'[39m,
+       loanTenureInDays: [33m100[39m,
+       loanOfferStage: [32m'revised'[39m,
+       loanOfferDate: [35m2021-08-02T03:55:20.437Z[39m,
+       processingFeesPercent: [33m3[39m,
+       processingFeesFixed: [33m100[39m,
+       lender: [32m'NP'[39m },
+     { loanProduct: [32m'100 Day Loan'[39m,
+       productCode: [32m'4638'[39m,
+       loanAmount: [33m100000[39m,
+       interestRate: [33m2.5[39m,
+       interestFrequency: [32m'per-month'[39m,
+       loanTenureInDays: [33m100[39m,
+       loanOfferStage: [32m'revised'[39m,
+       loanOfferDate: [35m2021-08-02T03:55:20.437Z[39m,
+       processingFeesPercent: [33m3[39m,
+       processingFeesFixed: [33m100[39m,
+       lender: [32m'NP'[39m },
+     { loanProduct: [32m'100 Day Loan'[39m,
+       productCode: [32m'4638'[39m,
+       loanAmount: [33m125000[39m,
+       interestRate: [33m2.5[39m,
+       interestFrequency: [32m'per-month'[39m,
+       loanTenureInDays: [33m100[39m,
+       loanOfferStage: [32m'revised'[39m,
+       loanOfferDate: [35m2021-08-02T03:55:20.437Z[39m,
+       processingFeesPercent: [33m3[39m,
+       processingFeesFixed: [33m100[39m,
+       lender: [32m'NP'[39m },
+     { loanProduct: [32m'100 Day Loan'[39m,
+       productCode: [32m'4638'[39m,
+       loanAmount: [33m150000[39m,
+       interestRate: [33m2.5[39m,
+       interestFrequency: [32m'per-month'[39m,
+       loanTenureInDays: [33m100[39m,
+       loanOfferStage: [32m'revised'[39m,
+       loanOfferDate: [35m2021-08-02T03:55:20.437Z[39m,
+       processingFeesPercent: [33m3[39m,
+       processingFeesFixed: [33m100[39m,
+       lender: [32m'NP'[39m },
+     { loanProduct: [32m'100 Day Loan'[39m,
+       productCode: [32m'4638'[39m,
+       loanAmount: [33m200000[39m,
+       interestRate: [33m2.5[39m,
+       interestFrequency: [32m'per-month'[39m,
+       loanTenureInDays: [33m100[39m,
+       loanOfferStage: [32m'revised'[39m,
+       loanOfferDate: [35m2021-08-02T03:55:20.437Z[39m,
+       processingFeesPercent: [33m3[39m,
+       processingFeesFixed: [33m100[39m,
+       lender: [32m'NP'[39m } ],
+  currentLoanOffer:
+   { loanProduct: [32m'100 Day Loan'[39m,
+     productCode: [32m'9885'[39m,
+     loanAmount: [33m200000[39m,
+     interestRate: [33m2.5[39m,
+     interestFrequency: [32m'per-month'[39m,
+     loanTenureInDays: [33m100[39m,
+     loanOfferStage: [32m'final'[39m,
+     loanOfferDate: [35m2021-08-02T03:55:20.437Z[39m,
+     processingFeesPercent: [33m3[39m,
+     processingFeesFixed: [33m100[39m,
+     lender: [32m'NP'[39m },
+  stages:
+   [ { previousStage: [32m'CPV'[39m,
+       currentStage: [32m'PD'[39m,
+       stageChangeDate: [35m2021-08-02T03:55:20.437Z[39m,
+       decisionEngineResponse: {},
+       stateSuccess: [32m'success'[39m },
+     { previousStage: [32m'CPV'[39m,
+       currentStage: [32m'PD'[39m,
+       stageChangeDate: [35m2021-08-02T03:55:20.437Z[39m,
+       decisionEngineResponse: {},
+       stateSuccess: [32m'success'[39m } ],
+  currentStage:
+   { previousStage: [32m'CPV'[39m,
+     currentStage: [32m'PD'[39m,
+     stageChangeDate: [35m2021-08-02T03:55:20.437Z[39m,
+     decisionEngineResponse: {},
+     stateSuccess: [32m'success'[39m },
+  statusChangeDate: [35m2021-08-02T03:55:20.437Z[39m,
+  applicationStatus: [32m'active'[39m,
+  creditScore:
+   { creditScore: [33m700[39m,
+     scoreSource: [32m'CIBIL'[39m,
+     scoreSouceRefId: [32m'ZXcqX'[39m,
+     createdAt: [35m2021-08-02T03:55:20.437Z[39m,
+     scoreType: [32m'soft'[39m } }
+[90mundefined[39m
+^C
+(base) ]0;prashanth@prashanth-HP-EliteBook-840-G5: /mnt/extmnt1/credit/origination/erxes/integrations/src/scripts[01;32mprashanth@prashanth-HP-EliteBook-840-G5[00m:[01;34m/mnt/extmnt1/credit/origination/erxes/integrations/src/scripts[00m$ node testLosScript.js
+connecting....
+{ primaryBorrowerId: [32m'zybLHDqPCjnhJxuTe'[39m,
+  coBorrowerId: [32m'zxq78WzLmuTehbKJQ'[39m,
+  companyId: [32m'yExDmDP68iB4ztnq9'[39m,
+  softCreditId: [32m'FyiiNMqWb'[39m,
+  productType: [32m'shortterm'[39m,
+  bureauCreditScoreRefId: [32m'4obwF7H5Z'[39m,
+  applicationDocuments:
+   [ { documentType: [32m'pan'[39m,
+       documentName: [32m'pan'[39m,
+       documentRefId: [32m'B38gvs'[39m,
+       documentVerified: [33mtrue[39m,
+       documentVerificationDetails: [36m[Object][39m },
+     { documentType: [32m'udyam'[39m,
+       documentName: [32m'udyam'[39m,
+       documentRefId: [32m'3WPHdE'[39m,
+       documentVerified: [33mtrue[39m,
+       documentVerificationDetails: [36m[Object][39m },
+     { documentType: [32m'sne'[39m,
+       documentName: [32m'sne'[39m,
+       documentRefId: [32m'645rMt'[39m,
+       documentVerified: [33mtrue[39m,
+       documentVerificationDetails: [36m[Object][39m },
+     { documentType: [32m'mobile-bill'[39m,
+       documentName: [32m'mobile-bill'[39m,
+       documentRefId: [32m'xMRdSW'[39m,
+       documentVerified: [33mtrue[39m,
+       documentVerificationDetails: [36m[Object][39m },
+     { documentType: [32m'bank-statement'[39m,
+       documentName: [32m'bank-statement'[39m,
+       documentRefId: [32m'sXpgmf'[39m,
+       documentVerified: [33mtrue[39m,
+       documentVerificationDetails: [36m[Object][39m } ],
+  borrowerType: [32m'retailer'[39m,
+  loanOffers:
+   [ { loanProduct: [32m'100 Day Loan'[39m,
+       productCode: [32m'4638'[39m,
+       loanAmount: [33m500000[39m,
+       interestRate: [33m2.5[39m,
+       interestFrequency: [32m'per-month'[39m,
+       loanTenureInDays: [33m100[39m,
+       loanOfferStage: [32m'revised'[39m,
+       loanOfferDate: [35m2021-08-02T03:56:23.175Z[39m,
+       processingFeesPercent: [33m3[39m,
+       processingFeesFixed: [33m100[39m,
+       lender: [32m'NP'[39m },
+     { loanProduct: [32m'100 Day Loan'[39m,
+       productCode: [32m'4638'[39m,
+       loanAmount: [33m100000[39m,
+       interestRate: [33m2.5[39m,
+       interestFrequency: [32m'per-month'[39m,
+       loanTenureInDays: [33m100[39m,
+       loanOfferStage: [32m'revised'[39m,
+       loanOfferDate: [35m2021-08-02T03:56:23.175Z[39m,
+       processingFeesPercent: [33m3[39m,
+       processingFeesFixed: [33m100[39m,
+       lender: [32m'NP'[39m },
+     { loanProduct: [32m'100 Day Loan'[39m,
+       productCode: [32m'4638'[39m,
+       loanAmount: [33m125000[39m,
+       interestRate: [33m2.5[39m,
+       interestFrequency: [32m'per-month'[39m,
+       loanTenureInDays: [33m100[39m,
+       loanOfferStage: [32m'revised'[39m,
+       loanOfferDate: [35m2021-08-02T03:56:23.175Z[39m,
+       processingFeesPercent: [33m3[39m,
+       processingFeesFixed: [33m100[39m,
+       lender: [32m'NP'[39m },
+     { loanProduct: [32m'100 Day Loan'[39m,
+       productCode: [32m'4638'[39m,
+       loanAmount: [33m150000[39m,
+       interestRate: [33m2.5[39m,
+       interestFrequency: [32m'per-month'[39m,
+       loanTenureInDays: [33m100[39m,
+       loanOfferStage: [32m'revised'[39m,
+       loanOfferDate: [35m2021-08-02T03:56:23.175Z[39m,
+       processingFeesPercent: [33m3[39m,
+       processingFeesFixed: [33m100[39m,
+       lender: [32m'NP'[39m },
+     { loanProduct: [32m'100 Day Loan'[39m,
+       productCode: [32m'4638'[39m,
+       loanAmount: [33m200000[39m,
+       interestRate: [33m2.5[39m,
+       interestFrequency: [32m'per-month'[39m,
+       loanTenureInDays: [33m100[39m,
+       loanOfferStage: [32m'revised'[39m,
+       loanOfferDate: [35m2021-08-02T03:56:23.175Z[39m,
+       processingFeesPercent: [33m3[39m,
+       processingFeesFixed: [33m100[39m,
+       lender: [32m'NP'[39m } ],
+  currentLoanOffer:
+   { loanProduct: [32m'100 Day Loan'[39m,
+     productCode: [32m'4638'[39m,
+     loanAmount: [33m200000[39m,
+     interestRate: [33m2.5[39m,
+     interestFrequency: [32m'per-month'[39m,
+     loanTenureInDays: [33m100[39m,
+     loanOfferStage: [32m'final'[39m,
+     loanOfferDate: [35m2021-08-02T03:56:23.175Z[39m,
+     processingFeesPercent: [33m3[39m,
+     processingFeesFixed: [33m100[39m,
+     lender: [32m'NP'[39m },
+  stages:
+   [ { previousStage: [32m'CPV'[39m,
+       currentStage: [32m'PD'[39m,
+       stageChangeDate: [35m2021-08-02T03:56:23.175Z[39m,
+       decisionEngineResponse: {},
+       stateSuccess: [32m'success'[39m },
+     { previousStage: [32m'CPV'[39m,
+       currentStage: [32m'PD'[39m,
+       stageChangeDate: [35m2021-08-02T03:56:23.175Z[39m,
+       decisionEngineResponse: {},
+       stateSuccess: [32m'success'[39m } ],
+  currentStage:
+   { previousStage: [32m'CPV'[39m,
+     currentStage: [32m'PD'[39m,
+     stageChangeDate: [35m2021-08-02T03:56:23.175Z[39m,
+     decisionEngineResponse: {},
+     stateSuccess: [32m'success'[39m },
+  statusChangeDate: [35m2021-08-02T03:56:23.175Z[39m,
+  applicationStatus: [32m'active'[39m,
+  creditScore:
+   { creditScore: [33m700[39m,
+     scoreSource: [32m'CIBIL'[39m,
+     scoreSouceRefId: [32m'ApJbn'[39m,
+     createdAt: [35m2021-08-02T03:56:23.175Z[39m,
+     scoreType: [32m'soft'[39m } }
+[90mundefined[39m
+^C
+(base) ]0;prashanth@prashanth-HP-EliteBook-840-G5: /mnt/extmnt1/credit/origination/erxes/integrations/src/scripts[01;32mprashanth@prashanth-HP-EliteBook-840-G5[00m:[01;34m/mnt/extmnt1/credit/origination/erxes/integrations/src/scripts[00m$ node testLosScript.js
+connecting....
+{ primaryBorrowerId: [32m'zybLHDqPCjnhJxuTe'[39m,
+  coBorrowerId: [32m'zxq78WzLmuTehbKJQ'[39m,
+  companyId: [32m'yExDmDP68iB4ztnq9'[39m,
+  softCreditId: [32m'e3RvXd5wd'[39m,
+  productType: [32m'shortterm'[39m,
+  bureauCreditScoreRefId: [32m'EbupeYjKz'[39m,
+  applicationDocuments:
+   [ { documentType: [32m'pan'[39m,
+       documentName: [32m'pan'[39m,
+       documentRefId: [32m'Gn4qrS'[39m,
+       documentVerified: [33mtrue[39m,
+       documentVerificationDetails: [36m[Object][39m },
+     { documentType: [32m'udyam'[39m,
+       documentName: [32m'udyam'[39m,
+       documentRefId: [32m'BxF34y'[39m,
+       documentVerified: [33mtrue[39m,
+       documentVerificationDetails: [36m[Object][39m },
+     { documentType: [32m'sne'[39m,
+       documentName: [32m'sne'[39m,
+       documentRefId: [32m'jwBAJR'[39m,
+       documentVerified: [33mtrue[39m,
+       documentVerificationDetails: [36m[Object][39m },
+     { documentType: [32m'mobile-bill'[39m,
+       documentName: [32m'mobile-bill'[39m,
+       documentRefId: [32m'B9vatj'[39m,
+       documentVerified: [33mtrue[39m,
+       documentVerificationDetails: [36m[Object][39m },
+     { documentType: [32m'bank-statement'[39m,
+       documentName: [32m'bank-statement'[39m,
+       documentRefId: [32m'9eWYS8'[39m,
+       documentVerified: [33mtrue[39m,
+       documentVerificationDetails: [36m[Object][39m } ],
+  borrowerType: [32m'retailer'[39m,
+  loanOffers:
+   [ { loanProduct: [32m'100 Day Loan'[39m,
+       productCode: [32m'4638'[39m,
+       loanAmount: [33m500000[39m,
+       interestRate: [33m2.5[39m,
+       interestFrequency: [32m'per-month'[39m,
+       loanTenureInDays: [33m100[39m,
+       loanOfferStage: [32m'revised'[39m,
+       loanOfferDate: [35m2021-08-02T03:56:29.733Z[39m,
+       processingFeesPercent: [33m3[39m,
+       processingFeesFixed: [33m100[39m,
+       lender: [32m'NP'[39m },
+     { loanProduct: [32m'100 Day Loan'[39m,
+       productCode: [32m'4638'[39m,
+       loanAmount: [33m100000[39m,
+       interestRate: [33m2.5[39m,
+       interestFrequency: [32m'per-month'[39m,
+       loanTenureInDays: [33m100[39m,
+       loanOfferStage: [32m'revised'[39m,
+       loanOfferDate: [35m2021-08-02T03:56:29.733Z[39m,
+       processingFeesPercent: [33m3[39m,
+       processingFeesFixed: [33m100[39m,
+       lender: [32m'NP'[39m },
+     { loanProduct: [32m'100 Day Loan'[39m,
+       productCode: [32m'4638'[39m,
+       loanAmount: [33m125000[39m,
+       interestRate: [33m2.5[39m,
+       interestFrequency: [32m'per-month'[39m,
+       loanTenureInDays: [33m100[39m,
+       loanOfferStage: [32m'revised'[39m,
+       loanOfferDate: [35m2021-08-02T03:56:29.733Z[39m,
+       processingFeesPercent: [33m3[39m,
+       processingFeesFixed: [33m100[39m,
+       lender: [32m'NP'[39m },
+     { loanProduct: [32m'100 Day Loan'[39m,
+       productCode: [32m'4638'[39m,
+       loanAmount: [33m150000[39m,
+       interestRate: [33m2.5[39m,
+       interestFrequency: [32m'per-month'[39m,
+       loanTenureInDays: [33m100[39m,
+       loanOfferStage: [32m'revised'[39m,
+       loanOfferDate: [35m2021-08-02T03:56:29.733Z[39m,
+       processingFeesPercent: [33m3[39m,
+       processingFeesFixed: [33m100[39m,
+       lender: [32m'NP'[39m },
+     { loanProduct: [32m'100 Day Loan'[39m,
+       productCode: [32m'4638'[39m,
+       loanAmount: [33m200000[39m,
+       interestRate: [33m2.5[39m,
+       interestFrequency: [32m'per-month'[39m,
+       loanTenureInDays: [33m100[39m,
+       loanOfferStage: [32m'revised'[39m,
+       loanOfferDate: [35m2021-08-02T03:56:29.733Z[39m,
+       processingFeesPercent: [33m3[39m,
+       processingFeesFixed: [33m100[39m,
+       lender: [32m'NP'[39m } ],
+  currentLoanOffer:
+   { loanProduct: [32m'100 Day Loan'[39m,
+     productCode: [32m'4638'[39m,
+     loanAmount: [33m200000[39m,
+     interestRate: [33m2.5[39m,
+     interestFrequency: [32m'per-month'[39m,
+     loanTenureInDays: [33m100[39m,
+     loanOfferStage: [32m'final'[39m,
+     loanOfferDate: [35m2021-08-02T03:56:29.733Z[39m,
+     processingFeesPercent: [33m3[39m,
+     processingFeesFixed: [33m100[39m,
+     lender: [32m'NP'[39m },
+  stages:
+   [ { previousStage: [32m'CPV'[39m,
+       currentStage: [32m'PD'[39m,
+       stageChangeDate: [35m2021-08-02T03:56:29.733Z[39m,
+       decisionEngineResponse: {},
+       stateSuccess: [32m'success'[39m },
+     { previousStage: [32m'CPV'[39m,
+       currentStage: [32m'PD'[39m,
+       stageChangeDate: [35m2021-08-02T03:56:29.733Z[39m,
+       decisionEngineResponse: {},
+       stateSuccess: [32m'success'[39m } ],
+  currentStage:
+   { previousStage: [32m'CPV'[39m,
+     currentStage: [32m'PD'[39m,
+     stageChangeDate: [35m2021-08-02T03:56:29.733Z[39m,
+     decisionEngineResponse: {},
+     stateSuccess: [32m'success'[39m },
+  statusChangeDate: [35m2021-08-02T03:56:29.733Z[39m,
+  applicationStatus: [32m'active'[39m,
+  creditScore:
+   { creditScore: [33m700[39m,
+     scoreSource: [32m'CIBIL'[39m,
+     scoreSouceRefId: [32m'TQoPz'[39m,
+     createdAt: [35m2021-08-02T03:56:29.733Z[39m,
+     scoreType: [32m'soft'[39m } }
+[90mundefined[39m
+^C
+(base) ]0;prashanth@prashanth-HP-EliteBook-840-G5: /mnt/extmnt1/credit/origination/erxes/integrations/src/scripts[01;32mprashanth@prashanth-HP-EliteBook-840-G5[00m:[01;34m/mnt/extmnt1/credit/origination/erxes/integrations/src/scripts[00m$ node testLosScript.js
+connecting....
+{ primaryBorrowerId: [32m'zybLHDqPCjnhJxuTe'[39m,
+  coBorrowerId: [32m'zxq78WzLmuTehbKJQ'[39m,
+  companyId: [32m'yExDmDP68iB4ztnq9'[39m,
+  softCreditId: [32m'qnqpYs3Rk'[39m,
+  productType: [32m'shortterm'[39m,
+  bureauCreditScoreRefId: [32m'C58H9qwf3'[39m,
+  applicationDocuments:
+   [ { documentType: [32m'pan'[39m,
+       documentName: [32m'pan'[39m,
+       documentRefId: [32m'gzGWn3'[39m,
+       documentVerified: [33mtrue[39m,
+       documentVerificationDetails: [36m[Object][39m },
+     { documentType: [32m'udyam'[39m,
+       documentName: [32m'udyam'[39m,
+       documentRefId: [32m'EtWRXt'[39m,
+       documentVerified: [33mtrue[39m,
+       documentVerificationDetails: [36m[Object][39m },
+     { documentType: [32m'sne'[39m,
+       documentName: [32m'sne'[39m,
+       documentRefId: [32m'sDoewC'[39m,
+       documentVerified: [33mtrue[39m,
+       documentVerificationDetails: [36m[Object][39m },
+     { documentType: [32m'mobile-bill'[39m,
+       documentName: [32m'mobile-bill'[39m,
+       documentRefId: [32m'oqKfC8'[39m,
+       documentVerified: [33mtrue[39m,
+       documentVerificationDetails: [36m[Object][39m },
+     { documentType: [32m'bank-statement'[39m,
+       documentName: [32m'bank-statement'[39m,
+       documentRefId: [32m'WSoSuk'[39m,
+       documentVerified: [33mtrue[39m,
+       documentVerificationDetails: [36m[Object][39m } ],
+  borrowerType: [32m'retailer'[39m,
+  loanOffers:
+   [ { loanProduct: [32m'100 Day Loan'[39m,
+       productCode: [32m'4638'[39m,
+       loanAmount: [33m500000[39m,
+       interestRate: [33m2.5[39m,
+       interestFrequency: [32m'per-month'[39m,
+       loanTenureInDays: [33m100[39m,
+       loanOfferStage: [32m'revised'[39m,
+       loanOfferDate: [35m2021-08-02T03:56:45.304Z[39m,
+       processingFeesPercent: [33m3[39m,
+       processingFeesFixed: [33m100[39m,
+       lender: [32m'NP'[39m },
+     { loanProduct: [32m'100 Day Loan'[39m,
+       productCode: [32m'4638'[39m,
+       loanAmount: [33m100000[39m,
+       interestRate: [33m2.5[39m,
+       interestFrequency: [32m'per-month'[39m,
+       loanTenureInDays: [33m100[39m,
+       loanOfferStage: [32m'revised'[39m,
+       loanOfferDate: [35m2021-08-02T03:56:45.304Z[39m,
+       processingFeesPercent: [33m3[39m,
+       processingFeesFixed: [33m100[39m,
+       lender: [32m'NP'[39m },
+     { loanProduct: [32m'100 Day Loan'[39m,
+       productCode: [32m'4638'[39m,
+       loanAmount: [33m125000[39m,
+       interestRate: [33m2.5[39m,
+       interestFrequency: [32m'per-month'[39m,
+       loanTenureInDays: [33m100[39m,
+       loanOfferStage: [32m'revised'[39m,
+       loanOfferDate: [35m2021-08-02T03:56:45.304Z[39m,
+       processingFeesPercent: [33m3[39m,
+       processingFeesFixed: [33m100[39m,
+       lender: [32m'NP'[39m },
+     { loanProduct: [32m'100 Day Loan'[39m,
+       productCode: [32m'4638'[39m,
+       loanAmount: [33m150000[39m,
+       interestRate: [33m2.5[39m,
+       interestFrequency: [32m'per-month'[39m,
+       loanTenureInDays: [33m100[39m,
+       loanOfferStage: [32m'revised'[39m,
+       loanOfferDate: [35m2021-08-02T03:56:45.304Z[39m,
+       processingFeesPercent: [33m3[39m,
+       processingFeesFixed: [33m100[39m,
+       lender: [32m'NP'[39m },
+     { loanProduct: [32m'100 Day Loan'[39m,
+       productCode: [32m'4638'[39m,
+       loanAmount: [33m200000[39m,
+       interestRate: [33m2.5[39m,
+       interestFrequency: [32m'per-month'[39m,
+       loanTenureInDays: [33m100[39m,
+       loanOfferStage: [32m'revised'[39m,
+       loanOfferDate: [35m2021-08-02T03:56:45.304Z[39m,
+       processingFeesPercent: [33m3[39m,
+       processingFeesFixed: [33m100[39m,
+       lender: [32m'NP'[39m } ],
+  currentLoanOffer:
+   { loanProduct: [32m'100 Day Loan'[39m,
+     productCode: [32m'4638'[39m,
+     loanAmount: [33m200000[39m,
+     interestRate: [33m2.5[39m,
+     interestFrequency: [32m'per-month'[39m,
+     loanTenureInDays: [33m100[39m,
+     loanOfferStage: [32m'final'[39m,
+     loanOfferDate: [35m2021-08-02T03:56:45.304Z[39m,
+     processingFeesPercent: [33m3[39m,
+     processingFeesFixed: [33m100[39m,
+     lender: [32m'NP'[39m },
+  stages:
+   [ { previousStage: [32m'CPV'[39m,
+       currentStage: [32m'PD'[39m,
+       stageChangeDate: [35m2021-08-02T03:56:45.304Z[39m,
+       decisionEngineResponse: {},
+       stateSuccess: [32m'success'[39m },
+     { previousStage: [32m'CPV'[39m,
+       currentStage: [32m'PD'[39m,
+       stageChangeDate: [35m2021-08-02T03:56:45.304Z[39m,
+       decisionEngineResponse: {},
+       stateSuccess: [32m'success'[39m } ],
+  currentStage:
+   { previousStage: [32m'CPV'[39m,
+     currentStage: [32m'PD'[39m,
+     stageChangeDate: [35m2021-08-02T03:56:45.304Z[39m,
+     decisionEngineResponse: {},
+     stateSuccess: [32m'success'[39m },
+  statusChangeDate: [35m2021-08-02T03:56:45.304Z[39m,
+  applicationStatus: [32m'active'[39m,
+  creditScore:
+   { creditScore: [33m700[39m,
+     scoreSource: [32m'CIBIL'[39m,
+     scoreSouceRefId: [32m'JeYqS'[39m,
+     createdAt: [35m2021-08-02T03:56:45.304Z[39m,
+     scoreType: [32m'soft'[39m } }
+[90mundefined[39m
+^[[A^C
+(base) ]0;prashanth@prashanth-HP-EliteBook-840-G5: /mnt/extmnt1/credit/origination/erxes/integrations/src/scripts[01;32mprashanth@prashanth-HP-EliteBook-840-G5[00m:[01;34m/mnt/extmnt1/credit/origination/erxes/integrations/src/scripts[00m$ node testLosScript.js
+connecting....
+{ primaryBorrowerId: [32m'zybLHDqPCjnhJxuTe'[39m,
+  coBorrowerId: [32m'zxq78WzLmuTehbKJQ'[39m,
+  companyId: [32m'yExDmDP68iB4ztnq9'[39m,
+  softCreditId: [32m'dBxs3mM7E'[39m,
+  productType: [32m'shortterm'[39m,
+  bureauCreditScoreRefId: [32m'RJb4jpipN'[39m,
+  applicationDocuments:
+   [ { documentType: [32m'pan'[39m,
+       documentName: [32m'pan'[39m,
+       documentRefId: [32m'yPquh4'[39m,
+       documentVerified: [33mtrue[39m,
+       documentVerificationDetails: [36m[Object][39m },
+     { documentType: [32m'udyam'[39m,
+       documentName: [32m'udyam'[39m,
+       documentRefId: [32m'YATK89'[39m,
+       documentVerified: [33mtrue[39m,
+       documentVerificationDetails: [36m[Object][39m },
+     { documentType: [32m'sne'[39m,
+       documentName: [32m'sne'[39m,
+       documentRefId: [32m'Qe9SFo'[39m,
+       documentVerified: [33mtrue[39m,
+       documentVerificationDetails: [36m[Object][39m },
+     { documentType: [32m'mobile-bill'[39m,
+       documentName: [32m'mobile-bill'[39m,
+       documentRefId: [32m'kRq5bx'[39m,
+       documentVerified: [33mtrue[39m,
+       documentVerificationDetails: [36m[Object][39m },
+     { documentType: [32m'bank-statement'[39m,
+       documentName: [32m'bank-statement'[39m,
+       documentRefId: [32m'eAcbQ2'[39m,
+       documentVerified: [33mtrue[39m,
+       documentVerificationDetails: [36m[Object][39m } ],
+  borrowerType: [32m'retailer'[39m,
+  loanOffers:
+   [ { loanProduct: [32m'100 Day Loan'[39m,
+       productCode: [32m'4638'[39m,
+       loanAmount: [33m500000[39m,
+       interestRate: [33m2.5[39m,
+       interestFrequency: [32m'per-month'[39m,
+       loanTenureInDays: [33m100[39m,
+       loanOfferStage: [32m'revised'[39m,
+       loanOfferDate: [35m2021-08-02T03:56:57.566Z[39m,
+       processingFeesPercent: [33m3[39m,
+       processingFeesFixed: [33m100[39m,
+       lender: [32m'NP'[39m },
+     { loanProduct: [32m'100 Day Loan'[39m,
+       productCode: [32m'4638'[39m,
+       loanAmount: [33m100000[39m,
+       interestRate: [33m2.5[39m,
+       interestFrequency: [32m'per-month'[39m,
+       loanTenureInDays: [33m100[39m,
+       loanOfferStage: [32m'revised'[39m,
+       loanOfferDate: [35m2021-08-02T03:56:57.566Z[39m,
+       processingFeesPercent: [33m3[39m,
+       processingFeesFixed: [33m100[39m,
+       lender: [32m'NP'[39m },
+     { loanProduct: [32m'100 Day Loan'[39m,
+       productCode: [32m'4638'[39m,
+       loanAmount: [33m125000[39m,
+       interestRate: [33m2.5[39m,
+       interestFrequency: [32m'per-month'[39m,
+       loanTenureInDays: [33m100[39m,
+       loanOfferStage: [32m'revised'[39m,
+       loanOfferDate: [35m2021-08-02T03:56:57.566Z[39m,
+       processingFeesPercent: [33m3[39m,
+       processingFeesFixed: [33m100[39m,
+       lender: [32m'NP'[39m },
+     { loanProduct: [32m'100 Day Loan'[39m,
+       productCode: [32m'4638'[39m,
+       loanAmount: [33m150000[39m,
+       interestRate: [33m2.5[39m,
+       interestFrequency: [32m'per-month'[39m,
+       loanTenureInDays: [33m100[39m,
+       loanOfferStage: [32m'revised'[39m,
+       loanOfferDate: [35m2021-08-02T03:56:57.566Z[39m,
+       processingFeesPercent: [33m3[39m,
+       processingFeesFixed: [33m100[39m,
+       lender: [32m'NP'[39m },
+     { loanProduct: [32m'100 Day Loan'[39m,
+       productCode: [32m'4638'[39m,
+       loanAmount: [33m200000[39m,
+       interestRate: [33m2.5[39m,
+       interestFrequency: [32m'per-month'[39m,
+       loanTenureInDays: [33m100[39m,
+       loanOfferStage: [32m'revised'[39m,
+       loanOfferDate: [35m2021-08-02T03:56:57.566Z[39m,
+       processingFeesPercent: [33m3[39m,
+       processingFeesFixed: [33m100[39m,
+       lender: [32m'NP'[39m } ],
+  currentLoanOffer:
+   { loanProduct: [32m'100 Day Loan'[39m,
+     productCode: [32m'4638'[39m,
+     loanAmount: [33m200000[39m,
+     interestRate: [33m2.5[39m,
+     interestFrequency: [32m'per-month'[39m,
+     loanTenureInDays: [33m100[39m,
+     loanOfferStage: [32m'final'[39m,
+     loanOfferDate: [35m2021-08-02T03:56:57.566Z[39m,
+     processingFeesPercent: [33m3[39m,
+     processingFeesFixed: [33m100[39m,
+     lender: [32m'NP'[39m },
+  stages:
+   [ { previousStage: [32m'CPV'[39m,
+       currentStage: [32m'PD'[39m,
+       stageChangeDate: [35m2021-08-02T03:56:57.566Z[39m,
+       decisionEngineResponse: {},
+       stateSuccess: [32m'success'[39m },
+     { previousStage: [32m'CPV'[39m,
+       currentStage: [32m'PD'[39m,
+       stageChangeDate: [35m2021-08-02T03:56:57.566Z[39m,
+       decisionEngineResponse: {},
+       stateSuccess: [32m'success'[39m } ],
+  currentStage:
+   { previousStage: [32m'CPV'[39m,
+     currentStage: [32m'PD'[39m,
+     stageChangeDate: [35m2021-08-02T03:56:57.566Z[39m,
+     decisionEngineResponse: {},
+     stateSuccess: [32m'success'[39m },
+  statusChangeDate: [35m2021-08-02T03:56:57.566Z[39m,
+  applicationStatus: [32m'active'[39m,
+  creditScore:
+   { creditScore: [33m700[39m,
+     scoreSource: [32m'CIBIL'[39m,
+     scoreSouceRefId: [32m'tqZX4'[39m,
+     createdAt: [35m2021-08-02T03:56:57.566Z[39m,
+     scoreType: [32m'soft'[39m } }
+[90mundefined[39m
+^C
+(base) ]0;prashanth@prashanth-HP-EliteBook-840-G5: /mnt/extmnt1/credit/origination/erxes/integrations/src/scripts[01;32mprashanth@prashanth-HP-EliteBook-840-G5[00m:[01;34m/mnt/extmnt1/credit/origination/erxes/integrations/src/scripts[00m$ node testLosScript.js
+connecting....
+{ primaryBorrowerId: [32m'zybLHDqPCjnhJxuTe'[39m,
+  coBorrowerId: [32m'zxq78WzLmuTehbKJQ'[39m,
+  companyId: [32m'yExDmDP68iB4ztnq9'[39m,
+  softCreditId: [32m'xB96yHe4s'[39m,
+  productType: [32m'shortterm'[39m,
+  bureauCreditScoreRefId: [32m'dXzdcA9CY'[39m,
+  applicationDocuments:
+   [ { documentType: [32m'pan'[39m,
+       documentName: [32m'pan'[39m,
+       documentRefId: [32m'aT2goK'[39m,
+       documentVerified: [33mtrue[39m,
+       documentVerificationDetails: [36m[Object][39m },
+     { documentType: [32m'udyam'[39m,
+       documentName: [32m'udyam'[39m,
+       documentRefId: [32m'2wJ4md'[39m,
+       documentVerified: [33mtrue[39m,
+       documentVerificationDetails: [36m[Object][39m },
+     { documentType: [32m'sne'[39m,
+       documentName: [32m'sne'[39m,
+       documentRefId: [32m'eqesM3'[39m,
+       documentVerified: [33mtrue[39m,
+       documentVerificationDetails: [36m[Object][39m },
+     { documentType: [32m'mobile-bill'[39m,
+       documentName: [32m'mobile-bill'[39m,
+       documentRefId: [32m'tFX5Jj'[39m,
+       documentVerified: [33mtrue[39m,
+       documentVerificationDetails: [36m[Object][39m },
+     { documentType: [32m'bank-statement'[39m,
+       documentName: [32m'bank-statement'[39m,
+       documentRefId: [32m'FBvaPC'[39m,
+       documentVerified: [33mtrue[39m,
+       documentVerificationDetails: [36m[Object][39m } ],
+  borrowerType: [32m'retailer'[39m,
+  loanOffers:
+   [ { loanProduct: [32m'100 Day Loan'[39m,
+       productCode: [32m'4638'[39m,
+       loanAmount: [33m500000[39m,
+       interestRate: [33m2.5[39m,
+       interestFrequency: [32m'per-month'[39m,
+       loanTenureInDays: [33m100[39m,
+       loanOfferStage: [32m'revised'[39m,
+       loanOfferDate: [35m2021-08-02T03:59:56.033Z[39m,
+       processingFeesPercent: [33m3[39m,
+       processingFeesFixed: [33m100[39m,
+       lender: [32m'NP'[39m },
+     { loanProduct: [32m'100 Day Loan'[39m,
+       productCode: [32m'4638'[39m,
+       loanAmount: [33m100000[39m,
+       interestRate: [33m2.5[39m,
+       interestFrequency: [32m'per-month'[39m,
+       loanTenureInDays: [33m100[39m,
+       loanOfferStage: [32m'revised'[39m,
+       loanOfferDate: [35m2021-08-02T03:59:56.033Z[39m,
+       processingFeesPercent: [33m3[39m,
+       processingFeesFixed: [33m100[39m,
+       lender: [32m'NP'[39m },
+     { loanProduct: [32m'100 Day Loan'[39m,
+       productCode: [32m'4638'[39m,
+       loanAmount: [33m125000[39m,
+       interestRate: [33m2.5[39m,
+       interestFrequency: [32m'per-month'[39m,
+       loanTenureInDays: [33m100[39m,
+       loanOfferStage: [32m'revised'[39m,
+       loanOfferDate: [35m2021-08-02T03:59:56.033Z[39m,
+       processingFeesPercent: [33m3[39m,
+       processingFeesFixed: [33m100[39m,
+       lender: [32m'NP'[39m },
+     { loanProduct: [32m'100 Day Loan'[39m,
+       productCode: [32m'4638'[39m,
+       loanAmount: [33m150000[39m,
+       interestRate: [33m2.5[39m,
+       interestFrequency: [32m'per-month'[39m,
+       loanTenureInDays: [33m100[39m,
+       loanOfferStage: [32m'revised'[39m,
+       loanOfferDate: [35m2021-08-02T03:59:56.033Z[39m,
+       processingFeesPercent: [33m3[39m,
+       processingFeesFixed: [33m100[39m,
+       lender: [32m'NP'[39m },
+     { loanProduct: [32m'100 Day Loan'[39m,
+       productCode: [32m'4638'[39m,
+       loanAmount: [33m200000[39m,
+       interestRate: [33m2.5[39m,
+       interestFrequency: [32m'per-month'[39m,
+       loanTenureInDays: [33m100[39m,
+       loanOfferStage: [32m'revised'[39m,
+       loanOfferDate: [35m2021-08-02T03:59:56.033Z[39m,
+       processingFeesPercent: [33m3[39m,
+       processingFeesFixed: [33m100[39m,
+       lender: [32m'NP'[39m } ],
+  currentLoanOffer:
+   { loanProduct: [32m'100 Day Loan'[39m,
+     productCode: [32m'4638'[39m,
+     loanAmount: [33m200000[39m,
+     interestRate: [33m2.5[39m,
+     interestFrequency: [32m'per-month'[39m,
+     loanTenureInDays: [33m100[39m,
+     loanOfferStage: [32m'final'[39m,
+     loanOfferDate: [35m2021-08-02T03:59:56.033Z[39m,
+     processingFeesPercent: [33m3[39m,
+     processingFeesFixed: [33m100[39m,
+     lender: [32m'NP'[39m },
+  stages:
+   [ { previousStage: [32m'CPV'[39m,
+       currentStage: [32m'PD'[39m,
+       stageChangeDate: [35m2021-08-02T03:59:56.033Z[39m,
+       decisionEngineResponse: {},
+       stateSuccess: [32m'success'[39m },
+     { previousStage: [32m'CPV'[39m,
+       currentStage: [32m'PD'[39m,
+       stageChangeDate: [35m2021-08-02T03:59:56.033Z[39m,
+       decisionEngineResponse: {},
+       stateSuccess: [32m'success'[39m } ],
+  currentStage:
+   { previousStage: [32m'CPV'[39m,
+     currentStage: [32m'PD'[39m,
+     stageChangeDate: [35m2021-08-02T03:59:56.033Z[39m,
+     decisionEngineResponse: {},
+     stateSuccess: [32m'success'[39m },
+  statusChangeDate: [35m2021-08-02T03:59:56.033Z[39m,
+  applicationStatus: [32m'active'[39m,
+  creditScore:
+   { creditScore: [33m700[39m,
+     scoreSource: [32m'CIBIL'[39m,
+     scoreSouceRefId: [32m'gFi8m'[39m,
+     createdAt: [35m2021-08-02T03:59:56.033Z[39m,
+     scoreType: [32m'soft'[39m } }
+[90mundefined[39m
+^C
+(base) ]0;prashanth@prashanth-HP-EliteBook-840-G5: /mnt/extmnt1/credit/origination/erxes/integrations/src/scripts[01;32mprashanth@prashanth-HP-EliteBook-840-G5[00m:[01;34m/mnt/extmnt1/credit/origination/erxes/integrations/src/scripts[00m$ node testLosScript.js
+connecting....
+{ primaryBorrowerId: [32m'zybLHDqPCjnhJxuTe'[39m,
+  coBorrowerId: [32m'zxq78WzLmuTehbKJQ'[39m,
+  companyId: [32m'yExDmDP68iB4ztnq9'[39m,
+  softCreditId: [32m'uqofc83NP'[39m,
+  productType: [32m'shortterm'[39m,
+  bureauCreditScoreRefId: [32m'MtQodcPNm'[39m,
+  applicationDocuments:
+   [ { documentType: [32m'pan'[39m,
+       documentName: [32m'pan'[39m,
+       documentRefId: [32m'doQuGq'[39m,
+       documentVerified: [33mtrue[39m,
+       documentVerificationDetails: [36m[Object][39m },
+     { documentType: [32m'udyam'[39m,
+       documentName: [32m'udyam'[39m,
+       documentRefId: [32m'7vomy4'[39m,
+       documentVerified: [33mtrue[39m,
+       documentVerificationDetails: [36m[Object][39m },
+     { documentType: [32m'sne'[39m,
+       documentName: [32m'sne'[39m,
+       documentRefId: [32m'Cu4nnC'[39m,
+       documentVerified: [33mtrue[39m,
+       documentVerificationDetails: [36m[Object][39m },
+     { documentType: [32m'mobile-bill'[39m,
+       documentName: [32m'mobile-bill'[39m,
+       documentRefId: [32m'GCrHzn'[39m,
+       documentVerified: [33mtrue[39m,
+       documentVerificationDetails: [36m[Object][39m },
+     { documentType: [32m'bank-statement'[39m,
+       documentName: [32m'bank-statement'[39m,
+       documentRefId: [32m'9RZ3iA'[39m,
+       documentVerified: [33mtrue[39m,
+       documentVerificationDetails: [36m[Object][39m } ],
+  borrowerType: [32m'retailer'[39m,
+  loanOffers:
+   [ { loanProduct: [32m'100 Day Loan'[39m,
+       productCode: [32m'4638'[39m,
+       loanAmount: [33m500000[39m,
+       interestRate: [33m2.5[39m,
+       interestFrequency: [32m'per-month'[39m,
+       loanTenureInDays: [33m100[39m,
+       loanOfferStage: [32m'revised'[39m,
+       loanOfferDate: [35m2021-08-02T04:03:09.637Z[39m,
+       processingFeesPercent: [33m3[39m,
+       processingFeesFixed: [33m100[39m,
+       lender: [32m'NP'[39m },
+     { loanProduct: [32m'100 Day Loan'[39m,
+       productCode: [32m'4638'[39m,
+       loanAmount: [33m100000[39m,
+       interestRate: [33m2.5[39m,
+       interestFrequency: [32m'per-month'[39m,
+       loanTenureInDays: [33m100[39m,
+       loanOfferStage: [32m'revised'[39m,
+       loanOfferDate: [35m2021-08-02T04:03:09.637Z[39m,
+       processingFeesPercent: [33m3[39m,
+       processingFeesFixed: [33m100[39m,
+       lender: [32m'NP'[39m },
+     { loanProduct: [32m'100 Day Loan'[39m,
+       productCode: [32m'4638'[39m,
+       loanAmount: [33m125000[39m,
+       interestRate: [33m2.5[39m,
+       interestFrequency: [32m'per-month'[39m,
+       loanTenureInDays: [33m100[39m,
+       loanOfferStage: [32m'revised'[39m,
+       loanOfferDate: [35m2021-08-02T04:03:09.637Z[39m,
+       processingFeesPercent: [33m3[39m,
+       processingFeesFixed: [33m100[39m,
+       lender: [32m'NP'[39m },
+     { loanProduct: [32m'100 Day Loan'[39m,
+       productCode: [32m'4638'[39m,
+       loanAmount: [33m150000[39m,
+       interestRate: [33m2.5[39m,
+       interestFrequency: [32m'per-month'[39m,
+       loanTenureInDays: [33m100[39m,
+       loanOfferStage: [32m'revised'[39m,
+       loanOfferDate: [35m2021-08-02T04:03:09.637Z[39m,
+       processingFeesPercent: [33m3[39m,
+       processingFeesFixed: [33m100[39m,
+       lender: [32m'NP'[39m },
+     { loanProduct: [32m'100 Day Loan'[39m,
+       productCode: [32m'4638'[39m,
+       loanAmount: [33m200000[39m,
+       interestRate: [33m2.5[39m,
+       interestFrequency: [32m'per-month'[39m,
+       loanTenureInDays: [33m100[39m,
+       loanOfferStage: [32m'revised'[39m,
+       loanOfferDate: [35m2021-08-02T04:03:09.637Z[39m,
+       processingFeesPercent: [33m3[39m,
+       processingFeesFixed: [33m100[39m,
+       lender: [32m'NP'[39m } ],
+  currentLoanOffer:
+   { loanProduct: [32m'100 Day Loan'[39m,
+     productCode: [32m'4638'[39m,
+     loanAmount: [33m200000[39m,
+     interestRate: [33m2.5[39m,
+     interestFrequency: [32m'per-month'[39m,
+     loanTenureInDays: [33m100[39m,
+     loanOfferStage: [32m'final'[39m,
+     loanOfferDate: [35m2021-08-02T04:03:09.637Z[39m,
+     processingFeesPercent: [33m3[39m,
+     processingFeesFixed: [33m100[39m,
+     lender: [32m'NP'[39m },
+  stages:
+   [ { previousStage: [32m'CPV'[39m,
+       currentStage: [32m'PD'[39m,
+       stageChangeDate: [35m2021-08-02T04:03:09.637Z[39m,
+       decisionEngineResponse: {},
+       stateSuccess: [32m'success'[39m },
+     { previousStage: [32m'CPV'[39m,
+       currentStage: [32m'PD'[39m,
+       stageChangeDate: [35m2021-08-02T04:03:09.637Z[39m,
+       decisionEngineResponse: {},
+       stateSuccess: [32m'success'[39m } ],
+  currentStage:
+   { previousStage: [32m'CPV'[39m,
+     currentStage: [32m'PD'[39m,
+     stageChangeDate: [35m2021-08-02T04:03:09.637Z[39m,
+     decisionEngineResponse: {},
+     stateSuccess: [32m'success'[39m },
+  statusChangeDate: [35m2021-08-02T04:03:09.637Z[39m,
+  applicationStatus: [32m'active'[39m,
+  creditScore:
+   { creditScore: [33m700[39m,
+     scoreSource: [32m'CIBIL'[39m,
+     scoreSouceRefId: [32m'4Lox6'[39m,
+     createdAt: [35m2021-08-02T04:03:09.637Z[39m,
+     scoreType: [32m'soft'[39m } }
+[90mundefined[39m
+^C
+(base) ]0;prashanth@prashanth-HP-EliteBook-840-G5: /mnt/extmnt1/credit/origination/erxes/integrations/src/scripts[01;32mprashanth@prashanth-HP-EliteBook-840-G5[00m:[01;34m/mnt/extmnt1/credit/origination/erxes/integrations/src/scripts[00m$ node testLosScript.js
+connecting....
+{ primaryBorrowerId: [32m'zybLHDqPCjnhJxuTe'[39m,
+  coBorrowerId: [32m'zxq78WzLmuTehbKJQ'[39m,
+  companyId: [32m'yExDmDP68iB4ztnq9'[39m,
+  softCreditId: [32m'aBfZ8k8Sc'[39m,
+  productType: [32m'shortterm'[39m,
+  bureauCreditScoreRefId: [32m'XvQdb4Zcs'[39m,
+  applicationDocuments:
+   [ { documentType: [32m'pan'[39m,
+       documentName: [32m'pan'[39m,
+       documentRefId: [32m'sfP7iQ'[39m,
+       documentVerified: [33mtrue[39m,
+       documentVerificationDetails: [36m[Object][39m },
+     { documentType: [32m'udyam'[39m,
+       documentName: [32m'udyam'[39m,
+       documentRefId: [32m'qKtBnT'[39m,
+       documentVerified: [33mtrue[39m,
+       documentVerificationDetails: [36m[Object][39m },
+     { documentType: [32m'sne'[39m,
+       documentName: [32m'sne'[39m,
+       documentRefId: [32m'uY8d3T'[39m,
+       documentVerified: [33mtrue[39m,
+       documentVerificationDetails: [36m[Object][39m },
+     { documentType: [32m'mobile-bill'[39m,
+       documentName: [32m'mobile-bill'[39m,
+       documentRefId: [32m'76rNSc'[39m,
+       documentVerified: [33mtrue[39m,
+       documentVerificationDetails: [36m[Object][39m },
+     { documentType: [32m'bank-statement'[39m,
+       documentName: [32m'bank-statement'[39m,
+       documentRefId: [32m'fFKGfM'[39m,
+       documentVerified: [33mtrue[39m,
+       documentVerificationDetails: [36m[Object][39m } ],
+  borrowerType: [32m'retailer'[39m,
+  loanOffers:
+   [ { loanProduct: [32m'100 Day Loan'[39m,
+       productCode: [32m'4638'[39m,
+       loanAmount: [33m500000[39m,
+       interestRate: [33m2.5[39m,
+       interestFrequency: [32m'per-month'[39m,
+       loanTenureInDays: [33m100[39m,
+       loanOfferStage: [32m'revised'[39m,
+       loanOfferDate: [35m2021-08-02T04:03:29.597Z[39m,
+       processingFeesPercent: [33m3[39m,
+       processingFeesFixed: [33m100[39m,
+       lender: [32m'NP'[39m },
+     { loanProduct: [32m'100 Day Loan'[39m,
+       productCode: [32m'4638'[39m,
+       loanAmount: [33m100000[39m,
+       interestRate: [33m2.5[39m,
+       interestFrequency: [32m'per-month'[39m,
+       loanTenureInDays: [33m100[39m,
+       loanOfferStage: [32m'revised'[39m,
+       loanOfferDate: [35m2021-08-02T04:03:29.597Z[39m,
+       processingFeesPercent: [33m3[39m,
+       processingFeesFixed: [33m100[39m,
+       lender: [32m'NP'[39m },
+     { loanProduct: [32m'100 Day Loan'[39m,
+       productCode: [32m'4638'[39m,
+       loanAmount: [33m125000[39m,
+       interestRate: [33m2.5[39m,
+       interestFrequency: [32m'per-month'[39m,
+       loanTenureInDays: [33m100[39m,
+       loanOfferStage: [32m'revised'[39m,
+       loanOfferDate: [35m2021-08-02T04:03:29.597Z[39m,
+       processingFeesPercent: [33m3[39m,
+       processingFeesFixed: [33m100[39m,
+       lender: [32m'NP'[39m },
+     { loanProduct: [32m'100 Day Loan'[39m,
+       productCode: [32m'4638'[39m,
+       loanAmount: [33m150000[39m,
+       interestRate: [33m2.5[39m,
+       interestFrequency: [32m'per-month'[39m,
+       loanTenureInDays: [33m100[39m,
+       loanOfferStage: [32m'revised'[39m,
+       loanOfferDate: [35m2021-08-02T04:03:29.597Z[39m,
+       processingFeesPercent: [33m3[39m,
+       processingFeesFixed: [33m100[39m,
+       lender: [32m'NP'[39m },
+     { loanProduct: [32m'100 Day Loan'[39m,
+       productCode: [32m'4638'[39m,
+       loanAmount: [33m200000[39m,
+       interestRate: [33m2.5[39m,
+       interestFrequency: [32m'per-month'[39m,
+       loanTenureInDays: [33m100[39m,
+       loanOfferStage: [32m'revised'[39m,
+       loanOfferDate: [35m2021-08-02T04:03:29.597Z[39m,
+       processingFeesPercent: [33m3[39m,
+       processingFeesFixed: [33m100[39m,
+       lender: [32m'NP'[39m } ],
+  currentLoanOffer:
+   { loanProduct: [32m'100 Day Loan'[39m,
+     productCode: [32m'4638'[39m,
+     loanAmount: [33m200000[39m,
+     interestRate: [33m2.5[39m,
+     interestFrequency: [32m'per-month'[39m,
+     loanTenureInDays: [33m100[39m,
+     loanOfferStage: [32m'final'[39m,
+     loanOfferDate: [35m2021-08-02T04:03:29.597Z[39m,
+     processingFeesPercent: [33m3[39m,
+     processingFeesFixed: [33m100[39m,
+     lender: [32m'NP'[39m },
+  stages:
+   [ { previousStage: [32m'CPV'[39m,
+       currentStage: [32m'PD'[39m,
+       stageChangeDate: [35m2021-08-02T04:03:29.597Z[39m,
+       decisionEngineResponse: {},
+       stateSuccess: [32m'success'[39m },
+     { previousStage: [32m'CPV'[39m,
+       currentStage: [32m'PD'[39m,
+       stageChangeDate: [35m2021-08-02T04:03:29.597Z[39m,
+       decisionEngineResponse: {},
+       stateSuccess: [32m'success'[39m } ],
+  currentStage:
+   { previousStage: [32m'CPV'[39m,
+     currentStage: [32m'PD'[39m,
+     stageChangeDate: [35m2021-08-02T04:03:29.597Z[39m,
+     decisionEngineResponse: {},
+     stateSuccess: [32m'success'[39m },
+  statusChangeDate: [35m2021-08-

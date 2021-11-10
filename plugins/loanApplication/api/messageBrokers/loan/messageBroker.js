@@ -18,9 +18,6 @@ data should contain {
 const init = resolvers => {
   const handler = async (message, context) => {
     const { action, data } = message
-    if (isUndefined(actionMap[action])) {
-      return sendError('ACTION_NOT_SUPPORTED')
-    }
     try {
       const response = await actionMap[action].handler(data, resolvers, context)
       return sendSuccess(response)
@@ -31,12 +28,12 @@ const init = resolvers => {
   } // message broker handler
   return {
     method: 'RPCQueue',
-    channel: 'integrations:loanAccount',
+    channel: 'integrations:loan',
     handler: handler
   }
 }
 
 export default {
   init,
-  channel: 'integrations:loanAccount'
+  channel: 'integrations:loan'
 }

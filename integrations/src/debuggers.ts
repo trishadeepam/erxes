@@ -13,6 +13,8 @@ export const debugChatfuel = debug('erxes-integrations:chatfuel');
 export const debugNylas = debug('erxes-integrations:nylas');
 export const debugWhatsapp = debug('erxes-integrations:whatsapp');
 export const debugLoanApplication = debug('erxes-integrations:loanApplication');
+export const debugLoan = debug('erxes-integrations:loan');
+
 export const debugExternalRequests = debug(
   'erxes-integrations:external-requests'
 );

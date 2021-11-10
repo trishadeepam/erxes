@@ -1,7 +1,7 @@
 import { debugError, debugLoanApplication, debugRequest } from '../debuggers'
 import { routeErrorHandling } from '../helpers'
 import { createIntegration } from './handleController'
-import { verifyApiToken } from './utils'
+import { verifyApiToken } from '../utils'
 import { INTEGRATION_KIND } from './constants'
 const init = async app => {
   // register message queue messages.
@@ -48,6 +48,14 @@ const init = async app => {
     verifyApiToken(apiToken)
   }))
   app.post('/los/deleteDeal', routeErrorHandling(async (req, res) => {
+    const apiToken = req.get('apiToken')
+    verifyApiToken(apiToken)
+  }))
+  app.post('/los/createTask', routeErrorHandling(async (req, res) => {
+    const apiToken = req.get('apiToken')
+    verifyApiToken(apiToken)
+  }))
+  app.post('/los/updateTask', routeErrorHandling(async (req, res) => {
     const apiToken = req.get('apiToken')
     verifyApiToken(apiToken)
   }))

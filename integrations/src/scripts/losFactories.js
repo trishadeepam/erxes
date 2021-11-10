@@ -51,7 +51,14 @@ const customerFactory = () => {
   }
   return customer
 }
-
+const taskFactory = () => ({
+  name: 'PD Task',
+  taskType: 'pd',
+  loanApplicationId: '4nTad9baPeXyxRENH',
+  description: 'Perform CPV',
+  borrowerType: 'retailer',
+  productType: 'shortterm'
+})
 const companyFactory = () => {
   const domain = faker.internet.domainName()
   const companyDoc = {
@@ -88,9 +95,9 @@ const loanApplicationFactory = () => {
   }
   const amounts = [500000, 100000, 125000, 150000, 200000]
   const loanApplication = {
-    primaryBorrowerId: 'z4e3KhEgGHrNrSxaN',
-    coBorrowerId: 'zLfCoELuorCtpwCtS',
-    companyId: 'y6kpeKFc3LkeMrFX7',
+    primaryBorrowerId: 'zsoX6sqHBpgcW8NgK',
+    coBorrowerId: 't4DSjBNkrTPRj9NFB',
+    companyId: 'xP4EkCeps92C78fMK',
     softCreditId: Random.id(9),
     productType: 'shortterm',
     bureauCreditScoreRefId: Random.id(9),
@@ -107,7 +114,7 @@ const loanApplicationFactory = () => {
     borrowerType: 'retailer',
     loanOffers: amounts.map(am => ({
       loanProduct: '100 Day Loan',
-      productCode: '9885',
+      productCode: 'STL001',
       loanAmount: am,
       interestRate: 2.5,
       interestFrequency: 'per-month',
@@ -120,7 +127,7 @@ const loanApplicationFactory = () => {
     })),
     currentLoanOffer: {
       loanProduct: '100 Day Loan',
-      productCode: '9885',
+      productCode: 'STL001',
       loanAmount: 200000,
       interestRate: 2.5,
       interestFrequency: 'per-month',
@@ -161,5 +168,6 @@ const loanApplicationFactory = () => {
 module.exports = {
   customerFactory,
   loanApplicationFactory,
-  companyFactory
+  companyFactory,
+  taskFactory
 }

@@ -1,5 +1,6 @@
 import * as dotenv from 'dotenv';
-import * as faker from 'faker';
+const faker = require('faker/locale/en_IND');
+
 import * as fs from 'fs';
 import { disconnect } from 'mongoose';
 import * as shelljs from 'shelljs';
@@ -658,7 +659,7 @@ const main = async () => {
 
   await disconnect();
 
-  console.log('admin email: admin@erxes.io');
+  console.log('admin email: admin@novoloans.in');
   console.log('admin password: ', newPwd);
 
   process.exit();

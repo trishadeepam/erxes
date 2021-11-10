@@ -1,5 +1,6 @@
-import loanAccountBroker from './messageBrokers/loanAccount/messageBroker'
-
+import loanApplicationBroker from './messageBrokers/loanApplication/messageBroker'
+import loanBroker from './messageBrokers/loan/messageBroker'
 export default [
-  loanAccountBroker
+  loanApplicationBroker,
+  loanBroker
 ]

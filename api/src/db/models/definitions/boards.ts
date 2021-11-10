@@ -48,6 +48,7 @@ export interface IItemCommonFields {
     startDate?: string;
   };
   customFieldsData?: ICustomField[];
+  type?: string;
 }
 
 export interface IItemCommonFieldsDocument extends IItemCommonFields, Document {
@@ -158,6 +159,7 @@ export const commonItemFieldsSchema = {
   createdAt: field({ type: Date, label: 'Created at', esType: 'date' }),
   order: field({ type: Number }),
   name: field({ type: String, label: 'Name' }),
+  type: field({ type: String, label: 'type', esType: 'type' }),
   closeDate: field({ type: Date, label: 'Close date', esType: 'date' }),
   stageChangedDate: field({
     type: Date,

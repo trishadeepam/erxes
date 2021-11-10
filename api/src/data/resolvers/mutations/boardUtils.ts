@@ -99,12 +99,12 @@ export const itemsAdd = async (
   const extendedDoc = {
     ...docModifier(doc),
     modifiedBy: user._id,
-    userId: user._id,
-    order: await getNewOrder({
+    userId: user._id
+    /*order: await getNewOrder({
       collection,
       stageId: doc.stageId,
       aboveItemId: doc.aboveItemId
-    })
+    })*/
   };
 
   const item = await createModel(extendedDoc);

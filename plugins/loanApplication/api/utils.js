@@ -25,7 +25,6 @@ const generateApplicationNumber = (application, sequence) => {
   return `${application.borrowerType.substring(0, 3).toUpperCase()}${sequence}`
 }
 
-
 export default {
   generateApplicationNumber,
   createConformity,

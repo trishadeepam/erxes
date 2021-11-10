@@ -9,7 +9,6 @@ import { IListArgs } from './data/resolvers/queries/activityLogs';
 import * as allModels from './db/models';
 import { IActivityLogDocument } from './db/models/definitions/activityLogs';
 import { IUserDocument } from './db/models/definitions/users';
-import { field } from './db/models/definitions/utils';
 import { debugError } from './debuggers';
 import memoryStorage from './inmemoryStorage';
 import messageBroker from './messageBroker';

@@ -5,6 +5,17 @@
   "version": "0.2.0",
   "configurations": [
     {
+      "name": "Launch Server",
+      "program": "${workspaceFolder}/src/index.ts",
+      "request": "launch",
+      "skipFiles": [
+        "<node_internals>/**"
+      ],
+      "preLaunchTask": "tsc: build - tsconfig.json",
+      "type": "node"
+    },
+
+    {
       "name": "Launch Program",
       "program": "${workspaceFolder}/src/scripts/testLosScripts.js",
       "request": "launch",

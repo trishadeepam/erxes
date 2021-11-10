@@ -5,6 +5,24 @@ export const BORROWER_TYPES = {
   MSME: 'msme',
   INDIVIDUAL: 'individual'
 }
+export const DISBURSEMENT_MODE = {
+  BANK_ACCOUNT_OTHER: 'OTHBACCT',
+  BANK_ACCOUNT_SAME: 'ACCTWB',
+  NP_WALLET: 'NPWALLET'
+}
+export const LOAN_PURPOSE = {
+  PERSONAL: 'PERSONAL',
+  WC: 'WC',
+  MARRIAGE: 'MARG',
+  AGRICULTIRE: 'AGRI',
+  EDUCATION: 'EDU',
+  BUSINESS: 'BUS',
+  HOLIDAY: 'HOL',
+  MEDICAL: 'MED',
+  HOUSE_RENOVATION: 'HOUSE_RENOV',
+  RESTRUCTURE: 'RESTRUCTURE',
+  OTHERS: 'OTHERS'
+}
 export const DOCUMENT_TYPES = {
   PAN: 'pan',
   DL: 'dl',
@@ -18,7 +36,13 @@ export const DOCUMENT_TYPES = {
   MOBILE_BILL: 'mobile-bill',
   ELECTRIC_BILL: 'electricity-bill',
   BANK_STATEMENT: 'bank-statement',
-  RATION: 'ration-card'
+  RATION: 'ration-card',
+  PURCHASE_INVOICE: 'purchaseinvoice',
+  ITR: 'itr',
+  SALARY_SLIP: 'salaryslip',
+  CONTRACT_AGREEMENT: 'contract-agreement',
+  GSTN_FILINGS: 'gstn-finings',
+  CA_STATEMENT: 'ca-statement'
 }
 export const APPLICATION_CLOSE_TAT = {
   [BORROWER_TYPES.RETAILER]: 3,
@@ -54,15 +78,67 @@ export const PRODUCT_TYPES = {
   CONSUMPTION: 'consumption',
   PERSONAL_LOAN: 'pl'
 }
+export const REPAYMENT_MODE = {
+  DIRECT_DEBIT: 'DIRDR',
+  CASH: 'CASH',
+  ACH: 'ACH'
+}
+export const ACCOUNT_TYPES = {
+  SAVINGS: 'SAVINGS',
+  CURRENT: 'CURRENT'
+}
 const constants = {
   MAX_APPLICATION_LIFE: 30,
   APPLICATION_DOCUMENTS: {
+    ACCOUNT_TYPE: [
+      {
+        label: 'Savings Account',
+        value: ACCOUNT_TYPES.SAVINGS
+      },
+      {
+        label: 'Current Account',
+        value: ACCOUNT_TYPES.CURRENT
+      }
+    ],
+    REPAYMENT_MODE: [
+      {
+        label: 'Direct Debit',
+        value: REPAYMENT_MODE.DIRECT_DEBIT
+      },
+      {
+        label: 'Cash',
+        value: REPAYMENT_MODE.CASH
+      },
+      {
+        label: 'Automated Clearing',
+        value: REPAYMENT_MODE.ACH
+      }
+    ],
+    DISBURSEMENT_MODE: [
+      {
+        label: 'Other Bank Account',
+        value: DISBURSEMENT_MODE.BANK_ACCOUNT_OTHER
+      },
+      {
+        label: 'Same Bank Account',
+        value: DISBURSEMENT_MODE.BANK_ACCOUNT_SAME
+      },
+      { label: 'Novopay Wallet', value: DISBURSEMENT_MODE.NP_WALLET }
+    ],
+    LOAN_PURPOSE: [
+      { label: 'Business', value: LOAN_PURPOSE.BUSINESS },
+      { label: 'Working Caputal', value: LOAN_PURPOSE.WC },
+      { label: 'Loan Restructuring', value: LOAN_PURPOSE.RESTRUCTURE }
+    ],
     PRODUCT_TYPE: [
       { label: 'Short Term Loan', value: PRODUCT_TYPES.SHORT_TERM_LOAN },
       { label: 'Term Loan', value: PRODUCT_TYPES.TERM_LOAN },
       { label: 'Credit Line', value: PRODUCT_TYPES.CRDEIT_LINE },
       { label: 'Zero Credit Line', value: PRODUCT_TYPES.ZERO_CREDIT_LINE },
-      { label: 'Invoice Discounting', value: PRODUCT_TYPES.INVOICE_DISCOUNTING },
+      {
+        label: 'Invoice Discounting',
+        value: PRODUCT_TYPES.INVOICE_DISCOUNTING
+      },
       { label: 'Invoice Financing', value: PRODUCT_TYPES.INVOICE_FINANCING },
       { label: 'Sachet', value: PRODUCT_TYPES.SACHET },
       { label: 'Pay Day', value: PRODUCT_TYPES.PAYDAY },
@@ -152,30 +228,36 @@ const constants = {
         label: 'Business Address Proof',
         value: 'business-address',
         documents: [
-          { label: 'Business Pan Card', value: 'cpan' },
-          { label: 'Udyam Adhaar', value: 'udyamm-adhaar' },
-          { label: 'Shops and Establishment', value: 'sne' },
-          { label: 'Drug License', value: 'druglicense' }
+          { label: 'Business Pan Card', value: DOCUMENT_TYPES.CPAN },
+          { label: 'Udyam Adhaar', value: DOCUMENT_TYPES.UDYAM },
+          { label: 'Shops and Establishment', value: DOCUMENT_TYPES.SNE },
+          { label: 'Drug License', value: DOCUMENT_TYPES.DRUG_LICENSE }
         ]
       },
       {
         label: 'Individual Income Proof',
         value: 'income',
         documents: [
-          { label: 'ITR', value: 'itr' },
-          { label: 'Salary Slip', value: 'salary-slip' },
-          { label: 'Contract Agreement', value: 'contract-agreement' },
-          { label: 'Bank Statement', value: 'bank-statement' }
+          { label: 'ITR', value: DOCUMENT_TYPES.ITR },
+          { label: 'Salary Slip', value: DOCUMENT_TYPES.SALARY_SLIP },
+          {
+            label: 'Contract Agreement',
+            value: DOCUMENT_TYPES.CONTRACT_AGREEMENT
+          },
+          { label: 'Bank Statement', value: DOCUMENT_TYPES.BANK_STATEMENT }
         ]
       },
       {
         label: 'Business Income Proof',
         value: 'income',
         documents: [
-          { label: 'ITR', value: 'itr' },
-          { label: 'Gstn Filing', value: 'gstn-filing' },
-          { label: 'Purchase Invoice', value: 'purchase-invoice' },
-          { label: 'Current Account Statement', value: 'ca-statement' }
+          { label: 'ITR', value: DOCUMENT_TYPES.ITR },
+          { label: 'Gstn Filing', value: DOCUMENT_TYPES.GSTN_FILINGS },
+          { label: 'Purchase Invoice', value: DOCUMENT_TYPES.PURCHASE_INVOICE },
+          {
+            label: 'Current Account Statement',
+            value: DOCUMENT_TYPES.CA_STATEMENT
+          }
         ]
       },
       { label: 'Credit Report', value: 'creditReport' }

@@ -1,14 +1,15 @@
-import { values, isUndefined, isEmpty, isNull } from 'lodash'
-import { BORROWER_TYPES, APPLICATION_STATUSES } from '../pluginConstants'
-import utils from '../utils'
+import { values, isUndefined, isNull } from 'lodash'
+import { BORROWER_TYPES, APPLICATION_STATUSES } from '../../pluginConstants'
+import utils from '../../utils'
 
-import services from '../services'
+import services from '../../services'
 const validateApplication = (originalDoc, newDoc) => {
   // Cannot change primary applicant or company name.
   // If primary applicant changes, then new application.
   // Can Change co-borrower.
   return true
 }
+
 const checkDuplication = async (models, { primaryBorrowerId, companyId }) => {
   // Check if this borrower has an application
   try {
@@ -31,7 +32,10 @@ const checkDuplication = async (models, { primaryBorrowerId, companyId }) => {
     }
     // load borrower details
     const borrower = await models.Customers.getCustomer(primaryBorrowerId)
-    const company = await models.Companies.getCompany(companyId)
+    let company
+    if (companyId != undefined) {
+      company = await models.Companies.getCompany(companyId)
+    }
     // Implement rule engine strategy to check if application is valid
     // Implement in Dgifi
     applicationValidity = await services.getExistingApplicationValidity({
@@ -99,9 +103,9 @@ const createApplication = async (models, user, args, logUtils) => {
   if (isUndefined(primaryBorrowerId)) {
     throw new Error('NO_PRIMARY_BORROWER')
   }
-  if (borrowerType !== BORROWER_TYPES.INDIVIDUAL && isUndefined(companyId)) {
-    throw new Error('NO_ASSOCIATED_COMPANY')
-  }
+  // if (borrowerType !== BORROWER_TYPES.INDIVIDUAL && isUndefined(companyId)) {
+  //   throw new Error('NO_ASSOCIATED_COMPANY')
+  // }
   try {
     let { application, duplicate, error } = await checkDuplication(models, {
       primaryBorrowerId, companyId

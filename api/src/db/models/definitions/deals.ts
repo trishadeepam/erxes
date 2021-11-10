@@ -70,7 +70,7 @@ export interface IProductData extends Document {
   processingFees: number;
   interestRate: number;
   loanTenureInMonths: number;
-  interestFrequency: String;
+  interestFrequency: string;
 }
 
 interface IPaymentsData {

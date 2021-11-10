@@ -6,12 +6,16 @@
     "moduleResolution": "node",
     "module": "commonjs",
     "lib": ["es2015", "es6", "es7", "esnext.asynciterable"],
-    "noUnusedLocals": true,
-    "noUnusedParameters": true,
+    "noUnusedLocals": false,
+    "noUnusedParameters": false,
     "noImplicitAny": false,
     "skipLibCheck": true,
-    "strict": true
+    "strict": false
   },
-  "include": ["./src/**/*.ts", "typings.d.ts"],
+  "include": [
+    "./src/**/*.ts",
+    "typings.d.ts",
+    "../plugins/**/api"
+  ],
   "exclude": ["node_modules", "dist"]
 }

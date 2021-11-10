@@ -2,13 +2,13 @@
 const messageBroker = require('erxes-message-broker').default
 const dotenv = require('dotenv')
 
-const { customerFactory, companyFactory, loanApplicationFactory } = require('./losFactories')
+const { customerFactory, companyFactory, loanApplicationFactory, taskFactory } = require('./losFactories')
 dotenv.config()
 const testRabbitMq = async () => {
   let client
   try {
     console.log('connecting....')
-    const loanApplication = loanApplicationFactory()
+    const loanApplication = taskFactory()
     console.log(loanApplication)
     client = await messageBroker({
       name: 'integrations',
@@ -16,12 +16,13 @@ const testRabbitMq = async () => {
       envs: process.env
     })
     const message = {
-      action: 'createLoanApplication',
-      data: { loanApplication },
+      action: 'createTask',
+      data: loanApplication,
       kind: 'los',
-      userId: 'HRmTorAeB9BoBLEW9'
+      userId: 'PL3LQfcSkFFS9ekLg'
     }
-    const response = await client.sendRPCMessage('rpc_queue:loan-application', message)
+    client.sendMessage('loan-application:request', message)
+    const response = await client.consumeQueue('loan-application:response')
     console.log(response)
   } catch (e) {
     console.log(e.message)

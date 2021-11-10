@@ -4,6 +4,7 @@ import { schemaWrapper } from './utils';
 
 export interface ITaskDocument extends IItemCommonFields, Document {
   _id: string;
+  type: string;
 }
 
 // Mongoose schemas =======================

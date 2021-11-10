@@ -16,7 +16,6 @@ export const PRODUCT_TYPES = {
   CONSUMPTION: 'consumption',
   PERSONAL_LOAN: 'pl'
 };
-
 export const PRODUCT_TYPES_LABELS = {
   [PRODUCT_TYPES.SHORT_TERM_LOAN]: 'Short Term Loan',
   [PRODUCT_TYPES.TERM_LOAN]: 'Term Loan',
@@ -29,10 +28,10 @@ export const PRODUCT_TYPES_LABELS = {
   [PRODUCT_TYPES.CONSUMPTION]: 'Consumption Loans',
   [PRODUCT_TYPES.PERSONAL_LOAN]: 'Personal Loans'
 };
-export const RPC_LOAN_APPLICATION_QUEUE = 'loan-application:request';
-export const RPC_LOAN_APPLICATION_QUEUE_RESPONSE = 'loan-application:response';
+export const LOAN_APPLICATION_QUEUE = 'loan-application:request';
+export const LOAN_APPLICATION_QUEUE_RESPONSE = 'loan-application:response';
 
-export const INTEGRATION_PLUGIN_QUEUE = 'integrations:loanAccount';
+export const INTEGRATION_PLUGIN_QUEUE = 'integrations:loanApplication';
 export const INTEGRATION_KIND = 'los';
 export const REQUEST_KINDS = {
   RPC: 'message-rpc',

@@ -1,0 +1,446 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="ALL" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="83ea54ac-1ff8-42c0-a2b7-18e9512bbf9c" name="Changes" comment="erxes - loan application and task changes" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="GOROOT" url="file:///usr/lib/go-1.13" />
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
+  </component>
+  <component name="GoLibraries">
+    <option name="indexEntireGoPath" value="false" />
+  </component>
+  <component name="ProjectId" id="1wYOapHim5fAcE5tetHeN4NYK55" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+    <option name="showMembers" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="TODO_SCOPE" value="All Places" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="go.formatter.settings.were.checked" value="true" />
+    <property name="go.import.settings.migrated" value="true" />
+    <property name="go.modules.go.list.on.any.changes.was.set" value="true" />
+    <property name="go.sdk.automatically.set" value="true" />
+    <property name="go.vendoring.notification.had.been.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="nodejs.jest.jest_package" value="$PROJECT_DIR$/api/node_modules/jest" />
+    <property name="nodejs_package_manager_path" value="yarn" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.0" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="ts.external.directory.path" value="$PROJECT_DIR$/node_modules/typescript/lib" />
+    <property name="vcs.patch.path" value="$USER_HOME$/Desktop" />
+  </component>
+  <component name="RunManager" selected="npm.integrations module">
+    <configuration name="api module" type="js.build_tools.npm" temporary="true">
+      <package-json value="$PROJECT_DIR$/api/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="dev" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <configuration name="integrations module" type="js.build_tools.npm" temporary="true">
+      <package-json value="$PROJECT_DIR$/integrations/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="dev" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="npm.api module" />
+      <item itemvalue="npm.integrations module" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="npm.integrations module" />
+        <item itemvalue="npm.api module" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="83ea54ac-1ff8-42c0-a2b7-18e9512bbf9c" name="Changes" comment="" />
+      <created>1628632122754</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1628632122754</updated>
+      <workItem from="1628632124229" duration="609000" />
+      <workItem from="1628768636496" duration="986000" />
+      <workItem from="1628769642321" duration="1829000" />
+      <workItem from="1629185517772" duration="1224000" />
+      <workItem from="1629193616559" duration="54000" />
+      <workItem from="1629789415636" duration="314000" />
+      <workItem from="1629789999959" duration="5354000" />
+      <workItem from="1629864030383" duration="93000" />
+      <workItem from="1630037741711" duration="9124000" />
+      <workItem from="1630134743905" duration="9856000" />
+      <workItem from="1630165145054" duration="5205000" />
+      <workItem from="1630216805015" duration="33577000" />
+      <workItem from="1630257230570" duration="29428000" />
+      <workItem from="1630337752340" duration="15688000" />
+      <workItem from="1630407207069" duration="8474000" />
+      <workItem from="1630420943118" duration="48000" />
+      <workItem from="1630421525405" duration="2427000" />
+      <workItem from="1630482192616" duration="455000" />
+      <workItem from="1630486794502" duration="19120000" />
+      <workItem from="1630507425260" duration="2854000" />
+      <workItem from="1630510309139" duration="90000" />
+      <workItem from="1630510422662" duration="687000" />
+      <workItem from="1630522080073" duration="24000" />
+      <workItem from="1630522193596" duration="1289000" />
+      <workItem from="1630524213314" duration="13463000" />
+      <workItem from="1630569144830" duration="110000" />
+      <workItem from="1630569272265" duration="14676000" />
+      <workItem from="1630586549322" duration="9687000" />
+      <workItem from="1630652814746" duration="26241000" />
+      <workItem from="1630693323738" duration="2217000" />
+      <workItem from="1630749314262" duration="4681000" />
+      <workItem from="1630755378287" duration="65000" />
+      <workItem from="1630755699671" duration="20303000" />
+      <workItem from="1630824707684" duration="38000" />
+      <workItem from="1630909923356" duration="4766000" />
+      <workItem from="1630943607764" duration="686000" />
+      <workItem from="1630999668117" duration="1000" />
+      <workItem from="1630999714297" duration="4826000" />
+      <workItem from="1631010284977" duration="2107000" />
+      <workItem from="1631021052573" duration="152000" />
+      <workItem from="1631021219222" duration="864000" />
+      <workItem from="1631022175881" duration="1231000" />
+      <workItem from="1631031178803" duration="629000" />
+      <workItem from="1631084436679" duration="302000" />
+      <workItem from="1631085034478" duration="1469000" />
+      <workItem from="1631087641261" duration="15709000" />
+      <workItem from="1631115672366" duration="1278000" />
+      <workItem from="1631117328042" duration="7294000" />
+      <workItem from="1631162738046" duration="7119000" />
+      <workItem from="1631188283190" duration="1951000" />
+      <workItem from="1631356876994" duration="2519000" />
+      <workItem from="1631794461543" duration="7746000" />
+      <workItem from="1631804862406" duration="36000" />
+      <workItem from="1631804991703" duration="3023000" />
+      <workItem from="1632197094685" duration="37000" />
+      <workItem from="1632387596103" duration="2751000" />
+      <workItem from="1632728527566" duration="2561000" />
+      <workItem from="1632831788602" duration="2474000" />
+    </task>
+    <task id="LOCAL-00001" summary="erxes - loan application and task changes">
+      <created>1630912322522</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1630912322522</updated>
+    </task>
+    <task id="LOCAL-00002" summary="erxes - loan application and task changes">
+      <created>1632729849654</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1632729849654</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="erxes - loan application and task changes" />
+    <option name="LAST_COMMIT_MESSAGE" value="erxes - loan application and task changes" />
+  </component>
+  <component name="VgoProject">
+    <integration-enabled>true</integration-enabled>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/plugins/loanApplication/api/messageBrokers/loanApplication/messageBrokerHandler.js</url>
+          <line>247</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/plugins/loanApplication/api/messageBrokers/loanApplication/messageBrokerHandler.js</url>
+          <line>157</line>
+          <option name="timeStamp" value="7" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/plugins/loanApplication/api/messageBrokers/loanApplication/messageBrokerHandler.js</url>
+          <line>165</line>
+          <option name="timeStamp" value="8" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/plugins/loanApplication/api/messageBrokers/loanApplication/messageBrokerHandler.js</url>
+          <line>107</line>
+          <option name="timeStamp" value="9" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/plugins/loanApplication/api/messageBrokers/loanApplication/messageBrokerHandler.js</url>
+          <line>64</line>
+          <option name="timeStamp" value="10" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/plugins/loanApplication/api/messageBrokers/loanApplication/messageBrokerUtils.js</url>
+          <line>86</line>
+          <option name="timeStamp" value="11" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/api/src/data/resolvers/mutations/deals.ts</url>
+          <line>29</line>
+          <option name="timeStamp" value="12" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/api/src/data/resolvers/mutations/boardUtils.ts</url>
+          <line>93</line>
+          <option name="timeStamp" value="13" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/api/src/data/resolvers/mutations/deals.ts</url>
+          <line>36</line>
+          <option name="timeStamp" value="14" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/api/src/data/resolvers/mutations/deals.ts</url>
+          <line>47</line>
+          <option name="timeStamp" value="17" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/api/src/data/resolvers/mutations/deals.ts</url>
+          <line>93</line>
+          <option name="timeStamp" value="18" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/api/src/data/resolvers/mutations/boardUtils.ts</url>
+          <line>232</line>
+          <option name="timeStamp" value="19" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/api/src/data/resolvers/mutations/boardUtils.ts</url>
+          <line>238</line>
+          <option name="timeStamp" value="20" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/api/src/db/models/Deals.ts</url>
+          <line>69</line>
+          <option name="timeStamp" value="21" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/api/src/db/models/boardUtils.ts</url>
+          <line>190</line>
+          <option name="timeStamp" value="22" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/api/src/db/models/Deals.ts</url>
+          <line>72</line>
+          <option name="timeStamp" value="23" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/api/src/db/models/Deals.ts</url>
+          <line>77</line>
+          <option name="timeStamp" value="26" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/plugins/loanApplication/api/models/LoanApplications.js</url>
+          <line>18</line>
+          <option name="timeStamp" value="27" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/plugins/loanApplication/api/messageBrokers/loanApplication/messageBrokerUtils.js</url>
+          <line>291</line>
+          <option name="timeStamp" value="29" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/plugins/loanApplication/api/messageBrokers/loanApplication/messageBrokerHandler.js</url>
+          <line>278</line>
+          <option name="timeStamp" value="30" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/plugins/loanApplication/api/messageBrokers/loanApplication/messageBrokerHandler.js</url>
+          <line>274</line>
+          <option name="timeStamp" value="31" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/plugins/loanApplication/api/messageBrokers/loanApplication/messageBrokerHandler.js</url>
+          <line>271</line>
+          <option name="timeStamp" value="33" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/api/src/db/models/Tasks.ts</url>
+          <line>56</line>
+          <option name="timeStamp" value="41" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/plugins/loanApplication/api/messageBrokers/loanApplication/messageBrokerHandler.js</url>
+          <line>384</line>
+          <option name="timeStamp" value="42" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/api/src/data/resolvers/mutations/tasks.ts</url>
+          <line>30</line>
+          <option name="timeStamp" value="43" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/api/src/data/resolvers/mutations/boardUtils.ts</url>
+          <line>109</line>
+          <option name="timeStamp" value="44" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/api/src/data/resolvers/mutations/boardUtils.ts</url>
+          <line>137</line>
+          <option name="timeStamp" value="46" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/api/src/data/resolvers/mutations/boardUtils.ts</url>
+          <line>138</line>
+          <option name="timeStamp" value="47" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/api/src/data/resolvers/mutations/boardUtils.ts</url>
+          <line>150</line>
+          <option name="timeStamp" value="48" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/plugins/loanApplication/api/messageBrokers/loanApplication/messageBrokerHandler.js</url>
+          <line>154</line>
+          <option name="timeStamp" value="49" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/plugins/loanApplication/api/messageBrokers/loanApplication/messageBrokerHandler.js</url>
+          <line>86</line>
+          <option name="timeStamp" value="50" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/integrations/src/loanApplication/messageActions/actions.js</url>
+          <line>8</line>
+          <option name="timeStamp" value="51" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/plugins/loanApplication/api/messageBrokers/loanApplication/messageBroker.js</url>
+          <line>22</line>
+          <option name="timeStamp" value="55" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/plugins/loanApplication/api/messageBrokers/loanApplication/messageBrokerHandler.js</url>
+          <line>307</line>
+          <option name="timeStamp" value="56" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/plugins/loanApplication/api/messageBrokers/loanApplication/messageBrokerHandler.js</url>
+          <line>308</line>
+          <option name="timeStamp" value="57" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/plugins/loanApplication/api/messageBrokers/loanApplication/messageBrokerHandler.js</url>
+          <line>329</line>
+          <option name="timeStamp" value="59" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/api/src/data/resolvers/mutations/tasks.ts</url>
+          <line>41</line>
+          <option name="timeStamp" value="60" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/api/src/data/resolvers/mutations/tasks.ts</url>
+          <line>53</line>
+          <option name="timeStamp" value="61" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/api/src/data/resolvers/mutations/boardUtils.ts</url>
+          <line>240</line>
+          <option name="timeStamp" value="62" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/plugins/loanApplication/api/messageBrokers/loanApplication/messageBrokerHandler.js</url>
+          <line>333</line>
+          <option name="timeStamp" value="65" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/api/src/data/resolvers/mutations/tasks.ts</url>
+          <line>43</line>
+          <option name="timeStamp" value="66" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/integrations/src/novopayLms/messageActions/actions.js</url>
+          <line>141</line>
+          <option name="timeStamp" value="67" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/integrations/src/novopayLms/controller.js</url>
+          <line>9</line>
+          <option name="timeStamp" value="69" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/integrations/src/novopayLms/lmsController.js</url>
+          <line>12</line>
+          <option name="timeStamp" value="70" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/integrations/src/novopayLms/lmsController.js</url>
+          <line>45</line>
+          <option name="timeStamp" value="71" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/integrations/src/novopayLms/lmsController.js</url>
+          <line>80</line>
+          <option name="timeStamp" value="72" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/plugins/loanApplication/api/messageBrokers/loanApplication/messageBrokerHandler.js</url>
+          <line>377</line>
+          <option name="timeStamp" value="73" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+    <watches-manager>
+      <configuration name="js.build_tools.npm">
+        <watch expression="doc" />
+      </configuration>
+    </watches-manager>
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
+  </component>
+</project>

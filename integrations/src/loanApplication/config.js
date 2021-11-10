@@ -19,13 +19,13 @@ const buildTaskPipeline = (productTypes, pipeLineType) => {
   }, {})
   return productTypes.reduce((orig, pt) => {
     values(TASK_TYPES).forEach(v => {
-      orig[v][pt] = `${PRODUCT_TYPES_LABELS[pt]} ${TASK_TYPE_LABELS[v]}-Pipeline`
+      orig[v][pt] = `${PRODUCT_TYPES_LABELS[pt]} ${TASK_TYPE_LABELS[v]} Tasks`
     })
     return orig
   }, taskPipelines)
 }
 export default {
-  serviceUserEmail: 'admin@erxes.io',
+  serviceUserEmail: 'operations@novoloan.com',
   [BORROWER_TYPES.INDIVIDUAL]: {
     board: 'Individual Loans',
     boardPipeLine: buildDealPipeline(PRODUCT_BORROWER_MAP[BORROWER_TYPES.INDIVIDUAL], 'deal'),

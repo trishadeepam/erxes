@@ -41,7 +41,8 @@ import Tasks from './Tasks';
 import Tickets from './Tickets';
 import Users from './Users';
 import Webhooks from './Webhook';
-
+// Dummy
+let LoanApplications;
 export {
   EmailDeliveries,
   Users,
@@ -96,5 +97,6 @@ export {
   Webhooks,
   Calendars,
   CalendarGroups,
-  CalendarBoards
+  CalendarBoards,
+  LoanApplications
 };

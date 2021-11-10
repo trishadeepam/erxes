@@ -1,59 +1,23 @@
-export const types = `
-  type LoanApplication {
-    _id: String!
-    userId: String,
-    modifiedBy: String,
-    applicationNumber: String,
-    primaryBorrower: Customer,
-    coBorrower: Customer,
-    company: Company,
-    softCredit: JSON
-    BureauCredit: JSON,
-    applicationDocuments: JSON,
-    borrowerType: String,
-    loanOffers: [JSON],
-    currentLoanOffer: JSON,
-    stages: [JSON],
-    currentStage: JSON,
-    statusChangeDate: String,
-    ApplicatinStatus: String,
-    creditScore: JSON
-  }
-`;
-// We can build these query parameters as we go along
+import {
+  mutations as loanApplicationMutations,
+  queries as loanApplicationQueries,
+  types as loanApplicationTypes
+} from './loanApplication/loanApplicationSchema'
+import {
+  queries as loanQueries,
+  types as loanTypes
+} from './loan/loanSchema'
 
-const loanParameters = `
-userId: String,
-modifiedBy: String,
-applicationNumber: String,
-primaryBorrowerId: String,
-coBorrowerId: String,
-companyId: String,
-softCredit: JSON
-BureauCredit: JSON,
-applicationDocuments: JSON,
-borrowerType: String,
-loanOffers: [JSON],
-currentLoanOffer: JSON,
-stages: [JSON],
-currentStage: JSON,
-ApplicatinStatus: String,
-creditScore: JSON
-`;
-const queryParameters = `
-  _id: String,
-  applicationNumber: String
-`;
-const listQueryParameters = `
-  status: String,
-`;
 export const queries = `
-  getLoanApplication(${queryParameters}): LoanApplication
-  getLoanApplications(${listQueryParameters}): [LoanApplication]
-`;
+${loanApplicationQueries}
+${loanQueries}
+`
+
+export const types = `
+${loanApplicationTypes}
+${loanTypes}
+`
 
 export const mutations = `
-  createLoanApplication(${loanParameters}): LoanApplication
-  editLoanApplication(_id: String!,${loanParameters}): LoanApplication
-  deleteLoanApplication(_id: String!): LoanApplication
-`;
+${loanApplicationMutations}
+`
