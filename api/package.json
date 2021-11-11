@@ -12,7 +12,7 @@
     "start": "node dist",
     "start-crons": "node dist/cronJobs",
     "start-workers": "node dist/workers",
-    "dev": "ERXES_TELEMETRY_DISABLED=1 DEBUG=erxes* NODE_ENV=development node_modules/.bin/ts-node-dev --respawn --ignore-watch node_modules -- src",
+    "dev": "set ERXES_TELEMETRY_DISABLED=1 && set DEBUG=erxes* && set NODE_ENV=development && node_modules/.bin/ts-node-dev --respawn --ignore-watch node_modules -- src",
     "dev-crons": "PROCESS_NAME=crons DEBUG=erxes-crons:* NODE_ENV=development node_modules/.bin/ts-node-dev --respawn src/cronJobs",
     "dev-workers": "PROCESS_NAME=workers DEBUG=erxes-workers:* NODE_ENV=development NODE_OPTIONS='--experimental-worker' node_modules/.bin/ts-node src/workers/index.ts",
     "loadTestData": "ts-node ./src/commands/loadTestData.ts",
